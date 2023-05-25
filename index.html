@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>ATVxGO!</title>
+		<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	</head>
@@ -25,7 +26,21 @@
 			    bottom: 0;
 			    left: 0;
 			    right: 0;
-			    background: #2b3035;
+			    background: rgb(0 0 0 / 50%);
+			    z-index: 1;
+			}
+
+			.bgAppBLR {
+			    position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    right: 0;
+			    left: 0;
+			    background-size: cover;
+			    background-repeat: no-repeat;
+			    background-position: center;
+			    filter: blur(70px);
+			    z-index: 0;
 			}
 
 			.AppCard > .row {
@@ -75,194 +90,18 @@
 		      		<p id="time" class="display-6 text-end"></p>
 		    	</div>
 		    </div>
+
 			<h5><i class="bi bi-cast"></i> Cinima App</h5>
-			    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://apkr.upzona.net/zona2.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png" style="">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/zona.png">
-									</div>
-									<div class="col"><h4>Zona</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://strannikmodz.me/index.php?do=download&id=4338" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://dropgame.net/uploads/posts/2021-08/1628544260_lazymedia-deluxe-pro-icon.png">
-									</div>
-									<div class="col"><h4>LazyMedia Deluxe</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://strannikmodz.me/index.php?do=download&id=3237" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://strannikmodz.me/uploads/posts/2020-07/1595153590_ic_launcher.png">
-									</div>
-									<div class="col"><h4>HD VideoBox ST</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://github.com/yuliskov/SmartTubeNext/releases/download/17.95s/STubeNext_ststable_v17.95_r.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://image.kejiwanjia.com/wp-content/uploads/2021/03/smarttube-next.jpg">
-									</div>
-									<div class="col"><h4>Smart Tube Next</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://pixeldrain.com/api/file/dpthwsRB?download" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://play-lh.googleusercontent.com/_W-QnbYLpr1MLeT_15qI0AKuec3IeLByu8EDY4FJ5_bioOQHLrPvHlp--0GQ1cBJ5Q=w240-h480">
-									</div>
-									<div class="col"><h4>Lime HDTV</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
+			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
 			    </div>
 
 			    <br>
 			    <h5><i class="bi bi-gear-wide-connected"></i> System App</h5>
-			    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
 
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://archive.org/services/img/tvbro-1.5.8">
-									</div>
-									<div class="col"><h4>TVBro</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://pixeldrain.com/api/file/5QHmNk3r?download" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLndlYnZpZXdfaWNvbl8xNjczNDY5ODY5XzA0OQ/icon.webp?w=140&amp;fakeurl=1&amp;type=.webp">
-									</div>
-									<div class="col"><h4>WebView</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://f-droid.org/repo/com.aurora.store_44.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://f-droid.org/repo/com.aurora.store/en-US/icon_tbAhwq51NNd0liZcTg0cQNNvazxrWlj7bPCe_1TkCV8=.png">
-									</div>
-									<div class="col"><h4>Aurora Store</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://github.com/tsynik/LeanbackLauncher/releases/download/v1.55/LeanbackOnFire_v1.55-release.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://ds-blobs-2.cdn.devapps.ru/19382961.png">
-									</div>
-									<div class="col"><h4>Leanback Launcher</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_18503.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://f-droid.org/repo/pan.alexander.tordnscrypt.stable/en-US/icon_de8pORbxQtizOAeyqadO017HBVe3r3LnAYr7XlT5D-s=.png">
-									</div>
-									<div class="col"><h4>InviZible Pro</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			        <div class="col">
-			          <div class="card shadow-sm">
-			          	<a href="https://f-droid.org/repo/eu.faircode.netguard_2023052001.apk" class="reAppCard">
-			            	<img class="png169" src="img/169.png">
-			            	<div class="AppCard">
-			            		<div class="row align-items-center">
-									<div class="col col-lg-4 icoAppCard">
-										<img src="https://allwpzone.com/wp-content/uploads/2021/04/netguard-1.png">
-									</div>
-									<div class="col"><h4>NetGuard</h4></div>
-								</div>
-			            	</div>
-			            </a>
-			          </div>
-			        </div>
-
-			    </div>
-			    </div>
 			    </div>
 		</div>
+
 		<div class="container">
 			  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 			    <div class="col-md-4 d-flex align-items-center">
@@ -278,6 +117,101 @@
 			    </ul>
 			  </footer>
 		</div>
+<script>
+var data = [
+  {
+    img: "https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/zona.png",
+    href: "https://apkr.upzona.net/zona2.apk",
+    title: "Zona"
+  },
+  {
+    img: "https://dropgame.net/uploads/posts/2021-08/1628544260_lazymedia-deluxe-pro-icon.png",
+    href: "https://strannikmodz.me/index.php?do=download&id=4338",
+    title: "Deluxe LazyMedia"
+  },
+  {
+    img: "https://strannikmodz.me/uploads/posts/2020-07/1595153590_ic_launcher.png",
+    href: "https://strannikmodz.me/index.php?do=download&id=3237",
+    title: "HD VideoBox ST"
+  },
+  {
+    img: "https://image.kejiwanjia.com/wp-content/uploads/2021/03/smarttube-next.jpg",
+    href: "https://github.com/yuliskov/SmartTubeNext/releases/download/17.95s/STubeNext_ststable_v17.95_r.apk",
+    title: "Smart Tube Next"
+  },
+  {
+    img: "https://play-lh.googleusercontent.com/_W-QnbYLpr1MLeT_15qI0AKuec3IeLByu8EDY4FJ5_bioOQHLrPvHlp--0GQ1cBJ5Q=w240-h480",
+    href: "https://pixeldrain.com/api/file/dpthwsRB?download",
+    title: "Lime HDTV"
+  }
+];
+
+var data2 = [
+  {
+    img: "https://archive.org/services/img/tvbro-1.5.8",
+    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
+    title: "TVBro"
+  },
+  {
+    img: "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLndlYnZpZXdfaWNvbl8xNjczNDY5ODY5XzA0OQ/icon.webp?w=140&fakeurl=1&type=.webp",
+    href: "https://pixeldrain.com/api/file/5QHmNk3r?download",
+    title: "WebView"
+  },
+  {
+    img: "https://f-droid.org/repo/com.aurora.store/en-US/icon_tbAhwq51NNd0liZcTg0cQNNvazxrWlj7bPCe_1TkCV8=.png",
+    href: "https://f-droid.org/repo/com.aurora.store_44.apk",
+    title: "Aurora Store"
+  },
+  {
+    img: "https://ds-blobs-2.cdn.devapps.ru/19382961.png",
+    href: "https://github.com/tsynik/LeanbackLauncher/releases/download/v1.55/LeanbackOnFire_v1.55-release.apk",
+    title: "Leanback Launcher"
+  },
+  {
+    img: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable/en-US/icon_de8pORbxQtizOAeyqadO017HBVe3r3LnAYr7XlT5D-s=.png",
+    href: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_18503.apk",
+    title: "InviZible Pro"
+  },
+  {
+    img: "https://allwpzone.com/wp-content/uploads/2021/04/netguard-1.png",
+    href: "https://f-droid.org/repo/eu.faircode.netguard_2023052001.apk",
+    title: "NetGuard"
+  }
+];
+
+var template = `
+  {{#each items}}
+<div class="col">
+  <div class="card shadow-sm">
+  	<a href="{{href}}" class="reAppCard">
+    	<img class="png169" src="img/169.png" style="">
+    	<div class="AppCard">
+    		<div class="row align-items-center">
+				<div class="col col-lg-4 icoAppCard">
+					<img src="{{img}}">
+				</div>
+				<div class="col"><h4>{{title}}</h4></div>
+			</div>
+    	</div>
+    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+    </a>
+  </div>
+</div>
+
+  {{/each}}
+`;
+
+// temp Handlebars
+var compiledTemplate = Handlebars.compile(template);
+// gen HTML, use temp &data
+var html = compiledTemplate({ items: data });
+// gen HTML, use temp &data
+var html2 = compiledTemplate({ items: data2 });
+// ctrlV gen HTML in page
+document.getElementById("CinimaApp").innerHTML = html;
+// ctrlV gen HTML in page
+document.getElementById("SysApp").innerHTML = html2;
+</script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	</body>
 </html>
