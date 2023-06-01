@@ -63,6 +63,13 @@
 			}
 			.hdr-fnt {
 		    text-shadow: -1px 0 0 rgb(0 0 0 / 25%), 0 -1px 0 rgb(0 0 0 / 25%), 1px 0 0 rgb(0 0 0 / 25%), 0 1px 0 rgb(0 0 0 / 25%);
+
+		    padding: 10px;
+		    backdrop-filter: blur(9px);
+		    background: rgb(0 0 0 / 12.5%);
+		    border-radius: 5px;
+		    width: 100%;
+		    margin: 10px auto;
 			}
 			h4{
 				font-size: 16px !important;
@@ -70,6 +77,12 @@
 							    0 -1px 0 rgb(0 0 0 / 25%), 
 							    1px 0 0 rgb(0 0 0 / 25%), 
 							    0 1px 0 rgb(0 0 0 / 25%);
+			}
+			h5.tl_cat {
+		    padding: 10px;
+		    backdrop-filter: blur(9px);
+		    background: rgb(0 0 0 / 12.5%);
+		    border-radius: 5px;
 			}
 			.card.shadow-sm {
 				overflow: hidden;
@@ -158,15 +171,26 @@
 		    	</div>
 		    </div>
 
-			<h5><i class="bi bi-cast"></i> Cinima App</h5>
+			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinima App</h5>
 			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
 			    </div>
 
 			    <br>
-			    <h5><i class="bi bi-gear-wide-connected"></i> System App</h5>
+			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
 			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
 
 			    </div>
+			    <br>
+
+			<h5 class="tl_cat" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				<i class="bi bi-gear-wide-connected"></i> 
+				Gallery App
+			</h5>
+				<div class="collapse" id="collapseExample">
+			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+
+			    </div>
+			  </div>
 		</div>
 
 		<div class="container">
@@ -179,7 +203,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.3.12</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.4.5</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -226,6 +250,11 @@ var data = [
 ];
 
 var data2 = [
+	{
+    img: "https://adbappcontrol.com/assets/img/ic_launcher.png",
+    href: "https://adbappcontrol.com/tv/download",
+    title: "ADB TV"
+  },
   {
     img: "https://archive.org/services/img/tvbro-1.5.8",
     href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
@@ -263,6 +292,24 @@ var data2 = [
   }
 ];
 
+var data3 = [
+	{
+    img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
+    href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
+    title: "TV Photo"
+  },
+  {
+    img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
+    href: "https://pixeldrain.com/api/file/P6tUALdj?download",
+    title: "TV Photo v2"
+  },
+  {
+    img: "http://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/kodi-icon.png",
+    href: "https://mirrors.kodi.tv/releases/android/arm/kodi-20.1-Nexus-armeabi-v7a.apk?https=1",
+    title: "KODI"
+  }
+];
+
 var template = `
   {{#each items}}
 <div class="col">
@@ -291,13 +338,28 @@ var compiledTemplate = Handlebars.compile(template);
 var html = compiledTemplate({ items: data });
 // gen HTML, use temp &data
 var html2 = compiledTemplate({ items: data2 });
+// gen HTML, use temp &data
+var html3 = compiledTemplate({ items: data3});
 // ctrlV gen HTML in page
 document.getElementById("CinimaApp").innerHTML = html;
 // ctrlV gen HTML in page
 document.getElementById("SysApp").innerHTML = html2;
+// ctrlV gen HTML in page
+document.getElementById("GllrApp").innerHTML = html3;
 </script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	<div class="REbg-body"></div>
-	<div class="bg-body" style="background-image: url(https://placeimg.com/720/480/nature);"></div>
+	<div class="bg-body" id="myElement"></div>
+	<script src="urls.js"></script>
+	<script>
+	  // Загружаем ссылки из файла urls.js
+	  var urls = window.urls;
+
+	  // Выбираем случайную ссылку
+	  var randomUrl = urls[Math.floor(Math.random() * urls.length)];
+
+	  // Применяем ссылку к background-image элемента
+	  document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
+	</script>
 	</body>
 </html>
