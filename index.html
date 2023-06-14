@@ -174,12 +174,12 @@
 		    </div>
 
 			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinima App</h5>
-			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 			    </div>
 
 			    <br>
 			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
-			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 
 			    </div>
 			    <br>
@@ -189,7 +189,7 @@
 				Gallery App
 			</h5>
 				<div class="collapse" id="collapseExample">
-			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
+			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 
 			    </div>
 			  </div>
@@ -316,7 +316,9 @@
 				    	{{#if download2}}
 				    	<a href="{{download2}}" class='btn_mdl'><i class="bi bi-save"></i>Download 2</a>
 				    	{{else}}{{/if}}
+				    	{{#if Source}}
 				    	<a href="" class='btn_mdl col align-self-end'><i class="bi bi-git"></i>Source reference</a>
+				    	{{else}}{{/if}}
 				    </div>
           </div>
           <div class="modal-footer">
@@ -472,14 +474,8 @@ var data = [
     img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
     href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
     title: "TV Photo",
-    download2: "dvcd"
-  },
-  {
-  	location: "GllrApp",
-    uniqueId: generateUniqueId(),
-    img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
-    href: "https://pixeldrain.com/api/file/P6tUALdj?download",
-    title: "TV Photo v2"
+    download2: "https://pixeldrain.com/api/file/P6tUALdj?download",
+    Source: "/"
   },
   {
   	location: "GllrApp",
