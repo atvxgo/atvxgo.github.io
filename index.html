@@ -6,6 +6,8 @@
 		<title>ATVxGO!</title>
 		<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 	</head>
 	<body>
@@ -91,7 +93,7 @@
     			position: relative;
 			}
 
-			a.reAppCard:hover .AppCard {
+			a.reAppCard:hover .AppCard, a.reAppCard:focus-visible .AppCard  {
 			    background-color: rgb(0 0 0 / 75%);
 			}
 
@@ -172,12 +174,12 @@
 		    </div>
 
 			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinima App</h5>
-			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
 			    </div>
 
 			    <br>
 			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
-			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
 
 			    </div>
 			    <br>
@@ -187,7 +189,7 @@
 				Gallery App
 			</h5>
 				<div class="collapse" id="collapseExample">
-			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
 
 			    </div>
 			  </div>
@@ -203,127 +205,293 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.4.5</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.8.1</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
 			  </footer>
 		</div>
 	</div>
+	<div id="modalContainer"></div>
+	  <!-- Блок кода для генерации модальных окон -->
+	  <style>
+	  	.atvmodalbg{
+	  		background: none;
+    		backdrop-filter: blur(15px);
+	  	}
+	  	.modal-dialog.atvmodal {
+		    margin: 0;
+		    position: absolute;
+		    width: 20%;
+		    height: 100%;
+		    right: 0;
+			}
+			.modal-dialog.atvmodal > .modal-content {
+		    border-radius: 0;
+		    height: 100%;
+		    border-top: 0;
+    		border-bottom: 0;
+    		/*background: rgb(0 0 0 / 50%);*/
+			}
+	  </style>
+	  <style>
+			.modal.fade .modal-dialog {
+			  -webkit-transform: translateX(100%);
+			  -ms-transform: translateX(100%);
+			  transform: translateX(100%);
+			  -webkit-transition: -webkit-transform 0.3s ease-out;
+			  -o-transition: -o-transform 0.3s ease-out;
+			  transition: transform 0.3s ease-out;
+			}
+
+			.modal.fade.show .modal-dialog {
+			  -webkit-transform: translateX(0);
+			  -ms-transform: translateX(0);
+			  transform: translateX(0);
+			}
+	  </style>
+	  <script type="text/javascript">
+			$(document).ready(function() {
+			  $('.modal').on('show.bs.modal', function () {
+			    $(this).find('.modal-dialog').addClass('modal-dialog-slide');
+			  });
+
+			  $('.modal').on('hide.bs.modal', function () {
+			    $(this).find('.modal-dialog').removeClass('modal-dialog-slide');
+			  });
+			});
+	  </script>
+	  <style type="text/css">
+	  	.btns_mdl{
+	  		margin: 0 -16px;
+	  		margin-top: 10px;
+	  	}
+	  	.btn_mdl {
+			    position: relative;
+			    display: block;
+			    padding: 13px 10px;
+			    width: 100%;
+			    text-decoration: none;
+			    color: #bdbdbd;
+			    border-bottom: solid 1px #ffffff05;
+			}
+
+			.btn_mdl > i {
+			    margin-right: 10px;
+			}
+
+			.btn_mdl:hover {
+			    background: #282828;
+			}
+	  </style>
+  <script id="modalTemplate" type="text/x-handlebars-template">
+    {{#each items}}
+    {{#if modal}}
+    <div class="modal fade atvmodalbg" id="modal{{uniqueId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+        <div class="modal-content">
+          <!-- Содержимое модального окна -->
+          <div class="modal-header">
+            <h5 class="modal-title">{{title}}</h5>
+          </div>
+          <div class="modal-body">
+          	<div class="col XXXXX">
+  					<div class="card shadow-sm">
+            <a href="{{href}}" class="reAppCard">
+				    	<img class="png169" src="img/169.png" style="">
+				    	<div class="AppCard">
+				    		<div class="row align-items-center">
+								<div class="col col-lg-4 icoAppCard">
+									<img src="{{img}}">
+								</div>
+								<div class="col"><h4>{{title}}</h4></div>
+							</div>
+				    	</div>
+				    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+				    </a>
+				    </div>
+				    </div>
+				    <div class="btns_mdl row">
+				    	<a href="{{href}}" class='btn_mdl'><i class="bi bi-save"></i>Download</a>
+				    	{{#if download2}}
+				    	<a href="{{download2}}" class='btn_mdl'><i class="bi bi-save"></i>Download 2</a>
+				    	{{else}}{{/if}}
+				    	<a href="" class='btn_mdl col align-self-end'><i class="bi bi-git"></i>Source reference</a>
+				    </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+    {{/each}}
+  </script>
 <script>
+var counter = 0;
+
+function generateUniqueId() {
+  counter++;
+  return "modal" + counter;
+}
+
 var data = [
   {
+  	location: "CinimaApp",
+  	modal: 1,
+    uniqueId: generateUniqueId(),
     img: "https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/zona.png",
     href: "https://apkr.upzona.net/zona2.apk",
     title: "Zona"
   },
   {
+  	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://dropgame.net/uploads/posts/2021-08/1628544260_lazymedia-deluxe-pro-icon.png",
     href: "https://strannikmodz.me/index.php?do=download&id=4338",
     title: "Deluxe LazyMedia"
   },
   {
+  	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://strannikmodz.me/uploads/posts/2020-07/1595153590_ic_launcher.png",
     href: "https://strannikmodz.me/index.php?do=download&id=3237",
     title: "HD VideoBox ST"
   },
     {
+    	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://diakov.net/uploads/posts/2021-10/1633566506_viewbox.png",
     href: "https://strannikmodz.me/index.php?do=download&id=4344",
     title: "Viewbox"
   },
   {
+  	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://ds-blobs-4.cdn.devapps.ru/24750223.png",
     href: "https://github.com/YouROK/TorrServe/releases/download/MatriX.123.Client/TorrServe_MatriX.123.Client-release.apk",
     title: "MatriX"
   },
   {
+  	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://image.kejiwanjia.com/wp-content/uploads/2021/03/smarttube-next.jpg",
     href: "https://github.com/yuliskov/SmartTubeNext/releases/download/17.95s/STubeNext_ststable_v17.95_r.apk",
     title: "Smart Tube Next"
   },
   {
+  	location: "CinimaApp",
+    uniqueId: generateUniqueId(),
     img: "https://play-lh.googleusercontent.com/_W-QnbYLpr1MLeT_15qI0AKuec3IeLByu8EDY4FJ5_bioOQHLrPvHlp--0GQ1cBJ5Q=w240-h480",
     href: "https://pixeldrain.com/api/file/dpthwsRB?download",
     title: "Lime HDTV"
-  }
-];
-
-var data2 = [
-	{
+  },
+  //////////////////
+  {
+		location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://adbappcontrol.com/assets/img/ic_launcher.png",
     href: "https://adbappcontrol.com/tv/download",
     title: "ADB TV"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://ds-blobs-2.cdn.devapps.ru/20150820.png",
     href: "https://pixeldrain.com/api/file/Gb3DvnH9?download",
     title: "APK Extractor"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://htpratique.com/wp-content/uploads/2020/06/F-Droid.png",
     href: "https://f-droid.org/F-Droid.apk",
     title: "F-Droid"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://f-droid.org/repo/com.aurora.store/en-US/icon_tbAhwq51NNd0liZcTg0cQNNvazxrWlj7bPCe_1TkCV8=.png",
     href: "https://f-droid.org/repo/com.aurora.store_44.apk",
     title: "Aurora Store"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://archive.org/services/img/tvbro-1.5.8",
     href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
     title: "TVBro"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://image.winudf.com/v2/image1/Y29tLmdvb2dsZS5hbmRyb2lkLndlYnZpZXdfaWNvbl8xNjczNDY5ODY5XzA0OQ/icon.webp?w=140&fakeurl=1&type=.webp",
     href: "https://pixeldrain.com/api/file/5QHmNk3r?download",
     title: "WebView"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://ds-blobs-2.cdn.devapps.ru/19382961.png",
     href: "https://github.com/tsynik/LeanbackLauncher/releases/download/v1.55/LeanbackOnFire_v1.55-release.apk",
     title: "Leanback Launcher"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://play-lh.googleusercontent.com/u1e6dAgrKtHo7m9vfVJqOXdiw6DFgZWAfV1PiqlxJFsZ-4FB_xN2wNP4Nsrd_e87oEQ",
     href: "https://strannikmodz.me/index.php?do=download&id=4361",
     title: "tvQuick Actions"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://apksdlandroid.com/wp-content/uploads/2020/11/Volume-Control-Apk-Mod-latest.png",
     href: "https://github.com/atvstart/atvstart.github.io/blob/main/repo/com.punksta.apps.volumecontrol_29.apk?raw=true",
     title: "Volume Control"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable/en-US/icon_de8pORbxQtizOAeyqadO017HBVe3r3LnAYr7XlT5D-s=.png",
     href: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_18503.apk",
     title: "InviZible Pro"
   },
   {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
     img: "https://allwpzone.com/wp-content/uploads/2021/04/netguard-1.png",
     href: "https://f-droid.org/repo/eu.faircode.netguard_2023052001.apk",
     title: "NetGuard"
-  }
-];
-
-var data3 = [
-	{
+  },
+  ////////////////////////////////////////
+  {
+  	location: "GllrApp",
+		modal: 1,
+    uniqueId: generateUniqueId(),
     img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
     href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
-    title: "TV Photo"
+    title: "TV Photo",
+    download2: "dvcd"
   },
   {
+  	location: "GllrApp",
+    uniqueId: generateUniqueId(),
     img: "https://ds-blobs-2.cdn.devapps.ru/22335352.png",
     href: "https://pixeldrain.com/api/file/P6tUALdj?download",
     title: "TV Photo v2"
   },
   {
+  	location: "GllrApp",
+    uniqueId: generateUniqueId(),
     img: "https://raw.githubusercontent.com/xbmc/xbmc/master/tools/darwin/packaging/media/osx/icon.iconset/icon_512x512@2x.png",
     href: "https://mirrors.kodi.tv/releases/android/arm/kodi-20.1-Nexus-armeabi-v7a.apk?https=1",
     title: "KODI"
   },
   {
+  	location: "GllrApp",
+  	modal: 1,
+    uniqueId: generateUniqueId(),
     img: "https://moddude.com/wp-content/uploads/2021/07/Simple-Gallery-Mod-Apk.jpg",
     href: "https://pixeldrain.com/api/file/DFaDtEJu?download",
     title: "Mi Gallery"
@@ -332,7 +500,25 @@ var data3 = [
 
 var template = `
   {{#each items}}
-<div class="col">
+  {{#if modal}}
+<div class="col XXXXX">
+  <div class="card shadow-sm">
+  	<a class="reAppCard" type="button" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{uniqueId}}"">
+    	<img class="png169" src="img/169.png" style="">
+    	<div class="AppCard">
+    		<div class="row align-items-center">
+				<div class="col col-lg-4 icoAppCard">
+					<img src="{{img}}">
+				</div>
+				<div class="col"><h4>{{title}}</h4></div>
+			</div>
+    	</div>
+    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+    </a>
+  </div>
+</div>
+ 	 {{else}}
+ 	<div class="col">
   <div class="card shadow-sm">
   	<a href="{{href}}" class="reAppCard">
     	<img class="png169" src="img/169.png" style="">
@@ -348,37 +534,45 @@ var template = `
     </a>
   </div>
 </div>
+   {{/if}}
 
   {{/each}}
 `;
 
-// temp Handlebars
+
+// Initializing Handlebars
+var modalTemplateSource = document.getElementById("modalTemplate").innerHTML;
+var modalTemplate = Handlebars.compile(modalTemplateSource);
+
+// Generation of modal windows using a template Handlebars
+var modalHtml = modalTemplate({ items: data });
+document.getElementById("modalContainer").innerHTML = modalHtml;
+//////////////////////////////////////////////////////////////////////////////////////////
+
 var compiledTemplate = Handlebars.compile(template);
-// gen HTML, use temp &data
-var html = compiledTemplate({ items: data });
-// gen HTML, use temp &data
-var html2 = compiledTemplate({ items: data2 });
-// gen HTML, use temp &data
-var html3 = compiledTemplate({ items: data3});
-// ctrlV gen HTML in page
-document.getElementById("CinimaApp").innerHTML = html;
-// ctrlV gen HTML in page
-document.getElementById("SysApp").innerHTML = html2;
-// ctrlV gen HTML in page
-document.getElementById("GllrApp").innerHTML = html3;
+
+
+// Generate HTML for each block using data from a federated database
+var htmlCApp = compiledTemplate({ items: data.filter(item => item.location === 'CinimaApp') });
+var htmlBApp = compiledTemplate({ items: data.filter(item => item.location === 'SysApp') });
+var htmlAApp = compiledTemplate({ items: data.filter(item => item.location === 'GllrApp') });
+
+document.getElementById("CinimaApp").innerHTML = htmlCApp;
+document.getElementById("SysApp").innerHTML = htmlBApp;
+document.getElementById("GllrApp").innerHTML = htmlAApp;
 </script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	<div class="REbg-body"></div>
 	<div class="bg-body" id="myElement"></div>
 	<script src="urls.js"></script>
 	<script>
-	  // Загружаем ссылки из файла urls.js
+	  // Loading links from the urls.js
 	  var urls = window.urls;
 
-	  // Выбираем случайную ссылку
+	  // Selecting a random link
 	  var randomUrl = urls[Math.floor(Math.random() * urls.length)];
 
-	  // Применяем ссылку к background-image элемента
+	  // Applying a link to the background-image of an element
 	  document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
 	</script>
 	</body>
