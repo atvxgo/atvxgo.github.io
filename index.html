@@ -132,6 +132,22 @@
 			    margin: 10px;
 			}
 
+			.mindesc {
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    width: auto;
+			    background: #063c00bd;
+			    color: #fff;
+			    font-size: small;
+			    padding: 5px;
+			    border-radius: 5px;
+			}
+
+			.mindesc > samp{
+				margin-left: 5px;
+			}
+
 			.icoAppCard {
 			    border: solid 0.3em rgb(0 0 0 / 25%);
 			    border-radius: 50%;
@@ -210,7 +226,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.8.3 (27.10)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.10.1 (27.10)</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -346,6 +362,7 @@ var data = [
   {
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
+    adrver: "4.2",
     img: "https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/zona.png",
     href: "https://apkr.upzona.net/zona2.apk",
     title: "Zona"
@@ -381,6 +398,7 @@ var data = [
   {
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
+     adrver: "4.3",
     img: "https://raw.githubusercontent.com/yuliskov/SmartTube/master/smarttubetv/src/ststable/res/mipmap-nodpi/app_icon.png",
     href: "https://github.com/yuliskov/SmartTubeNext/releases/download/17.95s/STubeNext_ststable_v17.95_r.apk",
     title: "Smart Tube Next"
@@ -397,6 +415,7 @@ var data = [
   {
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
+    adrver: "7.0",
     img: "https://aliceskill.ru/media/data/4e/ca/4ecab7ef-b8e8-4fef-a683-b047ad68ae46/wink..256x256_q85_background-%23ffffff.png",
     href: "https://static.iptv.rt.ru/files/145302.apk",
     title: "Wink"
@@ -409,12 +428,22 @@ var data = [
     href: "https://adbappcontrol.com/tv/download",
     title: "ADB TV"
   },
+  /*
   {
   	location: "SysApp",
     uniqueId: generateUniqueId(),
     img: "https://ds-blobs-2.cdn.devapps.ru/20150820.png",
     href: "https://pixeldrain.com/api/file/Gb3DvnH9?download",
     title: "APK Extractor"
+  },
+  */
+  {
+  	location: "SysApp",
+    uniqueId: generateUniqueId(),
+    adrver: "8.0",
+    img: "https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/gboard.png",
+    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/Gboard+12.8-tv_armeabi-v7a.apk",
+    title: "GBoard"
   },
   {
   	location: "SysApp",
@@ -426,6 +455,7 @@ var data = [
   {
   	location: "SysApp",
     uniqueId: generateUniqueId(),
+    adrver: "5.0",
     img: "https://f-droid.org/repo/com.aurora.store/en-US/icon_tbAhwq51NNd0liZcTg0cQNNvazxrWlj7bPCe_1TkCV8=.png",
     href: "https://f-droid.org/repo/com.aurora.store_52.apk",
     title: "Aurora Store"
@@ -522,6 +552,7 @@ var template = `
 					<img src="{{img}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
+				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
@@ -539,6 +570,7 @@ var template = `
 					<img src="{{img}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
+				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><samp>{{adrver}}</samp></div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
