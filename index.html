@@ -140,11 +140,11 @@
 			    background: #063c00bd;
 			    color: #fff;
 			    font-size: x-small;
-			    padding: 5px;
+			    padding: 1%;
 			    border-radius: 5px;
 			}
 
-			.mindesc > samp{
+			.mindesc > span{
 				margin-left: 5px;
 			}
 
@@ -160,6 +160,13 @@
 
 			.png169{
 				width: 100%;
+			}
+
+			.sizescren {
+				position: fixed;
+				bottom: 0;
+				right: 0;
+				padding: 1%;
 			}
 		</style>
 		<script type="text/javascript">
@@ -570,7 +577,7 @@ var template = `
 					<img src="{{img}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
-				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><samp>{{adrver}}</samp></div>{{/if}}
+				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
@@ -618,5 +625,25 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 	  // Applying a link to the background-image of an element
 	  document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
 	</script>
+
+		<div class="sizescren">
+		  <span id="screenWidth"></span><span>x</span><span id="screenHeight"></span> 
+  	</div>
+
+	<script>
+        // 
+        var screenWidthElement = document.getElementById("screenWidth");
+        var screenHeightElement = document.getElementById("screenHeight");
+
+        // 
+        function updateScreenSize() {
+            screenWidthElement.textContent = window.innerWidth; //
+            screenHeightElement.textContent = window.innerHeight; // 
+        }
+
+        // 
+        window.addEventListener("load", updateScreenSize);
+        window.addEventListener("resize", updateScreenSize);
+    </script>
 	</body>
 </html>
