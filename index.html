@@ -70,7 +70,6 @@
 		    backdrop-filter: blur(9px);
 		    background: rgb(0 0 0 / 12.5%);
 		    border-radius: 5px;
-		    width: 100%;
 		    margin: 10px auto;
 			}
 			h4{
@@ -92,9 +91,11 @@
 			}
 			.reAppCard{
     			position: relative;
+    			background: transparent;
+    			border: none;
 			}
 
-			a.reAppCard:hover .AppCard, a.reAppCard:focus-visible .AppCard  {
+			.reAppCard:hover .AppCard, .reAppCard:focus-visible .AppCard  {
 			    background-color: rgb(0 0 0 / 75%);
 			}
 
@@ -132,20 +133,36 @@
 			    margin: 10px;
 			}
 
-			.mindesc {
+			.mindesc, .mindwn {
 			    position: absolute;
-			    bottom: 0;
-			    right: 0;
 			    width: auto;
 			    background: #063c00bd;
 			    color: #fff;
 			    font-size: x-small;
 			    padding: 1%;
 			    border-radius: 5px;
+			    text-align: center;
+			}
+
+			.mindesc {
+		    bottom: 0;
+		    right: 0;
 			}
 
 			.mindesc > span{
 				margin-left: 5px;
+			}
+
+			.mindwn {
+		    top: 0;
+		    right: 0;
+		    border-radius: 50%;
+		    width: 19px;
+		    display: none;
+			}
+
+			.reAppCard.clicked .mindwn {
+			    display: block;
 			}
 
 			.icoAppCard {
@@ -187,26 +204,27 @@
 		</script>
 	<div class="cnt">
 		<div class="container">
-			<div class="row hdr-fnt">
-		    	<div class="col">
-		      		<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
-		      	<i class="bi bi-android" style="
-						    font-size: 32px;
-						    margin-right: -47px;
-						"></i>
-						<i class="bi bi-tv"></i>
-						ATVxGO
-					</a>
-		    	</div>
-		    	<div class="col">
-		      		<p id="time" class="display-6 text-end" style="margin: 0;"></p>
-		    	</div>
-		    </div>
+			<div class="row justify-content-md-center" style="padding: 0 12px;">
+			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
+			    	<i class="bi bi-gear"></i>
+					</div>
+					<div class="col row row-cols-sm-2 hdr-fnt">
+			    	<div class="col">
+			      		<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
+									<i class="bi bi-android" style="font-size: 32px;margin-right: -47px;"></i>
+									<i class="bi bi-tv"></i>
+									ATVxGO
+								</a>
+			    		</div>
+			    	<div class="col">
+			      		<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
+			    	</div>
+			    </div>
+			</div>
 
 			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
 			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 			    </div>
-
 			    <br>
 			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
 			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
@@ -235,7 +253,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.10.1 (27.10)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.11.3 (30.10)</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -441,6 +459,7 @@ var data = [
   {
 		location: "SysApp",
     uniqueId: generateUniqueId(),
+    adrver: "ATV",
     img: "https://adbappcontrol.com/assets/img/ic_launcher.png",
     href: "https://adbappcontrol.com/tv/download",
     title: "ADB TV"
@@ -480,6 +499,7 @@ var data = [
   {
   	location: "SysApp",
     uniqueId: generateUniqueId(),
+    adrver: "6.0",
     img: "https://raw.githubusercontent.com/atvxgo/atvxgo.github.io/main/apk_logo/tvbro.jpg",
     href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
     title: "TVBro"
@@ -581,7 +601,8 @@ var template = `
 					<img src="{{img}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
-				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
+					<div class="mindwn"><i class="bi bi-download"></i></div>
+					{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
@@ -591,7 +612,7 @@ var template = `
  	 {{else}}
  	<div class="col">
   <div class="card shadow-sm">
-  	<a href="{{href}}" class="reAppCard">
+  	<a href="{{href}}" class="reAppCard" type="button">
     	<img class="png169" src="img/169.png" style="">
     	<div class="AppCard">
     		<div class="row align-items-center">
@@ -599,7 +620,8 @@ var template = `
 					<img src="{{img}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
-				{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
+					<div class="mindwn"><i class="bi bi-download"></i></div>
+					{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
@@ -667,5 +689,23 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
         window.addEventListener("load", updateScreenSize);
         window.addEventListener("resize", updateScreenSize);
     </script>
+
+    <script type="text/javascript">
+			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+			const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+	</script>
+
+	<script>
+	  // Получаем все блоки, к которым хотим добавить функциональность
+	  var blocks = document.querySelectorAll('.reAppCard');
+
+	    // Добавляем обработчик события для каждого блока
+		  blocks.forEach(function(block) {
+		    block.addEventListener('click', function() {
+		      // Добавляем класс clicked
+		      block.classList.add('clicked');
+		    });
+		  });
+	</script>
 	</body>
 </html>
