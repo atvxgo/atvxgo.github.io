@@ -598,7 +598,7 @@ var template = `
     	<div class="AppCard">
     		<div class="row align-items-center">
 				<div class="col col-lg-4 icoAppCard">
-					<img src="{{img}}" id="appIcon">
+					<img src="{{img}}" class="appIcon">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
 					<div class="mindwn"><i class="bi bi-download"></i></div>
@@ -617,7 +617,7 @@ var template = `
     	<div class="AppCard">
     		<div class="row align-items-center">
 				<div class="col col-lg-4 icoAppCard">
-					<img src="{{img}}" id="appIcon">
+					<img src="{{img}}" class="appIcon">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
 					<div class="mindwn"><i class="bi bi-download"></i></div>
@@ -710,17 +710,21 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 
 <script>
     const fac = new FastAverageColor();
-    const appIcon = document.getElementById('appIcon'); // Получаем элемент изображения
+    const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
 
-    fac.getColorAsync(appIcon)
-        .then(color => {
-            const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
-            appCard.style.backgroundColor = color.rgba;
-            appCard.style.color = color.isDark ? '#fff' : '#000';
-        })
-        .catch(e => {
-            console.log(e);
-        });
+    appIcons.forEach(appIcon => {
+        fac.getColorAsync(appIcon)
+            .then(color => {
+                const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
+                appCard.style.backgroundColor = color.rgba;
+                appCard.style.color = color.isDark ? '#fff' : '#000';
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    });
+</script>
+
 </script>
 
 </script>
