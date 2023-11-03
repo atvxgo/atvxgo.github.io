@@ -708,19 +708,21 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 		  });
 	</script>
 
-	<script>
+<script>
     const fac = new FastAverageColor();
-    const appIcon = document.getElementById('appIcon'); // Получаем элемент изображения
+    const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом .appIcon
 
-    fac.getColorAsync(appIcon)
-        .then(color => {
-            const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
-            appCard.style.backgroundColor = color.rgba;
-            appCard.style.color = color.isDark ? '#fff' : '#000';
-        })
-        .catch(e => {
-            console.log(e);
-        });
+    appIcons.forEach(appIcon => {
+        fac.getColorAsync(appIcon)
+            .then(color => {
+                const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
+                appCard.style.backgroundColor = color.rgba;
+                appCard.style.color = color.isDark ? '#fff' : '#000';
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    });
 </script>
 	</body>
 </html>
