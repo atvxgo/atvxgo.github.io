@@ -710,7 +710,7 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 
 <script>
     const fac = new FastAverageColor();
-    const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
+    const appIcons = document.querySelector('.appIcon'); // Получаем все изображения с классом appIcon
 
     appIcons.forEach(appIcon => {
         fac.getColorAsync(appIcon)
