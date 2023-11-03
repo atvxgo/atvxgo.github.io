@@ -254,7 +254,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.11.3 (30.10)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.11.5 (3.11)</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -716,6 +716,7 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
     appIcons.forEach(appIcon => {
         fac.getColorAsync(appIcon)
             .then(color => {
+            		color.rgba.a = 0.75; // Устанавливаем значение прозрачности
                 const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
                 appCard.style.backgroundColor = color.rgba;
                 appCard.style.color = color.isDark ? '#fff' : '#000';
