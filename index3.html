@@ -709,14 +709,18 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 	</script>
 
 <script>
-	  var fac = new FastAverageColor();
-    window.addEventListener('load', function () {
-        Array.from(document.querySelectorAll('.AppCard')).forEach(function (appCard) {
-            var color = fac.getColor(appCard.querySelector('.appIcon'));
+    const fac = new FastAverageColor();
+    const appIcon = document.getElementById('appIcon'); // Получаем элемент изображения
+
+    fac.getColorAsync(appIcon)
+        .then(color => {
+            const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
             appCard.style.backgroundColor = color.rgba;
             appCard.style.color = color.isDark ? '#fff' : '#000';
+        })
+        .catch(e => {
+            console.log(e);
         });
-    }, false);
 </script>
 
 </script>
