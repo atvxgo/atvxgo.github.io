@@ -709,12 +709,12 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 	</script>
 
 <script>
-	    var fac = new FastAverageColor();
+	  var fac = new FastAverageColor();
     window.addEventListener('load', function () {
         Array.from(document.querySelectorAll('.AppCard')).forEach(function (appCard) {
             var color = fac.getColor(appCard.querySelector('.appIcon'));
-            appCard.style.backgroundColor = color.rgb;
-            appCard.style.color = color.isDark ? 'white' : 'black';
+            appCard.style.backgroundColor = color.rgba;
+            appCard.style.color = color.isDark ? '#fff' : '#000';
         });
     }, false);
 </script>
