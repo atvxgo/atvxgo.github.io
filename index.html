@@ -259,7 +259,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.12.1 (10.11)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.13.1 (10.11)</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -280,7 +280,8 @@
           </div>
           <div class="modal-body">
 				    <div class="btns_mdl row">
-				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv&pli=1" class="btn_mdl"><i class="bi bi-save"></i>Wink</a>   	
+				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl"><i class="bi bi-save"></i>Wink</a>
+				    	<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a> 	
 				    </div>
           </div>
           <div class="modal-footer">
@@ -484,6 +485,14 @@ var data = [
     title: "Wink"
   },
   //////////////////
+    {
+		location: "SysApp",
+    uniqueId: generateUniqueId(),
+    adrver: "5.0",
+    img: "apk_logo/EmotnUI.png",
+    href: "https://adbappcontrol.com/tv/download",
+    title: "Emotn launcher"
+  },
   {
 		location: "SysApp",
     uniqueId: generateUniqueId(),
@@ -638,7 +647,7 @@ var template = `
   </div>
 </div>
  	 {{else}}
- 	<div class="col">
+ 	<div class="col child_appcard">
   <div class="card shadow-sm">
   	<a href="{{href}}" class="reAppCard" type="button">
     	<img class="png169" src="img/169.png" style="">
@@ -684,6 +693,87 @@ document.getElementById("SysApp").innerHTML = htmlBApp;
 document.getElementById("GllrApp").innerHTML = htmlAApp;
 </script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+
+
+
+		<script>
+				// Функция для добавления кнопки "Показать еще"
+				function addMoreButton() {
+				    const parentContainer = document.getElementById('SysApp');
+				    const block9 = parentContainer.querySelector('.child_appcard:nth-child(9)');
+
+				    // Создаем структуру кнопки с использованием HTML-разметки
+				    const moreButtonHTML = `
+				        <div class="col show-more-button-container">
+				            <div class="card shadow-sm">
+				                <div class="reAppCard" type="button">
+				                    <img class="png169" src="img/169.png" style="">
+				                    <div class="AppCard">
+				                        <div class="row align-items-center">
+				                            <div class="col col-lg-4 icoAppCard">
+				                                <img src="apk_logo/appsmore.jpg" class="appIcon">
+				                            </div>
+				                            <div class="col"><h4 class="show-more-button">Показать еще (${allBlocks.length - 9})</h4></div>
+				                        </div>
+				                    </div>
+				                    <div class="bgAppBLR" style="background-image: urlapk_logo/appsmore.jpg);"></div>
+				                </div>
+				            </div>
+				        </div>
+				    `;
+
+				    // Преобразуем HTML-строку в DOM-элемент
+				    const moreButtonContainer = document.createRange().createContextualFragment(moreButtonHTML);
+
+				    // Вставляем кнопку после 9-го блока
+				    block9.insertAdjacentElement('afterend', moreButtonContainer.querySelector('.show-more-button-container'));
+
+				    // Возвращаем ссылку на кнопку
+				    return parentContainer.querySelector('.show-more-button-container');
+				}
+
+				// Инициализация
+				const parentContainer = document.getElementById('SysApp');
+				const allBlocks = parentContainer.querySelectorAll('.child_appcard');
+				const moreButtonContainer = addMoreButton();  // Исправлено: теперь возвращает блок .show-more-button-container
+				const moreButton = moreButtonContainer.querySelector('.show-more-button');
+
+				// Устанавливаем начальный текст кнопки с учетом общего числа блоков
+				moreButton.textContent = `show apps (${allBlocks.length - 9})`;
+
+				// Переключаем видимость блоков при загрузке страницы
+				document.addEventListener('DOMContentLoaded', function () {
+				    // Показываем только первые 9 блоков, остальные скрываем
+				    allBlocks.forEach((block, index) => {
+				        if (index >= 9) {
+				            block.style.display = 'none';
+				        }
+				    });
+
+				    // Добавляем обработчик события для блока с кнопкой
+				    moreButtonContainer.addEventListener('click', function () {
+				        // Переключаем видимость блоков начиная с 10-го
+				        const hiddenBlocks = parentContainer.querySelectorAll('.child_appcard:nth-child(n+10)');
+				        hiddenBlocks.forEach(block => {
+				            block.style.display = block.style.display === 'none' ? '' : 'none';
+				        });
+
+				        // Обновляем текст кнопки после каждого клика
+				        updateButtonText();
+				    });
+
+				    // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
+				    function updateButtonText() {
+				        const areHiddenBlocks = Array.from(allBlocks).slice(9).some(block => block.style.display === 'none');
+				        const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - 9})` : `hide apps (${allBlocks.length - 9})`;
+				        moreButton.textContent = buttonText;
+				    }
+				});
+	</script>
+
+
+
 	<div class="REbg-body"></div>
 	<div class="bg-body" id="myElement"></div>
 	<script src="urls.js"></script>
