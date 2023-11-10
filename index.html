@@ -718,8 +718,8 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
             .then(color => {
             		color.rgba.a = 0.75; // Устанавливаем значение прозрачности
                 const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
-                appCard.style.backgroundColor = color.rgba;
-                appCard.style.color = color.isDark ? '#fff' : '#000';
+                bgAppBLR.style.backgroundColor = color.rgba;
+                bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
             })
             .catch(e => {
                 console.log(e);
