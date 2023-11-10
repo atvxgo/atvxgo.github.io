@@ -717,7 +717,7 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
         fac.getColorAsync(appIcon)
             .then(color => {
             		color.rgba.a = 0.75; // Устанавливаем значение прозрачности
-                const appCard = appIcon.closest('.bgAppBLR'); // Находим ближайший элемент с классом .bgAppBLR
+                const appCard = appIcon.closest('.AppCard'); // Находим ближайший элемент с классом .AppCard
                 appCard.style.backgroundColor = color.rgba;
                 appCard.style.color = color.isDark ? '#fff' : '#000';
             })
