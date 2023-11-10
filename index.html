@@ -119,7 +119,10 @@
 			    background-repeat: no-repeat;
 			    background-position: center;
 			    z-index: 0;
-			    background-image: none !important;
+
+
+			    filter: blur(75px);
+			    /*background-image: none !important;*/
 			}
 
 			.AppCard > .row {
@@ -208,6 +211,9 @@
 			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
 			    	<i class="bi bi-gear"></i>
 					</div>
+					<div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;" type="button" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
+			    	<i class="bi bi-google-play"></i>
+					</div>
 					<div class="col row row-cols-sm-2 hdr-fnt">
 			    	<div class="col">
 			      		<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
@@ -261,16 +267,38 @@
 		</div>
 	</div>
 	<div id="modalContainer"></div>
+	<div id="modalContainerCMS">
+		<div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+        <div class="modal-content">
+          <!-- Содержимое модального окна -->
+          <div class="modal-header">
+            <h5 class="modal-title">
+            	<i class="bi bi-google-play"></i>
+            	Links to Play Market
+            </h5>
+          </div>
+          <div class="modal-body">
+				    <div class="btns_mdl row">
+				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv&pli=1" class="btn_mdl"><i class="bi bi-save"></i>Wink</a>   	
+				    </div>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
 	  <!-- Блок кода для генерации модальных окон -->
 	  <style>
 	  	.atvmodalbg{
-	  		background: none;
-    		backdrop-filter: blur(15px);
+	  		background: rgb(0 0 0 / 50%);
+    		/* backdrop-filter: blur(15px);*/
 	  	}
 	  	.modal-dialog.atvmodal {
 		    margin: 0;
 		    position: absolute;
-		    width: 20%;
+		    width: 25%;
 		    height: 100%;
 		    right: 0;
 			}
