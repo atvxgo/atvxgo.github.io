@@ -702,77 +702,105 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 
 		<script>
 				// Функция для добавления кнопки "Показать еще"
-				function addMoreButton() {
-				    const parentContainer = document.getElementById('SysApp');
-				    const block9 = parentContainer.querySelector('.child_appcard:nth-child(9)');
+function addMoreButton() {
+    const parentContainer = document.getElementById('SysApp');
+    const startHiddenIndex = getStartHiddenIndex(); // Инициализация начального значения
+    const blockX = parentContainer.querySelector(`.child_appcard:nth-child(${startHiddenIndex})`);
 
-				    // Создаем структуру кнопки с использованием HTML-разметки
-				    const moreButtonHTML = `
-				        <div class="col show-more-button-container">
-				            <div class="card shadow-sm">
-				                <div class="reAppCard" type="button">
-				                    <img class="png169" src="img/169.png" style="">
-				                    <div class="AppCard">
-				                        <div class="row align-items-center">
-				                            <div class="col col-lg-4 icoAppCard">
-				                                <img src="apk_logo/appsmore.jpg" class="appIcon">
-				                            </div>
-				                            <div class="col"><h4 class="show-more-button">Показать еще (${allBlocks.length - 9})</h4></div>
-				                        </div>
-				                    </div>
-				                    <div class="bgAppBLR" style="background-image: urlapk_logo/appsmore.jpg);"></div>
-				                </div>
-				            </div>
-				        </div>
-				    `;
+    // Создаем структуру кнопки с использованием HTML-разметки
+    const moreButtonHTML = `
+        <div class="col show-more-button-container">
+            <div class="card shadow-sm">
+                <div class="reAppCard" type="button">
+                    <img class="png169" src="img/169.png" style="">
+                    <div class="AppCard">
+                        <div class="row align-items-center">
+                            <div class="col col-lg-4 icoAppCard">
+                                <img src="apk_logo/xplore.png" class="appIcon">
+                            </div>
+                            <div class="col show-more-button"><h4>Показать еще (${allBlocks.length - startHiddenIndex})</h4></div>
+                        </div>
+                    </div>
+                    <div class="bgAppBLR" style="background-image: url(apk_logo/xplore.png);"></div>
+                </div>
+            </div>
+        </div>
+    `;
 
-				    // Преобразуем HTML-строку в DOM-элемент
-				    const moreButtonContainer = document.createRange().createContextualFragment(moreButtonHTML);
+    // Преобразуем HTML-строку в DOM-элемент
+    const moreButtonContainer = document.createRange().createContextualFragment(moreButtonHTML);
 
-				    // Вставляем кнопку после 9-го блока
-				    block9.insertAdjacentElement('afterend', moreButtonContainer.querySelector('.show-more-button-container'));
+    // Вставляем кнопку после блока startHiddenIndex
+    blockX.insertAdjacentElement('afterend', moreButtonContainer.querySelector('.show-more-button-container'));
 
-				    // Возвращаем ссылку на кнопку
-				    return parentContainer.querySelector('.show-more-button-container');
-				}
+    // Возвращаем ссылку на кнопку
+    return parentContainer.querySelector('.show-more-button-container');
+}
 
-				// Инициализация
-				const parentContainer = document.getElementById('SysApp');
-				const allBlocks = parentContainer.querySelectorAll('.child_appcard');
-				const moreButtonContainer = addMoreButton();  // Исправлено: теперь возвращает блок .show-more-button-container
-				const moreButton = moreButtonContainer.querySelector('.show-more-button');
+// Функция для получения начального индекса, зависящего от размера экрана
+function getStartHiddenIndex() {
+    return window.innerWidth < 1200 ? 7 : 9;
+}
 
-				// Устанавливаем начальный текст кнопки с учетом общего числа блоков
-				moreButton.textContent = `show apps (${allBlocks.length - 9})`;
+// Инициализация
+let startHiddenIndex = getStartHiddenIndex();
+const parentContainer = document.getElementById('SysApp');
+const allBlocks = parentContainer.querySelectorAll('.child_appcard');
+const moreButtonContainer = addMoreButton();
+const moreButton = moreButtonContainer.querySelector('.show-more-button');
 
-				// Переключаем видимость блоков при загрузке страницы
-				document.addEventListener('DOMContentLoaded', function () {
-				    // Показываем только первые 9 блоков, остальные скрываем
-				    allBlocks.forEach((block, index) => {
-				        if (index >= 9) {
-				            block.style.display = 'none';
-				        }
-				    });
+// Устанавливаем начальный текст кнопки с учетом общего числа блоков
+moreButton.textContent = `Показать (${allBlocks.length - startHiddenIndex})`;
 
-				    // Добавляем обработчик события для блока с кнопкой
-				    moreButtonContainer.addEventListener('click', function () {
-				        // Переключаем видимость блоков начиная с 10-го
-				        const hiddenBlocks = parentContainer.querySelectorAll('.child_appcard:nth-child(n+10)');
-				        hiddenBlocks.forEach(block => {
-				            block.style.display = block.style.display === 'none' ? '' : 'none';
-				        });
+// Переключаем видимость блоков при загрузке страницы
+document.addEventListener('DOMContentLoaded', function () {
+    // Показываем только первые startHiddenIndex блоков, остальные скрываем
+    allBlocks.forEach((block, index) => {
+        if (index >= startHiddenIndex) {
+            block.style.display = 'none';
+        }
+    });
 
-				        // Обновляем текст кнопки после каждого клика
-				        updateButtonText();
-				    });
+    // Добавляем обработчик события для блока с кнопкой
+    moreButtonContainer.addEventListener('click', function () {
+        // Переключаем видимость блоков начиная с (startHiddenIndex + 1)
+        const hiddenBlocks = parentContainer.querySelectorAll(`.child_appcard:nth-child(n+${startHiddenIndex + 1})`);
+        hiddenBlocks.forEach(block => {
+            block.style.display = block.style.display === 'none' ? '' : 'none';
+        });
 
-				    // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
-				    function updateButtonText() {
-				        const areHiddenBlocks = Array.from(allBlocks).slice(9).some(block => block.style.display === 'none');
-				        const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - 9})` : `hide apps (${allBlocks.length - 9})`;
-				        moreButton.textContent = buttonText;
-				    }
-				});
+        // Обновляем текст кнопки после каждого клика
+        updateButtonText();
+    });
+
+    // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
+    function updateButtonText() {
+        const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
+        const buttonText = areHiddenBlocks ? `Показать (${allBlocks.length - startHiddenIndex})` : `Скрыть (${allBlocks.length - startHiddenIndex})`;
+        moreButton.textContent = buttonText;
+    }
+});
+
+// Обработчик изменения размера экрана
+window.addEventListener('resize', function () {
+    const newStartHiddenIndex = getStartHiddenIndex();
+
+    // Проверяем, изменился ли startHiddenIndex
+    if (newStartHiddenIndex !== startHiddenIndex) {
+        // Обновляем startHiddenIndex
+        startHiddenIndex = newStartHiddenIndex;
+
+        // Переключаем видимость блоков при изменении startHiddenIndex
+        allBlocks.forEach((block, index) => {
+            block.style.display = index >= startHiddenIndex ? 'none' : '';
+        });
+
+        // Обновляем текст кнопки с учетом нового startHiddenIndex
+        updateButtonText();
+    }
+});
+
+
 	</script>
 
 
