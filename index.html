@@ -700,8 +700,8 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 
 
 
-		<script>
-				// Функция для добавления кнопки "Показать еще"
+		        <script type="text/javascript">
+                            // Функция для добавления кнопки "Показать еще"
 function addMoreButton() {
     const parentContainer = document.getElementById('SysApp');
     const startHiddenIndex = getStartHiddenIndex(); // Инициализация начального значения
@@ -716,12 +716,12 @@ function addMoreButton() {
                     <div class="AppCard">
                         <div class="row align-items-center">
                             <div class="col col-lg-4 icoAppCard">
-                                <img src="apk_logo/xplore.png" class="appIcon">
+                                <img src="apk_logo/appsmore.jpg" class="appIcon">
                             </div>
-                            <div class="col show-more-button"><h4>Показать еще (${allBlocks.length - startHiddenIndex})</h4></div>
+                            <div class="col"><h4 class="show-more-button">Показать еще (${allBlocks.length - 9})</h4></div>
                         </div>
                     </div>
-                    <div class="bgAppBLR" style="background-image: url(apk_logo/xplore.png);"></div>
+                    <div class="bgAppBLR" style="background-image: urlapk_logo/appsmore.jpg);"></div>
                 </div>
             </div>
         </div>
@@ -776,7 +776,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
     function updateButtonText() {
         const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
-        const buttonText = areHiddenBlocks ? `Показать (${allBlocks.length - startHiddenIndex})` : `Скрыть (${allBlocks.length - startHiddenIndex})`;
+        const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - startHiddenIndex})` : `hide apps (${allBlocks.length - startHiddenIndex})`;
         moreButton.textContent = buttonText;
     }
 });
@@ -799,9 +799,7 @@ window.addEventListener('resize', function () {
         updateButtonText();
     }
 });
-
-
-	</script>
+        </script>
 
 
 
