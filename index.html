@@ -139,6 +139,15 @@
 			    margin: 10px;
 			}
 
+			.infoAppCard{
+				max-width: 120px;
+			}
+
+			.card_desk {
+			    font-size: 11px;
+			    color: #a1a1a1;
+			}
+
 			.mindesc, .mindwn {
 			    position: absolute;
 			    width: auto;
@@ -430,7 +439,7 @@ var data = [
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
     img: "apk_logo/deluxe.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=4338",
+    href: "https://strannikmodz.me/index.php?do=download&id=4952",
     title: "Deluxe LazyMedia"
   },
   {
@@ -485,7 +494,8 @@ var data = [
     adrver: "4.2",
     img: "apk_logo/vlc.png",
     href: "https://f-droid.org/repo/org.videolan.vlc_13050408.apk",
-    title: "VLC"
+    title: "VLC",
+    card_desk: "Универсальный плеер для локальных и удаленных медиа"
   },
   {
   	location: "CinimaApp",
@@ -667,7 +677,12 @@ var template = `
 				<div class="col col-lg-4 icoAppCard">
 					<img src="{{img}}" class="appIcon">
 				</div>
-				<div class="col"><h4>{{title}}</h4></div>
+				<div class="col infoAppCard">
+					<h4>{{title}}</h4>
+					{{#if card_desk}}
+					<div class="card_desk">{{card_desk}}</div>
+					{{/if}}
+				</div>
 					<div class="mindwn"><i class="bi bi-download"></i></div>
 					{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
 			</div>
