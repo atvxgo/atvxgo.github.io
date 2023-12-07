@@ -139,6 +139,10 @@
 			    margin: 10px;
 			}
 
+			.AppCardtitle.brotv{
+				font-size: 12px !important;
+			}
+
 			.infoAppCard{
 				max-width: 120px;
 			}
@@ -702,7 +706,7 @@ var template = `
 					<img src="{{img}}" class="appIcon">
 				</div>
 				<div class="col infoAppCard">
-					<h4>{{title}}</h4>
+					<h4 class="AppCardtitle">{{title}}</h4>
 					{{#if card_desk}}
 					<div class="card_desk">{{card_desk}}</div>
 					{{/if}}
@@ -853,6 +857,7 @@ window.addEventListener('resize', function () {
 	<div class="REbg-body"></div>
 	<div class="bg-body" id="myElement"></div>
 	<script src="urls.js"></script>
+
 	<script>
 	  // Loading links from the urls.js
 	  var urls = window.urls;
@@ -920,7 +925,23 @@ window.addEventListener('resize', function () {
     });
 </script>
 
-</script>
+	  <script>
+	  	document.addEventListener("DOMContentLoaded", function() {
+	    // Получаем user agent
+	    var userAgent = navigator.userAgent.toLowerCase();
+
+	    // Проверяем, содержит ли user agent строку "xbovser"
+      if (userAgent.includes("TV Bro")) {
+        // Получаем все элементы с классом "xdiv"
+        var xdivElements = document.querySelectorAll(".AppCardtitle");
+
+        // Добавляем класс "larger" ко всем элементам
+        xdivElements.forEach(function(element) {
+          element.classList.add("brotv");
+        });
+      }
+	    });
+	  </script>
 
 </script>
 	</body>
