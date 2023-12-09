@@ -206,6 +206,10 @@
 				font-size: x-small;
     		color: #ffffff7a;
 			}
+
+			#touserAgent{
+				font-size: x-small;
+			}
 		</style>
 		<script type="text/javascript">
 			function updateTime() {
@@ -305,7 +309,9 @@
 				    	<a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
 				    </div>
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="justify-content: center;">
+          	<i class="bi bi-info-circle"></i>
+          	<div id="touserAgent"></div>
           </div>
         </div>
       </div>
@@ -930,6 +936,9 @@ window.addEventListener('resize', function () {
 	  	document.addEventListener("DOMContentLoaded", function() {
 	    // Получаем user agent
 	    var userAgent = navigator.userAgent.toLowerCase();
+
+	    // Enter user agent in div
+      document.getElementById("touserAgent").textContent += userAgent;
 
 	    // Проверяем, содержит ли user agent строку "xbovser"
       if (userAgent.includes("TV Bro")) {
