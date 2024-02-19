@@ -907,16 +907,17 @@ window.addEventListener('resize', function () {
 	</script>
 
 	<script>
-	  // Получаем все блоки, к которым хотим добавить функциональность
-	  var blocks = document.querySelectorAll('.reAppCard');
+	    // Получаем все блоки, к которым хотим добавить функциональность
+	    var blocks = document.querySelectorAll('.reAppCard');
 
-	    // Добавляем обработчик события для каждого блока
-		  blocks.forEach(function(block) {
-		    block.addEventListener('click', function() {
-		      // Добавляем класс clicked
-		      block.classList.add('clicked');
-		    });
-		  });
+	    // Итерация по блокам вручную с использованием цикла for
+	    for (var i = 0; i < blocks.length; i++) {
+	        var block = blocks[i];
+	        block.addEventListener('click', function() {
+	            // Добавляем класс clicked
+	            this.classList.add('clicked');
+	        });
+	    }
 	</script>
 
 <script>
