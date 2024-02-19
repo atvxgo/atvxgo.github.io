@@ -923,8 +923,9 @@ window.addEventListener('resize', function () {
     const fac = new FastAverageColor();
     const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
 
-    // Заменяем стрелочную функцию на обычную функцию
-    appIcons.forEach(function(appIcon) {
+    // Итерация по элементам вручную с использованием цикла for
+    for (var i = 0; i < appIcons.length; i++) {
+        const appIcon = appIcons[i];
         fac.getColorAsync(appIcon)
             .then(function(color) {
                 color.rgba.a = 0.75; // Устанавливаем значение прозрачности
@@ -935,7 +936,7 @@ window.addEventListener('resize', function () {
             .catch(function(e) {
                 console.log(e);
             });
-    });
+    }
 </script>
 
 	  <script>
