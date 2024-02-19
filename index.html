@@ -923,15 +923,16 @@ window.addEventListener('resize', function () {
     const fac = new FastAverageColor();
     const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
 
-    appIcons.forEach(appIcon => {
+    // Заменяем стрелочную функцию на обычную функцию
+    appIcons.forEach(function(appIcon) {
         fac.getColorAsync(appIcon)
-            .then(color => {
-            		color.rgba.a = 0.75; // Устанавливаем значение прозрачности
+            .then(function(color) {
+                color.rgba.a = 0.75; // Устанавливаем значение прозрачности
                 const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
                 bgAppBLR.style.backgroundColor = color.rgba;
                 bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
             })
-            .catch(e => {
+            .catch(function(e) {
                 console.log(e);
             });
     });
