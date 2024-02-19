@@ -746,9 +746,9 @@ var compiledTemplate = Handlebars.compile(template);
 
 
 // Generate HTML for each block using data from a federated database
-var htmlCApp = compiledTemplate({ items: data.filter(item => item.location === 'CinimaApp') });
-var htmlBApp = compiledTemplate({ items: data.filter(item => item.location === 'SysApp') });
-var htmlAApp = compiledTemplate({ items: data.filter(item => item.location === 'GllrApp') });
+var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
+var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
+var htmlAApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'GllrApp'; }) });
 
 document.getElementById("CinimaApp").innerHTML = htmlCApp;
 document.getElementById("SysApp").innerHTML = htmlBApp;
@@ -802,7 +802,7 @@ function getStartHiddenIndex() {
 }
 
 // Инициализация
-let startHiddenIndex = getStartHiddenIndex();
+var startHiddenIndex = getStartHiddenIndex();
 const parentContainer = document.getElementById('SysApp');
 const allBlocks = parentContainer.querySelectorAll('.child_appcard');
 const moreButtonContainer = addMoreButton();
