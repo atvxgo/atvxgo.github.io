@@ -926,19 +926,22 @@ window.addEventListener('resize', function () {
 
     // Итерация по элементам вручную с использованием цикла for
     for (var i = 0; i < appIcons.length; i++) {
-        const appIcon = appIcons[i];
-        fac.getColorAsync(appIcon)
-            .then(function(color) {
-                color.rgba.a = 0.75; // Устанавливаем значение прозрачности
-                const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
-                bgAppBLR.style.backgroundColor = color.rgba;
-                bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
-            })
-            .catch(function(e) {
-                console.log(e);
-            });
+        (function(index) {
+            const appIcon = appIcons[index];
+            fac.getColorAsync(appIcon)
+                .then(function(color) {
+                    color.rgba.a = 0.75; // Устанавливаем значение прозрачности
+                    const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
+                    bgAppBLR.style.backgroundColor = color.rgba;
+                    bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
+                })
+                .catch(function(e) {
+                    console.log(e);
+                });
+        })(i);
     }
 </script>
+
 
 	  <script>
 	  	document.addEventListener("DOMContentLoaded", function() {
