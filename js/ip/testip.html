@@ -8,11 +8,9 @@
 <body>
 
 <script>
-fetch('https://atvxgo.github.io/js/ip/testip1.html')
+fetch('https://atvxgo.github.io/js/ip/test1.html')
 .then(response => response.text())
 .then(html => {
-    // Обработка ответа
-    // Например, вы можете вставить полученный HTML-код на вашу страницу
     document.getElementById('geolocationContainer').innerHTML = html;
 })
 .catch(error => {
