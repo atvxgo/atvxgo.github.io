@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP-Based Block Hiding with ipinfo</title>
+</head>
+<body>
+
+<script>
+fetch('https://atvxgo.github.io/js/ip/testip1.html')
+.then(response => response.text())
+.then(html => {
+    // Обработка ответа
+    // Например, вы можете вставить полученный HTML-код на вашу страницу
+    document.getElementById('geolocationContainer').innerHTML = html;
+})
+.catch(error => {
+    console.error('Error fetching geolocation page:', error);
+});
+
+</script>
+
+</body>
+</html>
