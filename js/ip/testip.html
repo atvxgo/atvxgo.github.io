@@ -8,15 +8,18 @@
 <body>
 <div id="geolocationContainer"></div>
 <script>
-fetch('https://atvxgo.github.io/js/ip/test1.html')
-.then(response => response.text())
-.then(html => {
-    document.getElementById('geolocationContainer').innerHTML = html;
-})
-.catch(error => {
-    console.error('Error fetching geolocation page:', error);
+    document.addEventListener("DOMContentLoaded", function() {
+    fetch('https://atvxgo.github.io/js/ip/test1.html')
+    .then(response => response.text())
+    .then(html => {
+        // Обработка ответа
+        // Например, вы можете вставить полученный HTML-код на вашу страницу
+        document.getElementById('geolocationContainer').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error fetching geolocation page:', error);
+    });
 });
-
 </script>
 
 </body>
