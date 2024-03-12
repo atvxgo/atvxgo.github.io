@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="ru" data-bs-theme="dark">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -218,7 +218,7 @@
     		color: #ffffff7a;
 			}
 
-			#touserAgent{
+			.ftrtxtfn{
 				font-size: x-small;
 			}
 		</style>
@@ -245,8 +245,7 @@
 					</div>
 				-->
 					<div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
-			    	<i class="bi bi-google-play"></i>
-			    	<i class="bi bi-link-45deg"></i>
+			    	<i class="bi bi-justify"></i>
 					</div>
 					<div class="col row row-cols-sm-2 hdr-fnt">
 			    	<div class="col">
@@ -293,7 +292,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.17.5 (20.02)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.18.1 (12.03)</span>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-tv"></i><use xlink:href=""></use></svg></a></li>
 						<li class="ms-3"><a class="text-body-secondary" href="#"><i class="bi bi-android"></i><use xlink:href=""></use></svg></a></li>
 			    </ul>
@@ -314,7 +313,7 @@
           </div>
           <div class="modal-body">
 				    <div class="btns_mdl row">
-				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl"><i class="bi bi-save"></i>Wink</a>
+				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl RU"><i class="bi bi-save"></i>Wink</a>
 				    	<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a>
 				    	<a class="btn_mdl"></a>
 				    	<a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
@@ -322,7 +321,9 @@
           </div>
           <div class="modal-footer" style="justify-content: center;">
           	<i class="bi bi-info-circle"></i>
-          	<div id="touserAgent"></div>
+          	<div id="currentCountry" class="ftrtxtfn" style="width: 100%;"></div>
+          	<div id="sizedisplay" class="ftrtxtfn" style="width: 100%;"></div>
+          	<div id="touserAgent" class="ftrtxtfn"></div>
           </div>
         </div>
       </div>
@@ -528,6 +529,7 @@ var data = [
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
     adrver: "7.0",
+    geo: "RU",
     img: "apk_logo/wink.png",
     href: "https://static.iptv.rt.ru/files/146400.apk",
     title: "Wink"
@@ -714,7 +716,7 @@ var template = `
   </div>
 </div>
  	 {{else}}
- 	<div class="col child_appcard">
+ 	<div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
   <div class="card shadow-sm">
   	<a href="{{href}}" class="reAppCard" type="button">
     	<img class="png169" src="img/169.png" style="">
@@ -896,11 +898,13 @@ window.addEventListener('resize', function () {
         // 
         var screenWidthElement = document.getElementById("screenWidth");
         var screenHeightElement = document.getElementById("screenHeight");
+        var sizeDisplayElement = document.getElementById("sizedisplay");
 
         // 
         function updateScreenSize() {
             screenWidthElement.textContent = window.innerWidth; //
             screenHeightElement.textContent = window.innerHeight; // 
+            sizeDisplayElement.textContent = window.innerWidth + "x" + window.innerHeight; //
         }
 
         // 
@@ -948,6 +952,36 @@ window.addEventListener('resize', function () {
         })(i);
     }
 </script>
+
+	<script>
+		// Функция для скрытия блоков с классом
+		function hideBlocksByClass(className) {
+		    $('.' + className).hide();
+		}
+
+		// Главная логика
+		function mainLogic(countryCode) {
+		    // Проверяем геолокацию и скрываем блоки с классом **, если она не совпадает
+		    if (countryCode !== 'RU') {
+		        hideBlocksByClass('RU');
+		    }
+		}
+
+		// Выполняем главную логику
+		$(document).ready(function() {
+		    // Получаем IP-адрес пользователя
+		    $.getJSON('https://api64.ipify.org/?format=json', function(data) {
+		        const ip = data.ip; // Получаем IP-адрес пользователя
+		        // Получаем информацию о геолокации пользователя на основе IP-адреса
+		        $.getJSON('https://ipapi.co/' + ip + '/json', function(data) {
+		            const countryCode = data.country_code; // Получаем код страны пользователя
+		            $('#currentCountry').text(ip + ' ' + countryCode);
+		            // Вызываем главную логику
+		            mainLogic(countryCode);
+		        });
+		    });
+		});
+	</script>
 
 
 	  <script>
