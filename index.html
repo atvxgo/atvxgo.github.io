@@ -43,6 +43,11 @@
 			  }
 			}
 			*/
+
+			.bi-opensource::before {
+      content: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E %3Cg%3E %3Cpath fill='none' d='M0 0H24V24H0z'%3E%3C/path%3E %3Cpath d='M12 2c5.523 0 10 4.477 10 10 0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55C14.354 14.148 15 13.15 15 12c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.15.647 2.148 1.596 2.652l-2.518 6.55C4.504 19.675 2 16.13 2 12 2 6.477 6.477 2 12 2z'%3E%3C/path%3E %3C/g%3E %3C/g%3E%3C/svg%3E");
+    	}
+
 			.bg-body {
 		    position: fixed;
 		    top: -10px;
@@ -182,6 +187,10 @@
 			    text-align: center;
 			}
 
+			.mindesc.mimd-2{
+				right: 40px;
+			}
+
 			.mindesc {
 		    bottom: 0;
 		    right: 0;
@@ -215,6 +224,21 @@
 
 			.png169{
 				width: 100%;
+			}
+
+			.custom-tooltip{
+		    --bs-tooltip-bg: #282828;
+		    color: #f1f1f1;
+		    --bs-tooltip-color: #f1f1f1;
+			}
+
+			.custom-tooltip a{
+		    color: #f1f1f1;
+		    text-decoration: none;
+			}
+
+			.custom-tooltip > .tooltip-inner {
+			  box-shadow: 0px 10px 20px 0px #000;
 			}
 
 			.sizescren {
@@ -252,9 +276,10 @@
 			    	<i class="bi bi-gear"></i>
 					</div>
 				-->
-					<div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
-			    	<i class="bi bi-justify"></i>
-					</div>
+					<div class="col-md-auto hdr-fnt set   form-check form-switch" style="margin-right: 10px;text-align: center;max-height: 68px;width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
+			        <label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
+			        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
+			    </div>
 					<div class="col row row-cols-sm-2 hdr-fnt">
 			    	<div class="col">
 			      		<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
@@ -267,6 +292,9 @@
 			      		<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
 			    	</div>
 			    </div>
+			    <div class="col-md-auto hdr-fnt set" style="margin-left: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
+			    	<i class="bi bi-justify"></i>
+					</div>
 			</div>
 
 			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
@@ -297,7 +325,7 @@
 			    </div>
 
 			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 0.18.1 (12.03)</span>
+			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 1.0.1 (13.03)</span>
 			    </ul>
 			  </footer>
 		</div>
@@ -469,6 +497,9 @@ var data = [
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
     adrver: "4.2",
+    tltps: 1,
+    tltps_fntn_desc: "strannikmodz",
+    tltps_fntn_link: "https://strannikmodz.me/apps/media/253-lazymedia-deluxe-389.html",
     img: "apk_logo/deluxe.png",
     href: "https://strannikmodz.me/index.php?do=download&id=5268",
     title: "Deluxe LazyMedia"
@@ -480,8 +511,8 @@ var data = [
     href: "https://strannikmodz.me/index.php?do=download&id=3237",
     title: "HD VideoBox"
   },
-    {
-    	location: "CinimaApp",
+  {
+    location: "CinimaApp",
     uniqueId: generateUniqueId(),
     img: "apk_logo/viewbox.png",
     href: "https://strannikmodz.me/index.php?do=download&id=4344",
@@ -497,7 +528,7 @@ var data = [
   {
   	location: "CinimaApp",
     uniqueId: generateUniqueId(),
-     adrver: "4.3",
+    adrver: "4.3",
     img: "apk_logo/smarttube.png",
     href: "https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk",
     title: "Smart Tube"
@@ -721,7 +752,13 @@ var template = `
  	 {{else}}
  	<div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
   <div class="card shadow-sm">
-  	<a href="{{href}}" class="reAppCard" type="button">
+  	<a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
+  		{{#if tltps}}
+  			data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
+  			data-bs-title="
+  				<a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
+  		"{{/if}}
+  	>
     	<img class="png169" src="img/169.png" style="">
     	<div class="AppCard">
     		<div class="row align-items-center">
@@ -747,7 +784,6 @@ var template = `
 
   {{/each}}
 `;
-
 
 // Initializing Handlebars
 var modalTemplateSource = document.getElementById("modalTemplate").innerHTML;
@@ -915,24 +951,84 @@ window.addEventListener('resize', function () {
         window.addEventListener("resize", updateScreenSize);
     </script>
 
-    <script type="text/javascript">
-			const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-			const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-	</script>
+<script type="text/javascript">
+	//Подсказки PRO
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        trigger: 'manual' // устанавливаем ручное управление показом подсказки
+    }));
 
-	<script>
-	    // Получаем все блоки, к которым хотим добавить функциональность
-	    var blocks = document.querySelectorAll('.reAppCard');
+    const switchElement = document.getElementById('flexSwitchCheckChecked');
 
-	    // Итерация по блокам вручную с использованием цикла for
-	    for (var i = 0; i < blocks.length; i++) {
-	        var block = blocks[i];
-	        block.addEventListener('click', function() {
-	            // Добавляем класс clicked
-	            this.classList.add('clicked');
-	        });
-	    }
-	</script>
+    // Обработчик изменения состояния переключателя
+    switchElement.addEventListener('change', function() {
+        const isChecked = this.checked; // Получаем состояние переключателя (true или false)
+
+        // В зависимости от состояния переключателя, включаем или отключаем работу подсказок
+        tooltipList.forEach(tooltip => {
+            if (isChecked) {
+                tooltip.enable();
+            } else {
+                tooltip.disable();
+            }
+        });
+
+        // Устанавливаем соответствующий обработчик клика на ссылки
+        const linkHandler = isChecked ? handleTooltipClick : handleLinkClick;
+        document.querySelectorAll('a[data-trigger="click"]').forEach(link => {
+            link.removeEventListener('click', handleLinkClick);
+            link.removeEventListener('click', handleTooltipClick);
+            link.addEventListener('click', linkHandler);
+        });
+    });
+
+    // Обработчик клика на ссылку для перехода по ней
+    function handleLinkClick(e) {
+        const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
+        if (tooltip && tooltip._isOpen) { // Если подсказка открыта
+            tooltip.hide(); // Скрываем её
+        } else {
+            return true; // Разрешаем переход по ссылке
+        }
+    }
+
+    // Обработчик клика на ссылку для показа подсказки
+    function handleTooltipClick(e) {
+        e.preventDefault(); // Предотвращаем стандартное действие перехода по ссылке
+        const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
+        if (tooltip) {
+            if (tooltip._isOpen) { // если подсказка открыта
+                tooltip.hide(); // скрываем её
+            } else {
+                // Закрываем все открытые подсказки перед показом новой
+                tooltipList.forEach(t => {
+                    if (t._isOpen && t !== tooltip) {
+                        t.hide();
+                    }
+                });
+                tooltip.show(); // иначе показываем
+            }
+        }
+    }
+
+    // Закрытие подсказок при клике вне них
+    document.addEventListener('click', function (e) {
+        tooltipList.forEach(tooltip => {
+            const targetElement = e.target; // Элемент, по которому был произведен клик
+            if (!tooltip._element.contains(targetElement)) { // Проверяем, что клик был не внутри подсказки
+                tooltip.hide(); // Закрываем подсказку
+            }
+        });
+    });
+});
+
+
+
+</script>
+
 
 <script>
     const fac = new FastAverageColor();
