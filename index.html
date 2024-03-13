@@ -196,8 +196,8 @@
 		    right: 0;
 			}
 
-			.mindesc > span{
-				margin-left: 5px;
+			.mindesc > .bi{
+				margin-right: 5px;
 			}
 
 			.mindwn {
@@ -505,17 +505,14 @@ var data = [
     title: "Deluxe LazyMedia"
   },
   {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/hdbox.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=3237",
-    title: "HD VideoBox"
-  },
-  {
     location: "CinimaApp",
     uniqueId: generateUniqueId(),
+    adrver: "5.0",
+    tltps: 1,
+    tltps_fntn_desc: "StrannikModz",
+    tltps_fntn_link: "https://strannikmodz.me/apps/media/1067-viewbox.html",
     img: "apk_logo/viewbox.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=4344",
+    href: "https://strannikmodz.me/index.php?do=download&id=5164",
     title: "Viewbox"
   },
   {
@@ -636,6 +633,9 @@ var data = [
     uniqueId: generateUniqueId(),
     adrver: "5.0",
     img: "apk_logo/aurora.png",
+    tltps: 1,
+    tltps_fntn_desc: "F-Droid",
+    tltps_fntn_link: "hhttps://f-droid.org/packages/com.aurora.store/#latest",
     href: "https://f-droid.org/repo/com.aurora.store_56.apk",
     title: "Aurora Store"
   },
@@ -660,6 +660,9 @@ var data = [
   	location: "SysApp",
     uniqueId: generateUniqueId(),
     adrver: "5.1",
+    tltps: 1,
+    tltps_fntn_desc: "GitHub",
+    tltps_fntn_link: "https://github.com/tsynik/LeanbackLauncher/releases/latest",
     img: "apk_logo/Leanback.png",
     href: "https://github.com/tsynik/LeanbackLauncher/releases/download/v1.58/LeanbackOnFire_v1.58-release.apk",
     title: "Leanback Launcher"
@@ -776,7 +779,7 @@ var template = `
 					{{/if}}
 				</div>
 					<div class="mindwn"><i class="bi bi-download"></i></div>
-					{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
+					{{#if adrver}}<div class="mindesc">{{#if tltps}}<i class="bi bi-hexagon-fill"></i>{{/if}}<i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
 			</div>
     	</div>
     	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
