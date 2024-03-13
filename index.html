@@ -449,7 +449,7 @@
 				    	<div class="AppCard">
 				    		<div class="row align-items-center">
 								<div class="col-4 icoAppCard">
-									<img src="{{img}}" alt="{{title}}">
+									<img src="{{img}}" alt="logo {{title}}">
 								</div>
 								<div class="col"><h4>{{title}}</h4></div>
 							</div>
@@ -755,7 +755,7 @@ var template = `
     	<div class="AppCard">
     		<div class="row align-items-center">
 				<div class="col-4 icoAppCard">
-					<img src="{{img}}" class="appIcon" alt="{{title}}">
+					<img src="{{img}}" class="appIcon" alt="logo {{title}}">
 				</div>
 				<div class="col"><h4>{{title}}</h4></div>
 					<div class="mindwn"><i class="bi bi-download"></i></div>
@@ -780,7 +780,7 @@ var template = `
     	<div class="AppCard">
     		<div class="row align-items-center">
 				<div class="col-4 icoAppCard">
-					<img src="{{img}}" class="appIcon" alt="{{title}}">
+					<img src="{{img}}" class="appIcon" alt="logo {{title}}">
 				</div>
 				<div class="col infoAppCard">
 					<h4 class="AppCardtitle">{{title}}</h4>
@@ -840,11 +840,11 @@ function addMoreButton() {
         <div class="col show-more-button-container">
             <div class="card shadow-sm">
                 <div class="reAppCard" type="button">
-                    <img class="png169" src="img/169.png" style="">
+                    <img class="png169" src="img/169.png" style="" alt="16to9">
                     <div class="AppCard">
                         <div class="row align-items-center">
                             <div class="col-4 icoAppCard">
-                                <img src="apk_logo/appsmore.jpg" class="appIcon">
+                                <img src="apk_logo/appsmore.jpg" class="appIcon" alt="logo more app">
                             </div>
                             <div class="col"><h4 class="show-more-button">show apps (${allBlocks.length - 9})</h4></div>
                         </div>
