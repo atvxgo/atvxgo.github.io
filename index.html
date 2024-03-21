@@ -431,51 +431,6 @@
 			background: #282828;
 		}
 	</style>
-	<script id="modalTemplate" type="text/x-handlebars-template">
-		{{#each items}}
-		{{#if modal}}
-		<div class="modal fade atvmodalbg" id="modal{{uniqueId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-				<div class="modal-content">
-					<!-- Содержимое модального окна -->
-					<div class="modal-header">
-						<h5 class="modal-title">{{title}}</h5>
-					</div>
-					<div class="modal-body">
-						<div class="col XXXXX">
-							<div class="card shadow-sm">
-								<a href="{{href}}" class="reAppCard">
-									<img class="png169" src="img/169.png" style="" alt="16to9">
-									<div class="AppCard">
-										<div class="row align-items-center">
-											<div class="col-4 icoAppCard">
-												<img src="{{img}}" alt="logo {{title}}">
-											</div>
-											<div class="col"><h4>{{title}}</h4></div>
-										</div>
-									</div>
-									<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-								</a>
-							</div>
-						</div>
-						<div class="btns_mdl row">
-							<a href="{{href}}" class='btn_mdl'><i class="bi bi-save"></i>Download</a>
-							{{#if download2}}
-							<a href="{{download2}}" class='btn_mdl'><i class="bi bi-save"></i>Download 2</a>
-							{{else}}{{/if}}
-							{{#if Source}}
-							<a href="" class='btn_mdl col align-self-end'><i class="bi bi-git"></i>Source reference</a>
-							{{else}}{{/if}}
-						</div>
-					</div>
-					<div class="modal-footer">
-					</div>
-				</div>
-			</div>
-		</div>
-		{{/if}}
-		{{/each}}
-	</script>
 	<script>
 		var counter = 0;
 
@@ -747,69 +702,44 @@
 
 var template = `
 {{#each items}}
-{{#if modal}}
-<div class="col XXXXX">
-<div class="card shadow-sm">
-<a class="reAppCard" type="button" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{uniqueId}}"">
-<img class="png169" src="img/169.png" style="" alt="16to9">
-<div class="AppCard">
-<div class="row align-items-center">
-<div class="col-4 icoAppCard">
-<img src="{{img}}" class="appIcon" alt="logo {{title}}">
-</div>
-<div class="col"><h4>{{title}}</h4></div>
-<div class="mindwn"><i class="bi bi-download"></i></div>
-{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
-</div>
-</div>
-<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-</a>
-</div>
-</div>
-{{else}}
-<div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
-<div class="card shadow-sm">
-<a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
-{{#if tltps}}
-data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
-data-bs-title="
-<a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
-"{{/if}}
->
-<img class="png169" src="img/169.png" style="" alt="16to9">
-<div class="AppCard">
-<div class="row align-items-center">
-<div class="col-4 icoAppCard">
-<img src="{{img}}" class="appIcon" alt="logo {{title}}">
-</div>
-<div class="col infoAppCard">
-<h4 class="AppCardtitle">{{title}}</h4>
-{{#if card_desk}}
-<!--
-<div class="card_desk">{{card_desk}}</div>-->
-{{/if}}
-</div>
-<div class="mindwn"><i class="bi bi-download"></i></div>
-{{#if adrver}}<div class="mindesc">{{#if tltps}}<i class="bi bi-hexagon-fill"></i>{{/if}}<i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
-</div>
-</div>
-<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-</a>
-</div>
-</div>
-{{/if}}
-
+        <div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
+            <div class="card shadow-sm">
+                <a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
+                {{#if tltps}}
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
+                    data-bs-title="
+                    <a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
+                    "{{/if}}
+                >
+                    <img class="png169" src="img/169.png" style="" alt="16to9">
+                    <div class="AppCard">
+                        <div class="row align-items-center">
+                            <div class="col-4 icoAppCard">
+                                <img src="{{img}}" class="appIcon" alt="logo {{title}}">
+                            </div>
+                            <div class="col infoAppCard">
+                                <h4 class="AppCardtitle">{{title}}</h4>
+                                {{#if card_desk}}
+                                    <!--
+                                    <div class="card_desk">{{card_desk}}</div>-->
+                                {{/if}}
+                            </div>
+                            <div class="mindwn"><i class="bi bi-download"></i></div>
+                            {{#if adrver}}
+                                <div class="mindesc">
+                                    {{#if tltps}}<i class="bi bi-hexagon-fill"></i>{{/if}}
+                                    <i class="bi bi-android"></i><span>{{adrver}}</span>
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                    <div class="bgAppBLR" style="background-image: url({{img}});"></div>
+                </a>
+            </div>
+        </div>
 {{/each}}
+
 `;
-
-// Initializing Handlebars
-var modalTemplateSource = document.getElementById("modalTemplate").innerHTML;
-var modalTemplate = Handlebars.compile(modalTemplateSource);
-
-// Generation of modal windows using a template Handlebars
-var modalHtml = modalTemplate({ items: data });
-document.getElementById("modalContainer").innerHTML = modalHtml;
-//////////////////////////////////////////////////////////////////////////////////////////
 
 var compiledTemplate = Handlebars.compile(template);
 
@@ -1107,17 +1037,6 @@ document.getElementById("GllrApp").innerHTML = htmlAApp;
 
 	    // Enter user agent in div
   		document.getElementById("touserAgent").textContent += userAgent;
-
-	    // Проверяем, содержит ли user agent строку "xbovser"
-  		if (userAgent.includes("TV Bro")) {
-        // Получаем все элементы с классом "xdiv"
-  			var xdivElements = document.querySelectorAll(".AppCardtitle");
-
-        // Добавляем класс "larger" ко всем элементам
-  			xdivElements.forEach(function(element) {
-  				element.classList.add("brotv");
-  			});
-  		}
   	});
   </script>
 
