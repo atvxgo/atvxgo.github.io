@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="ru" data-bs-theme="dark">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>ATVxGO!</title>
-		<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-		<script src="https://unpkg.com/fast-average-color/dist/index.browser.min.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ATVxGO!</title>
+	<script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+	<script src="https://unpkg.com/fast-average-color/dist/index.browser.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	</head>
-	<body>
-		<style type="text/css">
-			* {
-				  color: #adb5bd;
-			    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-			}
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+	<style type="text/css">
+		* {
+			color: #adb5bd;
+			font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+		}
 			/*
 			body {
 			  animation: gradientAnimation 30s ease infinite;
@@ -44,230 +44,230 @@
 			}
 			*/
 
-			.bi-opensource::before {
-      content: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E %3Cg%3E %3Cpath fill='none' d='M0 0H24V24H0z'%3E%3C/path%3E %3Cpath d='M12 2c5.523 0 10 4.477 10 10 0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55C14.354 14.148 15 13.15 15 12c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.15.647 2.148 1.596 2.652l-2.518 6.55C4.504 19.675 2 16.13 2 12 2 6.477 6.477 2 12 2z'%3E%3C/path%3E %3C/g%3E %3C/g%3E%3C/svg%3E");
-    	}
+		.bi-opensource::before {
+			content: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E %3Cg%3E %3Cpath fill='none' d='M0 0H24V24H0z'%3E%3C/path%3E %3Cpath d='M12 2c5.523 0 10 4.477 10 10 0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55C14.354 14.148 15 13.15 15 12c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.15.647 2.148 1.596 2.652l-2.518 6.55C4.504 19.675 2 16.13 2 12 2 6.477 6.477 2 12 2z'%3E%3C/path%3E %3C/g%3E %3C/g%3E%3C/svg%3E");
+		}
 
-			.bg-body {
-		    position: fixed;
-		    top: -10px;
-		    bottom: -10px;
-		    left: -10px;
-		    right: -10px;
-		    z-index: -1;
-		    background-repeat: no-repeat;
-		    background-position: center;
-		    background-size: cover;
-			}
-			.REbg-body{
-				position: fixed;
-		    top: 0;
-		    right: 0;
-		    bottom: 0;
-		    left: 0;
-		    background: rgba(0, 0, 0, 0.5);
-		    z-index: 0;
-			}
-			.cnt{
-				position: relative;
-				z-index: 1;
-			}
-			.container, .container-md, .container-sm {
-			    /*max-width: 95%;*/
-			}
-			.hdr-fnt {
-		    text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.25), 1px 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.25);
+		.bg-body {
+			position: fixed;
+			top: -10px;
+			bottom: -10px;
+			left: -10px;
+			right: -10px;
+			z-index: -1;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+		.REbg-body{
+			position: fixed;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			z-index: 0;
+		}
+		.cnt{
+			position: relative;
+			z-index: 1;
+		}
+		.container, .container-md, .container-sm {
+			/*max-width: 95%;*/
+		}
+		.hdr-fnt {
+			text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.25), 1px 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.25);
 
-		    padding: 10px;
-		    /*backdrop-filter: blur(9px);*/
-		    background: rgba(0, 0, 0, 0.125);
-		    border-radius: 5px;
-		    margin: 10px auto;
-			}
-			h4{
-				font-size: unset !important;
-				    text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25),
-							    0 -1px 0 rgba(0, 0, 0, 0.25), 
-							    1px 0 0 rgba(0, 0, 0, 0.25), 
-							    0 1px 0 rgba(0, 0, 0, 0.25);
-						color: #fff;
-			}
-			h5.tl_cat {
-		    padding: 10px;
-		    /*backdrop-filter: blur(9px);*/
-		    background: rgba(0, 0, 0, 0.125);
-		    border-radius: 5px;
-			}
-			.card.shadow-sm {
-				overflow: hidden;
-				border: solid 1px rgba(255, 255, 255, 0.15);
-				border-radius: 0.375rem;
-			}
-			.reAppCard{
-    			position: relative;
-    			background: #000;
-    			border: none;
-			}
+			padding: 10px;
+			/*backdrop-filter: blur(9px);*/
+			background: rgba(0, 0, 0, 0.125);
+			border-radius: 5px;
+			margin: 10px auto;
+		}
+		h4{
+			font-size: unset !important;
+			text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25),
+			0 -1px 0 rgba(0, 0, 0, 0.25), 
+			1px 0 0 rgba(0, 0, 0, 0.25), 
+			0 1px 0 rgba(0, 0, 0, 0.25);
+			color: #fff;
+		}
+		h5.tl_cat {
+			padding: 10px;
+			/*backdrop-filter: blur(9px);*/
+			background: rgba(0, 0, 0, 0.125);
+			border-radius: 5px;
+		}
+		.card.shadow-sm {
+			overflow: hidden;
+			border: solid 1px rgba(255, 255, 255, 0.15);
+			border-radius: 0.375rem;
+		}
+		.reAppCard{
+			position: relative;
+			background: #000;
+			border: none;
+		}
 
-			.reAppCard.clicked{
-				background-color: rgb(0 0 0 / 50%);
-			}
+		.reAppCard.clicked{
+			background-color: rgb(0 0 0 / 50%);
+		}
 
-			.reAppCard:hover{
-				background-color: rgb(0 0 0 / 50%);
-			}
+		.reAppCard:hover{
+			background-color: rgb(0 0 0 / 50%);
+		}
 
-			.reAppCard:hover .AppCard, .reAppCard:focus-visible .AppCard  {
-			    background-color:rgba(0, 0, 0, 0.75);
-			}
+		.reAppCard:hover .AppCard, .reAppCard:focus-visible .AppCard  {
+			background-color:rgba(0, 0, 0, 0.75);
+		}
 
-			.AppCard {
-			    position: absolute;
-			    top: 0;
-			    bottom: 0;
-			    left: 0;
-			    right: 0;
-			    background: rgba(0, 0, 0, 0.25);
-			    z-index: 1;
-			}
+		.AppCard {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.25);
+			z-index: 1;
+		}
 
-			.col.child_appcard {
-			    padding: 0 calc(1rem * .5);
-			    margin-top: 1rem;
-			}
+		.col.child_appcard {
+			padding: 0 calc(1rem * .5);
+			margin-top: 1rem;
+		}
 
-			.bgAppBLR {
-			    position: absolute;
-			    top: 0;
-			    bottom: 0;
-			    right: 0;
-			    left: 0;
-			    background-size: cover;
-			    background-repeat: no-repeat;
-			    background-position: center;
-			    z-index: 0;
+		.bgAppBLR {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			z-index: 0;
 
 
-			    /*filter: blur(75px);*/
-			    background-image: none !important;
-			}
+			/*filter: blur(75px);*/
+			background-image: none !important;
+		}
 
-			.AppCard > .row {
-			    
+		.AppCard > .row {
+			
 			--bs-gutter-x: 0;
-			    height: 100%;
-			    width: 100%;
-			}
+			height: 100%;
+			width: 100%;
+		}
 
-			.AppCard > div > div {
-			    margin: 10px;
-			}
+		.AppCard > div > div {
+			margin: 10px;
+		}
 
-			.AppCardtitle.brotv{
-				font-size: 12px !important;
-			}
+		.AppCardtitle.brotv{
+			font-size: 12px !important;
+		}
 
-			.infoAppCard{
-				max-width: 120px;
-			}
+		.infoAppCard{
+			max-width: 120px;
+		}
 
-			.card_desk {
-			    font-size: 11px;
-			    color: #a1a1a1;
-			}
+		.card_desk {
+			font-size: 11px;
+			color: #a1a1a1;
+		}
 
-			.mindesc, .mindwn {
-			    position: absolute;
-			    width: auto;
-			    background: rgba(6, 60, 0, 0.74) ;
-			    color: #fff;
-			    font-size: x-small;
-			    padding: 1%;
-			    border-radius: 5px;
-			    text-align: center;
-			}
+		.mindesc, .mindwn {
+			position: absolute;
+			width: auto;
+			background: rgba(6, 60, 0, 0.74) ;
+			color: #fff;
+			font-size: x-small;
+			padding: 1%;
+			border-radius: 5px;
+			text-align: center;
+		}
 
-			.mindesc.mimd-2{
-				right: 40px;
-			}
+		.mindesc.mimd-2{
+			right: 40px;
+		}
 
-			.mindesc {
-		    bottom: 0;
-		    right: 0;
-			}
+		.mindesc {
+			bottom: 0;
+			right: 0;
+		}
 
-			.mindesc > .bi{
-				margin-right: 5px;
-			}
+		.mindesc > .bi{
+			margin-right: 5px;
+		}
 
-			.mindwn {
-		    top: 0;
-		    right: 0;
-		    border-radius: 50%;
-		    width: 19px;
-		    display: none;
-			}
+		.mindwn {
+			top: 0;
+			right: 0;
+			border-radius: 50%;
+			width: 19px;
+			display: none;
+		}
 
-			.reAppCard.clicked .mindwn {
-			    display: block;
-			}
+		.reAppCard.clicked .mindwn {
+			display: block;
+		}
 
-			.icoAppCard {
-			    border: solid 0.3em rgba(0, 0, 0, 0.25);
-			    border-radius: 50%;
-			}
+		.icoAppCard {
+			border: solid 0.3em rgba(0, 0, 0, 0.25);
+			border-radius: 50%;
+		}
 
-			.icoAppCard > img {
-			    width: 100%;
-			    border-radius: 50%;
-			}
+		.icoAppCard > img {
+			width: 100%;
+			border-radius: 50%;
+		}
 
-			.png169{
-				width: 100%;
-			}
+		.png169{
+			width: 100%;
+		}
 
-			.custom-tooltip{
-		    --bs-tooltip-bg: #282828;
-		    color: #f1f1f1;
-		    --bs-tooltip-color: #f1f1f1;
-			}
+		.custom-tooltip{
+			--bs-tooltip-bg: #282828;
+			color: #f1f1f1;
+			--bs-tooltip-color: #f1f1f1;
+		}
 
-			.custom-tooltip a{
-		    color: #f1f1f1;
-		    text-decoration: none;
-			}
+		.custom-tooltip a{
+			color: #f1f1f1;
+			text-decoration: none;
+		}
 
-			.custom-tooltip > .tooltip-inner {
-			  box-shadow: 0px 10px 20px 0px #000;
-			}
+		.custom-tooltip > .tooltip-inner {
+			box-shadow: 0px 10px 20px 0px #000;
+		}
 
-			.sizescren {
-				position: fixed;
-				bottom: 0;
-				right: 0;
-				padding: 1%;
-				font-size: x-small;
-    		color: #ffffff7a;
-			}
+		.sizescren {
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			padding: 1%;
+			font-size: x-small;
+			color: #ffffff7a;
+		}
 
-			.ftrtxtfn{
-				font-size: x-small;
-			}
-		</style>
-		<script type="text/javascript">
-			function updateTime() {
-		        var currentTime = new Date();
-		        var hours = currentTime.getHours();
-		        var minutes = currentTime.getMinutes();
-		        var seconds = currentTime.getSeconds();
-		        hours = (hours < 10 ? "0" : "") + hours;
-		        minutes = (minutes < 10 ? "0" : "") + minutes;
-		        seconds = (seconds < 10 ? "0" : "") + seconds;
-		        var formattedTime = hours + ":" + minutes + ":" + seconds;
-		        document.getElementById("time").textContent = formattedTime;
-		    }
-		    setInterval(updateTime, 1000);
-		</script>
+		.ftrtxtfn{
+			font-size: x-small;
+		}
+	</style>
+	<script type="text/javascript">
+		function updateTime() {
+			var currentTime = new Date();
+			var hours = currentTime.getHours();
+			var minutes = currentTime.getMinutes();
+			var seconds = currentTime.getSeconds();
+			hours = (hours < 10 ? "0" : "") + hours;
+			minutes = (minutes < 10 ? "0" : "") + minutes;
+			seconds = (seconds < 10 ? "0" : "") + seconds;
+			var formattedTime = hours + ":" + minutes + ":" + seconds;
+			document.getElementById("time").textContent = formattedTime;
+		}
+		setInterval(updateTime, 1000);
+	</script>
 	<div class="cnt">
 		<div class="container">
 			<div class="row justify-content-md-center" style="padding: 0 12px;">
@@ -276,325 +276,325 @@
 			    	<i class="bi bi-gear"></i>
 					</div>
 				-->
-					<div class="col-md-auto hdr-fnt set   form-check form-switch" style="margin-right: 10px;text-align: center;max-height: 68px;width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
-			        <label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
-			        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
-			    </div>
-					<div class="col row row-cols-sm-2 hdr-fnt">
-			    	<div class="col">
-			      		<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
-									<i class="bi bi-android" style="font-size: 32px;margin-right: -47px;"></i>
-									<i class="bi bi-tv"></i>
-									ATVxGO
-								</a>
-			    		</div>
-			    	<div class="col">
-			      		<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
-			    	</div>
-			    </div>
-			    <div class="col-md-auto hdr-fnt set" style="margin-left: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
-			    	<i class="bi bi-justify"></i>
+				<div class="col-md-auto hdr-fnt set   form-check form-switch" style="margin-right: 10px;text-align: center;max-height: 68px;width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
+					<label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
+					<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
+				</div>
+				<div class="col row row-cols-sm-2 hdr-fnt">
+					<div class="col">
+						<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
+							<i class="bi bi-android" style="font-size: 32px;margin-right: -47px;"></i>
+							<i class="bi bi-tv"></i>
+							ATVxGO
+						</a>
 					</div>
+					<div class="col">
+						<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
+					</div>
+				</div>
+				<div class="col-md-auto hdr-fnt set" style="margin-left: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
+					<i class="bi bi-justify"></i>
+				</div>
 			</div>
 
 			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
-			    <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-			    </div>
-			    <br>
+			<div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+			</div>
+			<br>
 			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
-			    <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+			<div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 
-			    </div>
-			    <br>
+			</div>
+			<br>
 
 			<h5 class="tl_cat" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
 				<i class="bi bi-gear-wide-connected"></i> 
 				Gallery App
 			</h5>
-				<div class="collapse" id="collapseExample">
-			    <div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+			<div class="collapse" id="collapseExample">
+				<div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 
-			    </div>
-			  </div>
+				</div>
+			</div>
 		</div>
 
 		<div class="container">
-			  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-			    <div class="col-md-4 d-flex align-items-center">
-			      <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
-			    </div>
+			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+				<div class="col-md-4 d-flex align-items-center">
+					<span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
+				</div>
 
-			    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-			    	 <span class="mb-3 mb-md-0 text-body-secondary">v. 1.0.1 (13.03)</span>
-			    </ul>
-			  </footer>
+				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+					<span class="mb-3 mb-md-0 text-body-secondary">v. 1.0.1 (13.03)</span>
+				</ul>
+			</footer>
 		</div>
 	</div>
 	<div id="modalContainer"></div>
 	<div id="modalContainerCMS">
 		<div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-        <div class="modal-content">
-          <!-- Содержимое модального окна -->
-          <div class="modal-header">
-            <h5 class="modal-title">
-            	<i class="bi bi-google-play"></i>
-            	Links to Play Market
-            </h5>
-          </div>
-          <div class="modal-body">
-				    <div class="btns_mdl row">
-				    	<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl RU"><i class="bi bi-save"></i>Wink</a>
-				    	<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a>
-				    	<a class="btn_mdl"></a>
-				    	<a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
-				    </div>
-          </div>
-          <div class="modal-footer" style="justify-content: center;">
-          	<i class="bi bi-info-circle"></i>
-          	<div id="currentCountry" class="ftrtxtfn" style="width: 100%;"></div>
-          	<div id="sizedisplay" class="ftrtxtfn" style="width: 100%;"></div>
-          	<div id="touserAgent" class="ftrtxtfn"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+				<div class="modal-content">
+					<!-- Содержимое модального окна -->
+					<div class="modal-header">
+						<h5 class="modal-title">
+							<i class="bi bi-google-play"></i>
+							Links to Play Market
+						</h5>
+					</div>
+					<div class="modal-body">
+						<div class="btns_mdl row">
+							<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl RU"><i class="bi bi-save"></i>Wink</a>
+							<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a>
+							<a class="btn_mdl"></a>
+							<a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
+						</div>
+					</div>
+					<div class="modal-footer" style="justify-content: center;">
+						<i class="bi bi-info-circle"></i>
+						<div id="currentCountry" class="ftrtxtfn" style="width: 100%;"></div>
+						<div id="sizedisplay" class="ftrtxtfn" style="width: 100%;"></div>
+						<div id="touserAgent" class="ftrtxtfn"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-	  <!-- Блок кода для генерации модальных окон -->
-	  <style>
-	  	.atvmodalbg{
-	  		background: rgb(0 0 0 / 50%);
-    		/* backdrop-filter: blur(15px);*/
-	  	}
-	  	.modal-dialog.atvmodal {
-		    margin: 0;
-		    position: absolute;
-		    width: 25%;
-		    height: 100%;
-		    right: 0;
-			}
-			.modal-dialog.atvmodal > .modal-content {
-		    border-radius: 0;
-		    height: 100%;
-		    border-top: 0;
-    		border-bottom: 0;
-    		/*background: rgb(0 0 0 / 50%);*/
-			}
-	  </style>
-	  <style>
-			.modal.fade .modal-dialog {
-			  -webkit-transform: translateX(100%);
-			  -ms-transform: translateX(100%);
-			  transform: translateX(100%);
-			  -webkit-transition: -webkit-transform 0.3s ease-out;
-			  -o-transition: -o-transform 0.3s ease-out;
-			  transition: transform 0.3s ease-out;
-			}
+	<!-- Блок кода для генерации модальных окон -->
+	<style>
+		.atvmodalbg{
+			background: rgb(0 0 0 / 50%);
+			/* backdrop-filter: blur(15px);*/
+		}
+		.modal-dialog.atvmodal {
+			margin: 0;
+			position: absolute;
+			width: 25%;
+			height: 100%;
+			right: 0;
+		}
+		.modal-dialog.atvmodal > .modal-content {
+			border-radius: 0;
+			height: 100%;
+			border-top: 0;
+			border-bottom: 0;
+			/*background: rgb(0 0 0 / 50%);*/
+		}
+	</style>
+	<style>
+		.modal.fade .modal-dialog {
+			-webkit-transform: translateX(100%);
+			-ms-transform: translateX(100%);
+			transform: translateX(100%);
+			-webkit-transition: -webkit-transform 0.3s ease-out;
+			-o-transition: -o-transform 0.3s ease-out;
+			transition: transform 0.3s ease-out;
+		}
 
-			.modal.fade.show .modal-dialog {
-			  -webkit-transform: translateX(0);
-			  -ms-transform: translateX(0);
-			  transform: translateX(0);
-			}
-	  </style>
-	  <script type="text/javascript">
-			$(document).ready(function() {
-			  $('.modal').on('show.bs.modal', function () {
-			    $(this).find('.modal-dialog').addClass('modal-dialog-slide');
-			  });
-
-			  $('.modal').on('hide.bs.modal', function () {
-			    $(this).find('.modal-dialog').removeClass('modal-dialog-slide');
-			  });
+		.modal.fade.show .modal-dialog {
+			-webkit-transform: translateX(0);
+			-ms-transform: translateX(0);
+			transform: translateX(0);
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.modal').on('show.bs.modal', function () {
+				$(this).find('.modal-dialog').addClass('modal-dialog-slide');
 			});
-	  </script>
-	  <style type="text/css">
-	  	.btns_mdl{
-	  		margin: 0 -16px;
-	  		margin-top: 10px;
-	  	}
-	  	.btn_mdl {
-			    position: relative;
-			    display: block;
-			    padding: 13px 10px;
-			    width: 100%;
-			    text-decoration: none;
-			    color: #bdbdbd;
-			    border-bottom: solid 1px #ffffff05;
-			}
 
-			.btn_mdl > i {
-			    margin-right: 10px;
-			}
+			$('.modal').on('hide.bs.modal', function () {
+				$(this).find('.modal-dialog').removeClass('modal-dialog-slide');
+			});
+		});
+	</script>
+	<style type="text/css">
+		.btns_mdl{
+			margin: 0 -16px;
+			margin-top: 10px;
+		}
+		.btn_mdl {
+			position: relative;
+			display: block;
+			padding: 13px 10px;
+			width: 100%;
+			text-decoration: none;
+			color: #bdbdbd;
+			border-bottom: solid 1px #ffffff05;
+		}
 
-			.btn_mdl:hover {
-			    background: #282828;
-			}
-	  </style>
-  <script id="modalTemplate" type="text/x-handlebars-template">
-    {{#each items}}
-    {{#if modal}}
-    <div class="modal fade atvmodalbg" id="modal{{uniqueId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-        <div class="modal-content">
-          <!-- Содержимое модального окна -->
-          <div class="modal-header">
-            <h5 class="modal-title">{{title}}</h5>
-          </div>
-          <div class="modal-body">
-          	<div class="col XXXXX">
-  					<div class="card shadow-sm">
-            <a href="{{href}}" class="reAppCard">
-				    	<img class="png169" src="img/169.png" style="" alt="16to9">
-				    	<div class="AppCard">
-				    		<div class="row align-items-center">
-								<div class="col-4 icoAppCard">
-									<img src="{{img}}" alt="logo {{title}}">
-								</div>
-								<div class="col"><h4>{{title}}</h4></div>
+		.btn_mdl > i {
+			margin-right: 10px;
+		}
+
+		.btn_mdl:hover {
+			background: #282828;
+		}
+	</style>
+	<script id="modalTemplate" type="text/x-handlebars-template">
+		{{#each items}}
+		{{#if modal}}
+		<div class="modal fade atvmodalbg" id="modal{{uniqueId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+				<div class="modal-content">
+					<!-- Содержимое модального окна -->
+					<div class="modal-header">
+						<h5 class="modal-title">{{title}}</h5>
+					</div>
+					<div class="modal-body">
+						<div class="col XXXXX">
+							<div class="card shadow-sm">
+								<a href="{{href}}" class="reAppCard">
+									<img class="png169" src="img/169.png" style="" alt="16to9">
+									<div class="AppCard">
+										<div class="row align-items-center">
+											<div class="col-4 icoAppCard">
+												<img src="{{img}}" alt="logo {{title}}">
+											</div>
+											<div class="col"><h4>{{title}}</h4></div>
+										</div>
+									</div>
+									<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+								</a>
 							</div>
-				    	</div>
-				    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-				    </a>
-				    </div>
-				    </div>
-				    <div class="btns_mdl row">
-				    	<a href="{{href}}" class='btn_mdl'><i class="bi bi-save"></i>Download</a>
-				    	{{#if download2}}
-				    	<a href="{{download2}}" class='btn_mdl'><i class="bi bi-save"></i>Download 2</a>
-				    	{{else}}{{/if}}
-				    	{{#if Source}}
-				    	<a href="" class='btn_mdl col align-self-end'><i class="bi bi-git"></i>Source reference</a>
-				    	{{else}}{{/if}}
-				    </div>
-          </div>
-          <div class="modal-footer">
-          </div>
-        </div>
-      </div>
-    </div>
-    {{/if}}
-    {{/each}}
-  </script>
-<script>
-var counter = 0;
+						</div>
+						<div class="btns_mdl row">
+							<a href="{{href}}" class='btn_mdl'><i class="bi bi-save"></i>Download</a>
+							{{#if download2}}
+							<a href="{{download2}}" class='btn_mdl'><i class="bi bi-save"></i>Download 2</a>
+							{{else}}{{/if}}
+							{{#if Source}}
+							<a href="" class='btn_mdl col align-self-end'><i class="bi bi-git"></i>Source reference</a>
+							{{else}}{{/if}}
+						</div>
+					</div>
+					<div class="modal-footer">
+					</div>
+				</div>
+			</div>
+		</div>
+		{{/if}}
+		{{/each}}
+	</script>
+	<script>
+		var counter = 0;
 
-function generateUniqueId() {
-  counter++;
-  return "modal" + counter;
-}
+		function generateUniqueId() {
+			counter++;
+			return "modal" + counter;
+		}
 
-var data = [
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.2",
-    img: "apk_logo/zona.png",
-    href: "https://apkr.upzona.net/zona2.apk",
-    title: "Zona"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.2",
-    tltps: 1,
-    tltps_fntn_desc: "StrannikModz",
-    tltps_fntn_link: "https://strannikmodz.me/apps/media/253-lazymedia-deluxe-389.html",
-    img: "apk_logo/deluxe.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=5268",
-    title: "Deluxe LazyMedia"
-  },
-  {
-    location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "5.0",
-    tltps: 1,
-    tltps_fntn_desc: "StrannikModz",
-    tltps_fntn_link: "https://strannikmodz.me/apps/media/1067-viewbox.html",
-    img: "apk_logo/viewbox.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=5164",
-    title: "Viewbox"
-  }, 
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.2",
-    img: "apk_logo/msx.png",
-    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/msx+0.1.151.apk",
-    title: "MSX"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.2",
-    img: "apk_logo/vlc.png",
-    href: "https://f-droid.org/repo/org.videolan.vlc_13050408.apk",
-    title: "VLC",
-    card_desk: "Универсальный плеер для локальных и удаленных медиа"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.3",
-    img: "apk_logo/smarttube.png",
-    href: "https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk",
-    title: "Smart Tube"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/torser.png",
-    href: "https://github.com/YouROK/TorrServe/releases/download/MatriX.123.Client/TorrServe_MatriX.123.Client-release.apk",
-    title: "MatriX"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-    adrver: "7.0",
-    geo: "RU",
-    tltps: 1,
-    tltps_fntn_desc: "Wink RT",
-    tltps_fntn_link: "https://wink.ru/faq/150",
-    img: "apk_logo/wink.png",
-    href: "https://static.iptv.rt.ru/files/146400.apk",
-    title: "Wink"
-  },
-  {
-  	location: "CinimaApp",
-    uniqueId: generateUniqueId(),
-	  adrver: "4.2*",
-	  geo: "RU",
-    img: "apk_logo/lime.png",
-    href: "https://pixeldrain.com/api/file/RHiAf4Su?download",
-    title: "Lime HDTV"
-  },
+		var data = [
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.2",
+			img: "apk_logo/zona.png",
+			href: "https://apkr.upzona.net/zona2.apk",
+			title: "Zona"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.2",
+			tltps: 1,
+			tltps_fntn_desc: "StrannikModz",
+			tltps_fntn_link: "https://strannikmodz.me/apps/media/253-lazymedia-deluxe-389.html",
+			img: "apk_logo/deluxe.png",
+			href: "https://strannikmodz.me/index.php?do=download&id=5268",
+			title: "Deluxe LazyMedia"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "5.0",
+			tltps: 1,
+			tltps_fntn_desc: "StrannikModz",
+			tltps_fntn_link: "https://strannikmodz.me/apps/media/1067-viewbox.html",
+			img: "apk_logo/viewbox.png",
+			href: "https://strannikmodz.me/index.php?do=download&id=5164",
+			title: "Viewbox"
+		}, 
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.2",
+			img: "apk_logo/msx.png",
+			href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/msx+0.1.151.apk",
+			title: "MSX"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.2",
+			img: "apk_logo/vlc.png",
+			href: "https://f-droid.org/repo/org.videolan.vlc_13050408.apk",
+			title: "VLC",
+			card_desk: "Универсальный плеер для локальных и удаленных медиа"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.3",
+			img: "apk_logo/smarttube.png",
+			href: "https://github.com/yuliskov/SmartTubeNext/releases/download/latest/smarttube_stable.apk",
+			title: "Smart Tube"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/torser.png",
+			href: "https://github.com/YouROK/TorrServe/releases/download/MatriX.123.Client/TorrServe_MatriX.123.Client-release.apk",
+			title: "MatriX"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "Wink RT",
+			tltps_fntn_link: "https://wink.ru/faq/150",
+			img: "apk_logo/wink.png",
+			href: "https://static.iptv.rt.ru/files/146400.apk",
+			title: "Wink"
+		},
+		{
+			location: "CinimaApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.2*",
+			geo: "RU",
+			img: "apk_logo/lime.png",
+			href: "https://pixeldrain.com/api/file/RHiAf4Su?download",
+			title: "Lime HDTV"
+		},
   //////////////////
-   {
-		location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "5.0",
-    img: "apk_logo/openvpn.png",
-    href: "https://github.com/schwabe/ics-openvpn/releases/download/v0.7.51/ics-openvpn-0.7.51.apk",
-    title: "OpenVPN",
-    card_desk: "VPN для безопасного Интернет-соединения"
-  },
-     {
-		location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "ATV",
-    img: "apk_logo/AerialViews.webp",
-    href: "https://github.com/theothernt/AerialViews/releases/download/1.6.1/aerial-views-1.6.1.apk",
-    title: "Aerial Views",
-    card_desk: "Screensaver"
-  },
-  {
-		location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "ATV",
-    img: "apk_logo/adbtv.png",
-    href: "https://adbappcontrol.com/tv/download",
-    title: "ADB TV"
-  },
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "5.0",
+			img: "apk_logo/openvpn.png",
+			href: "https://github.com/schwabe/ics-openvpn/releases/download/v0.7.51/ics-openvpn-0.7.51.apk",
+			title: "OpenVPN",
+			card_desk: "VPN для безопасного Интернет-соединения"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "ATV",
+			img: "apk_logo/AerialViews.webp",
+			href: "https://github.com/theothernt/AerialViews/releases/download/1.6.1/aerial-views-1.6.1.apk",
+			title: "Aerial Views",
+			card_desk: "Screensaver"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "ATV",
+			img: "apk_logo/adbtv.png",
+			href: "https://adbappcontrol.com/tv/download",
+			title: "ADB TV"
+		},
   /*
   {
   	location: "SysApp",
@@ -604,51 +604,51 @@ var data = [
     title: "APK Extractor"
   },
   */
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "4.0",
-    tltps: 1,
-    tltps_fntn_desc: "GitHub",
-    tltps_fntn_link: "https://github.com/yuliskov/LeanKeyKeyboard/releases/latest",
-    img: "apk_logo/LeanKey.png",
-    href: "https://github.com/yuliskov/LeanKeyKeyboard/releases/download/6.1.23/LeanKeyKeyboard_v6.1.23_playstore_r.apk",
-    title: "LeanKey"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "8.0",
-    img: "apk_logo/gboard.png",
-    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/Gboard+12.8-tv_armeabi-v7a.apk",
-    title: "GBoard"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/F-Droid.png",
-    href: "https://f-droid.org/F-Droid.apk",
-    title: "F-Droid"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "5.0",
-    img: "apk_logo/aurora.png",
-    tltps: 1,
-    tltps_fntn_desc: "F-Droid",
-    tltps_fntn_link: "hhttps://f-droid.org/packages/com.aurora.store/#latest",
-    href: "https://f-droid.org/repo/com.aurora.store_56.apk",
-    title: "Aurora Store"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "6.0",
-    img: "apk_logo/tvbro.jpg",
-    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
-    title: "TVBro"
-  },
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "4.0",
+			tltps: 1,
+			tltps_fntn_desc: "GitHub",
+			tltps_fntn_link: "https://github.com/yuliskov/LeanKeyKeyboard/releases/latest",
+			img: "apk_logo/LeanKey.png",
+			href: "https://github.com/yuliskov/LeanKeyKeyboard/releases/download/6.1.23/LeanKeyKeyboard_v6.1.23_playstore_r.apk",
+			title: "LeanKey"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "8.0",
+			img: "apk_logo/gboard.png",
+			href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/Gboard+12.8-tv_armeabi-v7a.apk",
+			title: "GBoard"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/F-Droid.png",
+			href: "https://f-droid.org/F-Droid.apk",
+			title: "F-Droid"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "5.0",
+			img: "apk_logo/aurora.png",
+			tltps: 1,
+			tltps_fntn_desc: "F-Droid",
+			tltps_fntn_link: "hhttps://f-droid.org/packages/com.aurora.store/#latest",
+			href: "https://f-droid.org/repo/com.aurora.store_56.apk",
+			title: "Aurora Store"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "6.0",
+			img: "apk_logo/tvbro.jpg",
+			href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/TVBrowser.apk",
+			title: "TVBro"
+		},
   /*
   {
   	location: "SysApp",
@@ -658,56 +658,56 @@ var data = [
     title: "WebView"
   },
   */
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "5.1",
-    tltps: 1,
-    tltps_fntn_desc: "GitHub",
-    tltps_fntn_link: "https://github.com/tsynik/LeanbackLauncher/releases/latest",
-    img: "apk_logo/Leanback.png",
-    href: "https://github.com/tsynik/LeanbackLauncher/releases/download/v1.58/LeanbackOnFire_v1.58-release.apk",
-    title: "Leanback Launcher"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "7.0",
-    img: "apk_logo/tvQA.png",
-    href: "https://strannikmodz.me/index.php?do=download&id=4361",
-    title: "tvQuick Actions"
-  },
-  {
-  	location: "SysApp",
-  	adrver: "6.0",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/xplore.png",
-    href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/xplore_4.30_unvrsl.apk",
-    title: "X-plore"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/Volumectrl.webp",
-    href: "https://github.com/atvstart/atvstart.github.io/blob/main/repo/com.punksta.apps.volumecontrol_29.apk?raw=true",
-    title: "Volume Control"
-  },
-  {
-  	location: "SysApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/invizible.png",
-    href: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_18503.apk",
-    title: "InviZible Pro"
-  },
-  {
-		location: "SysApp",
-    uniqueId: generateUniqueId(),
-    adrver: "5.0",
-    img: "apk_logo/EmotnUI.png",
-    href: "apks/EmotnUI.apk",
-    title: "Emotn launcher",
-    card_desk: "Лаунчер с погодой"
-  },
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "5.1",
+			tltps: 1,
+			tltps_fntn_desc: "GitHub",
+			tltps_fntn_link: "https://github.com/tsynik/LeanbackLauncher/releases/latest",
+			img: "apk_logo/Leanback.png",
+			href: "https://github.com/tsynik/LeanbackLauncher/releases/download/v1.58/LeanbackOnFire_v1.58-release.apk",
+			title: "Leanback Launcher"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0",
+			img: "apk_logo/tvQA.png",
+			href: "https://strannikmodz.me/index.php?do=download&id=4361",
+			title: "tvQuick Actions"
+		},
+		{
+			location: "SysApp",
+			adrver: "6.0",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/xplore.png",
+			href: "https://github.com/atvxgo/atvxgo.github.io/raw/main/apks/xplore_4.30_unvrsl.apk",
+			title: "X-plore"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/Volumectrl.webp",
+			href: "https://github.com/atvstart/atvstart.github.io/blob/main/repo/com.punksta.apps.volumecontrol_29.apk?raw=true",
+			title: "Volume Control"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/invizible.png",
+			href: "https://f-droid.org/repo/pan.alexander.tordnscrypt.stable_18503.apk",
+			title: "InviZible Pro"
+		},
+		{
+			location: "SysApp",
+			uniqueId: generateUniqueId(),
+			adrver: "5.0",
+			img: "apk_logo/EmotnUI.png",
+			href: "apks/EmotnUI.apk",
+			title: "Emotn launcher",
+			card_desk: "Лаунчер с погодой"
+		},
   /*
   {
   	location: "SysApp",
@@ -718,88 +718,88 @@ var data = [
   },
   */
   ////////////////////////////////////////
-  {
-  	location: "GllrApp",
-		modal: 1,
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/tvphoto.png",
-    href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
-    title: "TV Photo",
-    download2: "https://pixeldrain.com/api/file/P6tUALdj?download",
-    Source: "/"
-  },
-  {
-  	location: "GllrApp",
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/kodi.png",
-    href: "https://mirrors.kodi.tv/releases/android/arm/kodi-20.1-Nexus-armeabi-v7a.apk?https=1",
-    title: "KODI"
-  },
-  {
-  	location: "GllrApp",
-  	modal: 1,
-    uniqueId: generateUniqueId(),
-    img: "apk_logo/miphoto.jpg",
-    href: "https://pixeldrain.com/api/file/DFaDtEJu?download",
-    title: "Mi Gallery"
-  }
-];
+		{
+			location: "GllrApp",
+			modal: 1,
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/tvphoto.png",
+			href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
+			title: "TV Photo",
+			download2: "https://pixeldrain.com/api/file/P6tUALdj?download",
+			Source: "/"
+		},
+		{
+			location: "GllrApp",
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/kodi.png",
+			href: "https://mirrors.kodi.tv/releases/android/arm/kodi-20.1-Nexus-armeabi-v7a.apk?https=1",
+			title: "KODI"
+		},
+		{
+			location: "GllrApp",
+			modal: 1,
+			uniqueId: generateUniqueId(),
+			img: "apk_logo/miphoto.jpg",
+			href: "https://pixeldrain.com/api/file/DFaDtEJu?download",
+			title: "Mi Gallery"
+		}
+		];
 
 var template = `
-  {{#each items}}
-  {{#if modal}}
+{{#each items}}
+{{#if modal}}
 <div class="col XXXXX">
-  <div class="card shadow-sm">
-  	<a class="reAppCard" type="button" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{uniqueId}}"">
-    	<img class="png169" src="img/169.png" style="" alt="16to9">
-    	<div class="AppCard">
-    		<div class="row align-items-center">
-				<div class="col-4 icoAppCard">
-					<img src="{{img}}" class="appIcon" alt="logo {{title}}">
-				</div>
-				<div class="col"><h4>{{title}}</h4></div>
-					<div class="mindwn"><i class="bi bi-download"></i></div>
-					{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
-			</div>
-    	</div>
-    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-    </a>
-  </div>
+<div class="card shadow-sm">
+<a class="reAppCard" type="button" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{uniqueId}}"">
+<img class="png169" src="img/169.png" style="" alt="16to9">
+<div class="AppCard">
+<div class="row align-items-center">
+<div class="col-4 icoAppCard">
+<img src="{{img}}" class="appIcon" alt="logo {{title}}">
 </div>
- 	 {{else}}
- 	<div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
-  <div class="card shadow-sm">
-  	<a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
-  		{{#if tltps}}
-  			data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
-  			data-bs-title="
-  				<a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
-  		"{{/if}}
-  	>
-    	<img class="png169" src="img/169.png" style="" alt="16to9">
-    	<div class="AppCard">
-    		<div class="row align-items-center">
-				<div class="col-4 icoAppCard">
-					<img src="{{img}}" class="appIcon" alt="logo {{title}}">
-				</div>
-				<div class="col infoAppCard">
-					<h4 class="AppCardtitle">{{title}}</h4>
-					{{#if card_desk}}
-					<!--
-					<div class="card_desk">{{card_desk}}</div>-->
-					{{/if}}
-				</div>
-					<div class="mindwn"><i class="bi bi-download"></i></div>
-					{{#if adrver}}<div class="mindesc">{{#if tltps}}<i class="bi bi-hexagon-fill"></i>{{/if}}<i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
-			</div>
-    	</div>
-    	<div class="bgAppBLR" style="background-image: url({{img}});"></div>
-    </a>
-  </div>
+<div class="col"><h4>{{title}}</h4></div>
+<div class="mindwn"><i class="bi bi-download"></i></div>
+{{#if adrver}}<div class="mindesc"><i class="bi bi-android"></i>{{adrver}}</div>{{/if}}
 </div>
-   {{/if}}
+</div>
+<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+</a>
+</div>
+</div>
+{{else}}
+<div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
+<div class="card shadow-sm">
+<a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
+{{#if tltps}}
+data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
+data-bs-title="
+<a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
+"{{/if}}
+>
+<img class="png169" src="img/169.png" style="" alt="16to9">
+<div class="AppCard">
+<div class="row align-items-center">
+<div class="col-4 icoAppCard">
+<img src="{{img}}" class="appIcon" alt="logo {{title}}">
+</div>
+<div class="col infoAppCard">
+<h4 class="AppCardtitle">{{title}}</h4>
+{{#if card_desk}}
+<!--
+<div class="card_desk">{{card_desk}}</div>-->
+{{/if}}
+</div>
+<div class="mindwn"><i class="bi bi-download"></i></div>
+{{#if adrver}}<div class="mindesc">{{#if tltps}}<i class="bi bi-hexagon-fill"></i>{{/if}}<i class="bi bi-android"></i><span>{{adrver}}</span></div>{{/if}}
+</div>
+</div>
+<div class="bgAppBLR" style="background-image: url({{img}});"></div>
+</a>
+</div>
+</div>
+{{/if}}
 
-  {{/each}}
+{{/each}}
 `;
 
 // Initializing Handlebars
@@ -823,36 +823,36 @@ document.getElementById("CinimaApp").innerHTML = htmlCApp;
 document.getElementById("SysApp").innerHTML = htmlBApp;
 document.getElementById("GllrApp").innerHTML = htmlAApp;
 </script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 
 
 
-		        <script type="text/javascript">
+<script type="text/javascript">
                             // Функция для добавления кнопки "Показать еще"
-function addMoreButton() {
-    const parentContainer = document.getElementById('SysApp');
+	function addMoreButton() {
+		const parentContainer = document.getElementById('SysApp');
     const startHiddenIndex = getStartHiddenIndex(); // Инициализация начального значения
     const blockX = parentContainer.querySelector(`.child_appcard:nth-child(${startHiddenIndex})`);
 
     // Создаем структуру кнопки с использованием HTML-разметки
     const moreButtonHTML = `
-        <div class="col show-more-button-container">
-            <div class="card shadow-sm">
-                <div class="reAppCard" type="button">
-                    <img class="png169" src="img/169.png" style="" alt="16to9">
-                    <div class="AppCard">
-                        <div class="row align-items-center">
-                            <div class="col-4 icoAppCard">
-                                <img src="apk_logo/appsmore.jpg" class="appIcon" alt="logo more app">
-                            </div>
-                            <div class="col"><h4 class="show-more-button">show apps (${allBlocks.length - 9})</h4></div>
-                        </div>
-                    </div>
-                    <div class="bgAppBLR" style="background-image: urlapk_logo/appsmore.jpg);"></div>
-                </div>
-            </div>
-        </div>
+    <div class="col show-more-button-container">
+    <div class="card shadow-sm">
+    <div class="reAppCard" type="button">
+    <img class="png169" src="img/169.png" style="" alt="16to9">
+    <div class="AppCard">
+    <div class="row align-items-center">
+    <div class="col-4 icoAppCard">
+    <img src="apk_logo/appsmore.jpg" class="appIcon" alt="logo more app">
+    </div>
+    <div class="col"><h4 class="show-more-button">show apps (${allBlocks.length - 9})</h4></div>
+    </div>
+    </div>
+    <div class="bgAppBLR" style="background-image: urlapk_logo/appsmore.jpg);"></div>
+    </div>
+    </div>
+    </div>
     `;
 
     // Преобразуем HTML-строку в DOM-элемент
@@ -863,230 +863,230 @@ function addMoreButton() {
 
     // Возвращаем ссылку на кнопку
     return parentContainer.querySelector('.show-more-button-container');
-}
+  }
 
 // Функция для получения начального индекса, зависящего от размера экрана
-function getStartHiddenIndex() {
-    return window.innerWidth < 1200 ? 7 : 9;
-}
+  function getStartHiddenIndex() {
+  	return window.innerWidth < 1200 ? 7 : 9;
+  }
 
 // Инициализация
-var startHiddenIndex = getStartHiddenIndex();
-const parentContainer = document.getElementById('SysApp');
-const allBlocks = parentContainer.querySelectorAll('.child_appcard');
-const moreButtonContainer = addMoreButton();
-const moreButton = moreButtonContainer.querySelector('.show-more-button');
+  var startHiddenIndex = getStartHiddenIndex();
+  const parentContainer = document.getElementById('SysApp');
+  const allBlocks = parentContainer.querySelectorAll('.child_appcard');
+  const moreButtonContainer = addMoreButton();
+  const moreButton = moreButtonContainer.querySelector('.show-more-button');
 
 // Устанавливаем начальный текст кнопки с учетом общего числа блоков
-moreButton.textContent = `show apps (${allBlocks.length - startHiddenIndex})`;
+  moreButton.textContent = `show apps (${allBlocks.length - startHiddenIndex})`;
 
 // Переключаем видимость блоков при загрузке страницы
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     // Показываем только первые startHiddenIndex блоков, остальные скрываем
-    allBlocks.forEach((block, index) => {
-        if (index >= startHiddenIndex) {
-            block.style.display = 'none';
-        }
-    });
+  	allBlocks.forEach((block, index) => {
+  		if (index >= startHiddenIndex) {
+  			block.style.display = 'none';
+  		}
+  	});
 
     // Добавляем обработчик события для блока с кнопкой
-    moreButtonContainer.addEventListener('click', function () {
+  	moreButtonContainer.addEventListener('click', function () {
         // Переключаем видимость блоков начиная с (startHiddenIndex + 1)
-        const hiddenBlocks = parentContainer.querySelectorAll(`.child_appcard:nth-child(n+${startHiddenIndex + 1})`);
-        hiddenBlocks.forEach(block => {
-            block.style.display = block.style.display === 'none' ? '' : 'none';
-        });
+  		const hiddenBlocks = parentContainer.querySelectorAll(`.child_appcard:nth-child(n+${startHiddenIndex + 1})`);
+  		hiddenBlocks.forEach(block => {
+  			block.style.display = block.style.display === 'none' ? '' : 'none';
+  		});
 
         // Обновляем текст кнопки после каждого клика
-        updateButtonText();
-    });
+  		updateButtonText();
+  	});
 
     // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
-    function updateButtonText() {
-        const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
-        const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - startHiddenIndex})` : `hide apps (${allBlocks.length - startHiddenIndex})`;
-        moreButton.textContent = buttonText;
-    }
-});
+  	function updateButtonText() {
+  		const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
+  		const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - startHiddenIndex})` : `hide apps (${allBlocks.length - startHiddenIndex})`;
+  		moreButton.textContent = buttonText;
+  	}
+  });
 
 // Обработчик изменения размера экрана
-window.addEventListener('resize', function () {
-    const newStartHiddenIndex = getStartHiddenIndex();
+  window.addEventListener('resize', function () {
+  	const newStartHiddenIndex = getStartHiddenIndex();
 
     // Проверяем, изменился ли startHiddenIndex
-    if (newStartHiddenIndex !== startHiddenIndex) {
+  	if (newStartHiddenIndex !== startHiddenIndex) {
         // Обновляем startHiddenIndex
-        startHiddenIndex = newStartHiddenIndex;
+  		startHiddenIndex = newStartHiddenIndex;
 
         // Переключаем видимость блоков при изменении startHiddenIndex
-        allBlocks.forEach((block, index) => {
-            block.style.display = index >= startHiddenIndex ? 'none' : '';
-        });
+  		allBlocks.forEach((block, index) => {
+  			block.style.display = index >= startHiddenIndex ? 'none' : '';
+  		});
 
         // Обновляем текст кнопки с учетом нового startHiddenIndex
-        updateButtonText();
-    }
-});
-        </script>
+  		updateButtonText();
+  	}
+  });
+</script>
 
 
 
-	<div class="REbg-body"></div>
-	<div class="bg-body" id="myElement"></div>
-	<script src="urls.js"></script>
+<div class="REbg-body"></div>
+<div class="bg-body" id="myElement"></div>
+<script src="urls.js"></script>
 
-	<script>
+<script>
 	  // Loading links from the urls.js
-	  var urls = window.urls;
+	var urls = window.urls;
 
 	  // Selecting a random link
-	  var randomUrl = urls[Math.floor(Math.random() * urls.length)];
+	var randomUrl = urls[Math.floor(Math.random() * urls.length)];
 
 	  // Applying a link to the background-image of an element
-	  document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
-	</script>
+	document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
+</script>
 
-		<div class="sizescren">
-		  <span id="screenWidth"></span><span>x</span><span id="screenHeight"></span> 
-  	</div>
+<div class="sizescren">
+	<span id="screenWidth"></span><span>x</span><span id="screenHeight"></span> 
+</div>
 
-	<script>
+<script>
         // 
-        var screenWidthElement = document.getElementById("screenWidth");
-        var screenHeightElement = document.getElementById("screenHeight");
-        var sizeDisplayElement = document.getElementById("sizedisplay");
+	var screenWidthElement = document.getElementById("screenWidth");
+	var screenHeightElement = document.getElementById("screenHeight");
+	var sizeDisplayElement = document.getElementById("sizedisplay");
 
         // 
-        function updateScreenSize() {
+	function updateScreenSize() {
             screenWidthElement.textContent = window.innerWidth; //
             screenHeightElement.textContent = window.innerHeight; // 
             sizeDisplayElement.textContent = window.innerWidth + "x" + window.innerHeight; //
-        }
+          }
 
         // 
-        window.addEventListener("load", updateScreenSize);
-        window.addEventListener("resize", updateScreenSize);
-    </script>
+          window.addEventListener("load", updateScreenSize);
+          window.addEventListener("resize", updateScreenSize);
+        </script>
 
-<script type="text/javascript">
+        <script type="text/javascript">
 	//Подсказки PRO
-</script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function () {
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
+        </script>
+        <script type="text/javascript">
+        	document.addEventListener('DOMContentLoaded', function () {
+        		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
         trigger: 'manual' // устанавливаем ручное управление показом подсказки
-    }));
+      }));
 
-    const switchElement = document.getElementById('flexSwitchCheckChecked');
+        		const switchElement = document.getElementById('flexSwitchCheckChecked');
 
     // Обработчик изменения состояния переключателя
-    switchElement.addEventListener('change', function() {
+        		switchElement.addEventListener('change', function() {
         const isChecked = this.checked; // Получаем состояние переключателя (true или false)
 
         // В зависимости от состояния переключателя, включаем или отключаем работу подсказок
         tooltipList.forEach(tooltip => {
-            if (isChecked) {
-                tooltip.enable();
-            } else {
-                tooltip.disable();
-            }
+        	if (isChecked) {
+        		tooltip.enable();
+        	} else {
+        		tooltip.disable();
+        	}
         });
 
         // Устанавливаем соответствующий обработчик клика на ссылки
         const linkHandler = isChecked ? handleTooltipClick : handleLinkClick;
         document.querySelectorAll('a[data-trigger="click"]').forEach(link => {
-            link.removeEventListener('click', handleLinkClick);
-            link.removeEventListener('click', handleTooltipClick);
-            link.addEventListener('click', linkHandler);
+        	link.removeEventListener('click', handleLinkClick);
+        	link.removeEventListener('click', handleTooltipClick);
+        	link.addEventListener('click', linkHandler);
         });
-    });
+      });
 
     // Обработчик клика на ссылку для перехода по ней
-    function handleLinkClick(e) {
+        		function handleLinkClick(e) {
         const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
         if (tooltip && tooltip._isOpen) { // Если подсказка открыта
             tooltip.hide(); // Скрываем её
-        } else {
+          } else {
             return true; // Разрешаем переход по ссылке
+          }
         }
-    }
 
     // Обработчик клика на ссылку для показа подсказки
-    function handleTooltipClick(e) {
+        function handleTooltipClick(e) {
         e.preventDefault(); // Предотвращаем стандартное действие перехода по ссылке
         const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
         if (tooltip) {
             if (tooltip._isOpen) { // если подсказка открыта
                 tooltip.hide(); // скрываем её
-            } else {
+              } else {
                 // Закрываем все открытые подсказки перед показом новой
-                tooltipList.forEach(t => {
-                    if (t._isOpen && t !== tooltip) {
-                        t.hide();
-                    }
-                });
+              	tooltipList.forEach(t => {
+              		if (t._isOpen && t !== tooltip) {
+              			t.hide();
+              		}
+              	});
                 tooltip.show(); // иначе показываем
+              }
             }
-        }
-    }
+          }
 
     // Закрытие подсказок при клике вне них
-    document.addEventListener('click', function (e) {
-        tooltipList.forEach(tooltip => {
+          document.addEventListener('click', function (e) {
+          	tooltipList.forEach(tooltip => {
             const targetElement = e.target; // Элемент, по которому был произведен клик
             if (!tooltip._element.contains(targetElement)) { // Проверяем, что клик был не внутри подсказки
                 tooltip.hide(); // Закрываем подсказку
-            }
+              }
+            });
+          });
         });
-    });
-});
 
 
 
-</script>
+      </script>
 
 
-<script>
-    const fac = new FastAverageColor();
+      <script>
+      	const fac = new FastAverageColor();
     const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
 
     // Итерация по элементам вручную с использованием цикла for
     for (var i = 0; i < appIcons.length; i++) {
-        (function(index) {
-            const appIcon = appIcons[index];
-            fac.getColorAsync(appIcon)
-                .then(function(color) {
+    	(function(index) {
+    		const appIcon = appIcons[index];
+    		fac.getColorAsync(appIcon)
+    		.then(function(color) {
                     color.rgba.a = 0.75; // Устанавливаем значение прозрачности
                     const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
                     bgAppBLR.style.backgroundColor = color.rgba;
                     bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
-                })
-                .catch(function(e) {
-                    console.log(e);
-                });
-        })(i);
+                  })
+    		.catch(function(e) {
+    			console.log(e);
+    		});
+    	})(i);
     }
-</script>
+  </script>
 
-	<script>
+  <script>
 		// Функция для скрытия блоков с классом
-		function hideBlocksByClass(className) {
-		    $('.' + className).hide();
-		}
+  	function hideBlocksByClass(className) {
+  		$('.' + className).hide();
+  	}
 
 		// Главная логика
-		function mainLogic(countryCode) {
+  	function mainLogic(countryCode) {
 		    // Проверяем геолокацию и скрываем блоки с классом **, если она не совпадает
-		    if (countryCode !== 'RU') {
-		        hideBlocksByClass('RU');
-		    }
-		}
+  		if (countryCode !== 'RU') {
+  			hideBlocksByClass('RU');
+  		}
+  	}
 
 		// Выполняем главную логику
-		$(document).ready(function() {
+  	$(document).ready(function() {
 		    // Получаем IP-адрес пользователя
-		    $.getJSON('https://api64.ipify.org/?format=json', function(data) {
+  		$.getJSON('https://api64.ipify.org/?format=json', function(data) {
 		        const ip = data.ip; // Получаем IP-адрес пользователя
 		        // Получаем информацию о геолокации пользователя на основе IP-адреса
 		        $.getJSON('https://ipapi.co/' + ip + '/json', function(data) {
@@ -1094,33 +1094,33 @@ document.addEventListener('DOMContentLoaded', function () {
 		            $('#currentCountry').text(ip + ' ' + countryCode);
 		            // Вызываем главную логику
 		            mainLogic(countryCode);
-		        });
-		    });
-		});
-	</script>
+		          });
+		      });
+  	});
+  </script>
 
 
-	  <script>
-	  	document.addEventListener("DOMContentLoaded", function() {
+  <script>
+  	document.addEventListener("DOMContentLoaded", function() {
 	    // Получаем user agent
-	    var userAgent = navigator.userAgent.toLowerCase();
+  		var userAgent = navigator.userAgent.toLowerCase();
 
 	    // Enter user agent in div
-      document.getElementById("touserAgent").textContent += userAgent;
+  		document.getElementById("touserAgent").textContent += userAgent;
 
 	    // Проверяем, содержит ли user agent строку "xbovser"
-      if (userAgent.includes("TV Bro")) {
+  		if (userAgent.includes("TV Bro")) {
         // Получаем все элементы с классом "xdiv"
-        var xdivElements = document.querySelectorAll(".AppCardtitle");
+  			var xdivElements = document.querySelectorAll(".AppCardtitle");
 
         // Добавляем класс "larger" ко всем элементам
-        xdivElements.forEach(function(element) {
-          element.classList.add("brotv");
-        });
-      }
-	    });
-	  </script>
+  			xdivElements.forEach(function(element) {
+  				element.classList.add("brotv");
+  			});
+  		}
+  	});
+  </script>
 
 </script>
-	</body>
+</body>
 </html>
