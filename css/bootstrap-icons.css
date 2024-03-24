@@ -26,16 +26,16 @@ url("./fonts/bootstrap-icons.woff?2820a3852bdb9a5832199cc61cec4e65") format("wof
   -moz-osx-font-smoothing: grayscale;
 }
 
-.bi-android::before { content: "\f7d0"; }
-.bi-hexagon::before { content: "\f41d"; }
-.bi-hexagon-fill::before { content: "\f41b"; }
-.bi-terminal-fill::before { content: "\f5c2"; }
-.bi-terminal::before { content: "\f5c3"; }
-.bi-tv::before { content: "\f5ed"; }
-.bi-justify::before { content: "\f44b"; }
-.bi-cast::before { content: "\f248"; }
-.bi-gear-wide-connected::before { content: "\f3e3"; }
-.bi-google-play::before { content: "\f7f7"; }
-.bi-save::before { content: "\f525"; }
-.bi-box-arrow-up-right::before { content: "\f1c5"; }
-.bi-info-circle::before { content: "\f431"; }
+.bi-android::before { content: "\f7d0" !important; }
+.bi-hexagon::before { content: "\f41d" !important; }
+.bi-hexagon-fill::before { content: "\f41b" !important; }
+.bi-terminal-fill::before { content: "\f5c2" !important; }
+.bi-terminal::before { content: "\f5c3" !important; }
+.bi-tv::before { content: "\f5ed" !important; }
+.bi-justify::before { content: "\f44b" !important; }
+.bi-cast::before { content: "\f248" !important; }
+.bi-gear-wide-connected::before { content: "\f3e3" !important; }
+.bi-google-play::before { content: "\f7f7" !important; }
+.bi-save::before { content: "\f525" !important; }
+.bi-box-arrow-up-right::before { content: "\f1c5" !important; }
+.bi-info-circle::before { content: "\f431" !important; }
