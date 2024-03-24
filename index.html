@@ -76,9 +76,8 @@
 		}
 		.hdr-fnt {
 			text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.25), 1px 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.25);
-
 			padding: 10px;
-			/*backdrop-filter: blur(9px);*/
+			height: 60px;
 			background: rgba(0, 0, 0, 0.125);
 			border-radius: 5px;
 			margin: 10px auto;
@@ -395,7 +394,7 @@
 							<a class="float-start btn btn-getioon btn-fdroid w-50" href="https://f-droid.org/ru/packages/com.termux" target="_blank" style="max-width: 48%;">Termux</a>
 							<a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.termux" target="_blank" style="max-width: 48%;">Termux</a>
 						</div>
-						<div class="bd-callout bd-callout-dark">
+						<div class="bd-callout bd-callout-dark cmd p-2">
 							<span class="badge text-bg-dark">apt update</span></br>
 							<span class="badge text-bg-dark">apt install git</span></br>
 							<span class="badge text-bg-dark">git clone github.com/MasterDevX/Termux-ADB.git</span></br>
@@ -404,7 +403,7 @@
 							<span class="badge text-bg-dark">adb</span></br>
 						</div>
 						</br>
-						<div class="bd-callout bd-callout-dark">
+						<div class="bd-callout bd-callout-dark cmd p-2">
 							<span class="badge text-bg-dark">cd storage/emulated/0/download/apks</span></br>
 							<span class="badge text-bg-dark">adb connect 192.168.0.15:5555</span></br>
 							<span class="badge text-bg-dark">adb install "TVBrowser.apk"</span></br>
@@ -413,13 +412,16 @@
 						</div>
 					</div>
 					<div class="modal-footer" style="justify-content: center;">
-						<i class="bi bi-info-circle"></i>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<style>
+		.cmd > .badge{
+			user-select: all;
+		}
+
 		/*Apple Store - Google Play Button Code*/
 		@font-face {
 		    font-family: "Product Sans";
