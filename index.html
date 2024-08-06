@@ -244,6 +244,10 @@
 			width: 100%;
 		}
 
+		.tooltip {
+			--bs-tooltip-font-size: 1rem;
+		}
+
 		.custom-tooltip{
 			--bs-tooltip-bg: #282828;
 			color: #f1f1f1;
@@ -327,16 +331,6 @@
 
 			</div>
 			<br>
-
-			<h5 class="tl_cat" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-				<i class="bi bi-gear-wide-connected"></i> 
-				Gallery App
-			</h5>
-			<div class="collapse" id="collapseExample">
-				<div id="GllrApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-
-				</div>
-			</div>
 		</div>
 
 		<div class="container">
@@ -612,17 +606,6 @@
 			img: "apk_logo/Lampa.jpg",
 			href: "https://github.com/lampa-app/LAMPA/releases/latest/download/app-lite-release.apk",
 			title: "Lampa"
-		},
-		{
-			location: "CinimaApp",
-			uniqueId: generateUniqueId(),
-			adrver: "5.0",
-			tltps: 1,
-			tltps_fntn_desc: "StrannikModz",
-			tltps_fntn_link: "https://strannikmodz.me/apps/media/1067-viewbox.html",
-			img: "apk_logo/viewbox.jpg",
-			href: "https://strannikmodz.me/index.php?do=download&id=5164",
-			title: "Viewbox"
 		}, 
 		{
 			location: "CinimaApp",
@@ -659,13 +642,13 @@
 		{
 			location: "CinimaApp",
 			uniqueId: generateUniqueId(),
-			adrver: "7.0",
+			adrver: "7.0 | 1.48.5.1",
 			geo: "RU",
 			tltps: 1,
 			tltps_fntn_desc: "Wink RT",
 			tltps_fntn_link: "https://wink.ru/faq/150",
 			img: "apk_logo/wink.jpg",
-			href: "https://static.iptv.rt.ru/files/146400.apk",
+			href: "https://static.iptv.rt.ru/files/1485010.apk",
 			title: "Wink"
 		},
 		{
@@ -827,31 +810,6 @@
   },
   */
   ////////////////////////////////////////
-		{
-			location: "GllrApp",
-			modal: 1,
-			uniqueId: generateUniqueId(),
-			img: "apk_logo/tvphoto.jpg",
-			href: "https://pixeldrain.com/api/file/tcCXAyAF?download",
-			title: "TV Photo",
-			download2: "https://pixeldrain.com/api/file/P6tUALdj?download",
-			Source: "/"
-		},
-		{
-			location: "GllrApp",
-			uniqueId: generateUniqueId(),
-			img: "apk_logo/kodi.jpg",
-			href: "https://mirrors.kodi.tv/releases/android/arm/kodi-20.1-Nexus-armeabi-v7a.apk?https=1",
-			title: "KODI"
-		},
-		{
-			location: "GllrApp",
-			modal: 1,
-			uniqueId: generateUniqueId(),
-			img: "apk_logo/miphoto.jpg",
-			href: "https://pixeldrain.com/api/file/DFaDtEJu?download",
-			title: "Mi Gallery"
-		}
 		];
 
 var template = `
@@ -901,11 +859,9 @@ var compiledTemplate = Handlebars.compile(template);
 // Generate HTML for each block using data from a federated database
 var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
 var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
-var htmlAApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'GllrApp'; }) });
 
 document.getElementById("CinimaApp").innerHTML = htmlCApp;
 document.getElementById("SysApp").innerHTML = htmlBApp;
-document.getElementById("GllrApp").innerHTML = htmlAApp;
 </script>
 <script src="js/bootstrap.bundle.min.js"></script>
 
