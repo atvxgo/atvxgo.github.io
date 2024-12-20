@@ -212,7 +212,7 @@
 			padding: 10px;
 			background: rgba(0, 0, 0, 0.125);
 			border-radius: 5px;
-			margin: 10px auto;
+			margin: 10px 0;
 		}
 
 		.bd-callout {
@@ -426,32 +426,40 @@
 	</script>
 	<div class="cnt">
 		<div class="container">
-			<div class="row justify-content-md-center" style="padding: 0 12px;" >
+			<div class="row justify-content-between gx-2" >
 				<!--
 			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
 			    	<i class="bi bi-gear"></i>
 					</div>
 				-->
-				<div class="col-md-auto hdr-fnt set   form-check form-switch" style="margin-right: 10px;text-align: center;max-height: 68px;width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
+				<div class="col-12 col-md">
+					<div class="hdr-fnt row row-cols-sm-2">
+						<div class="col">
+							<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
+								<i class="bi bi-android"></i>
+								ATVxGO
+							</a>
+						</div>
+						<div class="col">
+							<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-2 col-md-auto">
+					<div class="hdr-fnt set   form-check form-switch" style="text-align: center;height: 68px;max-width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
 					<label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
 					<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
-				</div>
-				<div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;" data-bs-toggle="modal" data-bs-target="#modalmodalTI">
-					<i class="bi bi-terminal"></i>
-				</div>
-				<div class="col row row-cols-sm-2 hdr-fnt">
-					<div class="col">
-						<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
-							<i class="bi bi-android"></i>
-							ATVxGO
-						</a>
-					</div>
-					<div class="col">
-						<p id="time" class="display-6 text-end" style="margin: 0;">22:46:22</p>
 					</div>
 				</div>
-				<div class="col-md-auto hdr-fnt set" style="margin-left: 10px; font-size: 32px;" class="btn-modal btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
-					<i class="bi bi-justify"></i>
+				<div class="col-2 col-md-auto">
+					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-bs-toggle="modal" data-bs-target="#modalmodalTI">
+						<i class="bi bi-terminal"></i>
+					</div>
+				</div>
+				<div class="col-8 col-md-auto">
+					<div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
+						<i class="bi bi-justify"></i>
+					</div>
 				</div>
 			</div>
 
