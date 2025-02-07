@@ -370,6 +370,10 @@
 			<div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 			</div>
 			<br>
+			<h5 class="tl_cat"><i class="bi bi-cast"></i> RU App</h5>
+			<div id='RUApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+			</div>
+			<br>
 			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
 			<div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
 
@@ -729,54 +733,6 @@
 			href: "https://github.com/YouROK/TorrServe/releases/download/MatriX.123.Client/TorrServe_MatriX.123.Client-release.apk",
 			title: "MatriX"
 		},
-		{
-			location: "CinimaApp",
-			uniqueId: generateUniqueId(),
-			adrver: "7.0 | 1.53.0",
-			geo: "RU",
-			tltps: 1,
-			tltps_fntn_desc: "Wink RT",
-			tltps_fntn_link: "https://wink.ru/faq/150",
-			img: "apk_logo/wink.jpg",
-			href: "https://static.iptv.rt.ru/files/1530000.apk",
-			title: "Wink"
-		},
-		{
-			location: "CinimaApp",
-			uniqueId: generateUniqueId(),
-			adrver: "9.0",
-			geo: "RU",
-			tltps: 1,
-			tltps_fntn_desc: "VK Video",
-			tltps_fntn_link: "https://tv.vk.com/apps.html",
-			img: "apk_logo/vkvideo.png",
-			href: "https://tv.vk.com/apps/app-tv-arm-upload.apk",
-			title: "VK Video"
-		},
-		{
-			location: "CinimaApp",
-			uniqueId: generateUniqueId(),
-			adrver: "7.0",
-			geo: "RU",
-			tltps: 1,
-			tltps_fntn_desc: "RuTube",
-			tltps_fntn_link: "https://rutube.ru/androidtv/",
-			img: "apk_logo/rutube.png",
-			href: "https://rutube.ru/androidtv/latest/",
-			title: "RuTube"
-		},
-		{
-			location: "CinimaApp",
-			uniqueId: generateUniqueId(),
-			adrver: "7.0",
-			geo: "RU",
-			tltps: 1,
-			tltps_fntn_desc: "Триколор",
-			tltps_fntn_link: "https://www.tricolor.ru/help/prilozhenie-trikolor-kino-i-tv/dlya-smart-tv/",
-			img: "apk_logo/3t.jpg",
-			href: "https://www.tricolor.ru/upload/files/AndroidTV-2.7.1.1352-release.apk",
-			title: "Триколор"
-		},
 		/*
 		{
 			location: "CinimaApp",
@@ -788,7 +744,68 @@
 			title: "Lime HDTV"
 		},
 		*/
-  //////////////////
+	//////////////////
+		{
+			location: "RUApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0 | 1.53.0",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "Wink RT",
+			tltps_fntn_link: "https://wink.ru/faq/150",
+			img: "apk_logo/wink.jpg",
+			href: "https://static.iptv.rt.ru/files/1530000.apk",
+			title: "Wink"
+		},
+		{
+			location: "RUApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0 | 1.125",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "Wink RT STB",
+			img: "apk_logo/wink.jpg",
+			href: "/apks/TVBrowser.apk",
+			title: "Wink STB"
+		},
+
+		{
+			location: "RUApp",
+			uniqueId: generateUniqueId(),
+			adrver: "9.0",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "VK Video",
+			tltps_fntn_link: "https://tv.vk.com/apps.html",
+			img: "apk_logo/vkvideo.png",
+			href: "https://tv.vk.com/apps/app-tv-arm-upload.apk",
+			title: "VK Video"
+		},
+		{
+			location: "RUApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "RuTube",
+			tltps_fntn_link: "https://rutube.ru/androidtv/",
+			img: "apk_logo/rutube.png",
+			href: "https://rutube.ru/androidtv/latest/",
+			title: "RuTube"
+		},
+		{
+			location: "RUApp",
+			uniqueId: generateUniqueId(),
+			adrver: "7.0",
+			geo: "RU",
+			tltps: 1,
+			tltps_fntn_desc: "Триколор",
+			tltps_fntn_link: "https://www.tricolor.ru/help/prilozhenie-trikolor-kino-i-tv/dlya-smart-tv/",
+			img: "apk_logo/3t.jpg",
+			href: "https://www.tricolor.ru/upload/files/AndroidTV-2.7.1.1352-release.apk",
+			title: "Триколор"
+		},
+	//////////////////
 		{
 			location: "SysApp",
 			uniqueId: generateUniqueId(),
@@ -1008,9 +1025,11 @@ var compiledTemplate = Handlebars.compile(template);
 
 // Generate HTML for each block using data from a federated database
 var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
+var htmlDApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'RUApp'; }) });
 var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
 
 document.getElementById("CinimaApp").innerHTML = htmlCApp;
+document.getElementById("RUApp").innerHTML = htmlDApp;
 document.getElementById("SysApp").innerHTML = htmlBApp;
 </script>
 <script src="js/bootstrap.bundle.min.js"></script>
