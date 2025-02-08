@@ -41,3 +41,5 @@
 .bi-x-lg::before {content: "\f659" !important; }
 .bi-globe::before {content: "\f3ee" !important; }
 .bi-copy::before {content: "\f759" !important}
+.bi-app-indicator::before {content: "\f10a" !important}
+.bi-download::before {content: "\f30a" !important}
