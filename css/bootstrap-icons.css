@@ -40,3 +40,4 @@
 .bi-info-circle::before { content: "\f431" !important; }
 .bi-x-lg::before {content: "\f659" !important; }
 .bi-globe::before {content: "\f3ee" !important; }
+.bi-copy::before {content: "\f759" !important}
