@@ -408,8 +408,8 @@
 					</div>
 					<div class="modal-body">
 						<div class="clearfix">
-							<a class="float-start btn btn-getioon btn-fdroid w-50" href="https://f-droid.org/ru/packages/com.termux" target="_blank" style="max-width: 48%;">Termux</a>
-							<a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.termux" target="_blank" style="max-width: 48%;">Termux</a>
+							<a class="float-start btn btn-getioon btn-samod w-50" href="/apks/Televizo-1.9.3.21-arm7.apk" target="_blank" style="max-width: 48%;">Televizo</a>
+							<a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.ottplay.ottplayx" target="_blank" style="max-width: 48%;">Televizo</a>
 						</div>
 						<div class="bd-callout bd-callout-dark cmd p-2">
 
@@ -523,6 +523,10 @@
 		    padding: 17px 16px 5px 40px;
 		}
 
+		.btn-samod {
+		    padding: 17px 16px 5px 40px;
+		}
+
 		.btn-getioon:focus {
 		    color: #fff;
 		    background-color: #555;
@@ -560,6 +564,13 @@
 		    top: 50%
 		}
 
+		.btn-samod:before {
+		    content: "";
+		    background-image: url(img/samod30.png);
+		    left: 6px;
+		    top: 50%
+		}
+
 		.btn-google:after {
 		    content: "GET IN ON Google Play";
 		    position: absolute;
@@ -571,6 +582,15 @@
 
 		.btn-fdroid:after {
 		    content: "GET IN ON F-Droid";
+		    position: absolute;
+		    top: 5px;
+		    left: 40px;
+		    font-size: 9px;
+		    font-weight: 400
+		}
+
+		.btn-samod:after {
+		    content: "GET MOD";
 		    position: absolute;
 		    top: 5px;
 		    left: 40px;
