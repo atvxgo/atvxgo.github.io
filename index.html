@@ -11,35 +11,33 @@
 </head>
 <body>
 				<style type="text/css">
+					@keyframes fall {
+					    0% {
+					        opacity: 0;
+					        transform: translateY(0);
+					    }
+					    10% {
+					        opacity: 1;
+					    }
+					    100% {
+					        opacity: 0.5;
+					        transform: translateY(100vh);
+					    }
+					}
 
-				@keyframes fall {
-				    0% {
-				        opacity: 0;
-				        transform: translateY(0);
-				    }
-				    10% {
-				        opacity: 1;
-				    }
-				    100% {
-				        opacity: 0.5;
-				        transform: translateY(100vh);
-				    }
-				}
-
-				@keyframes diagonal-fall {
-				    0% {
-				        opacity: 0;
-				        transform: translate(0, 0);
-				    }
-				    10% {
-				        opacity: 1;
-				    }
-				    100% {
-				        opacity: 0.25;
-				        transform: translate(10vw, 100vh);
-				    }
-				}
-
+					@keyframes diagonal-fall {
+					    0% {
+					        opacity: 0;
+					        transform: translate(0, 0);
+					    }
+					    10% {
+					        opacity: 1;
+					    }
+					    100% {
+					        opacity: 0.25;
+					        transform: translate(10vw, 100vh);
+					    }
+					}
 			</style>
 	<style type="text/css">
 		* {
@@ -349,18 +347,18 @@
 					</div>
 				</div>
 				<div class="col-2 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;"  data-bs-toggle="modal" data-bs-target="#modalmodalIPTV">
+					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;"  data-toggle="modal" data-target="#modalmodalIPTV">
 						<style type="text/css">i.bi.iptv::before {display: none;}</style>
 						<i class="bi iptv" style="font-size: large;font-style: normal;font-weight: bold;">IPTV</i>
 					</div>
 				</div>
 				<div class="col-2 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-bs-toggle="modal" data-bs-target="#modalmodalTI">
+					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalTI">
 						<i class="bi bi-terminal"></i>
 					</div>
 				</div>
 				<div class="col-6 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-bs-toggle="modal" data-bs-target="#modalmodalPM">
+					<div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-toggle="modal" data-target="#modalmodalPM">
 						<i class="bi bi-justify"></i>
 					</div>
 				</div>
@@ -388,14 +386,14 @@
 				</div>
 
 				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-					<span class="mb-3 mb-md-0 text-body-secondary">v. 1.0.12 (08.03.25)</span>
+					<span class="mb-3 mb-md-0 text-body-secondary">v. 1.1 (02.03.25)</span>
 				</ul>
 			</footer>
 		</div>
 	</div>
 	<div id="modalContainer"></div>
 	<div id="modalContainerCMS">
-		<div class="modal fade atvmodalbg" id="modalmodalIPTV" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+		<div class="modal fade atvmodalbg" id="modalmodalIPTV" tabindex="-1" role="dialog" aria-hidden="true">
 			<i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
 			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
 				<div class="modal-content">
@@ -438,7 +436,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+		<div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
 				<div class="modal-content">
 					<!-- Содержимое модального окна -->
@@ -467,7 +465,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="modal fade atvmodalbg" id="modalmodalTI" tabindex="-1" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+		<div class="modal fade atvmodalbg" id="modalmodalTI" tabindex="-1" role="dialog" aria-hidden="true">
 			<i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
 			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
 				<div class="modal-content">
@@ -621,7 +619,7 @@
 		.modal-dialog.atvmodal {
 			margin: 0;
 			position: absolute;
-			max-width: 90%;
+			/*max-width: 90%;*/
 			min-width: 25%;
 			height: 100%;
 			right: 0;
@@ -652,13 +650,15 @@
 	</style>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('.modal').on('show.bs.modal', function () {
-				$(this).find('.modal-dialog').addClass('modal-dialog-slide');
-			});
+		    // Обработчик открытия модалки
+		    $('.modal').on('show.bs.modal', function() {
+		        $(this).find('.modal-dialog').addClass('modal-dialog-slide');
+		    });
 
-			$('.modal').on('hide.bs.modal', function () {
-				$(this).find('.modal-dialog').removeClass('modal-dialog-slide');
-			});
+		    // Обработчик закрытия модалки
+		    $('.modal').on('hidden.bs.modal', function() {
+		        $(this).find('.modal-dialog').removeClass('modal-dialog-slide');
+		    });
 		});
 	</script>
 	<style type="text/css">
@@ -1020,15 +1020,15 @@
   */
   ////////////////////////////////////////
 		];
-
-var template = `
+</script>
+<script id="template" type="text/x-handlebars-template">
 {{#each items}}
         <div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
             <div class="card shadow-sm">
                 <a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
                 {{#if tltps}}
-                    data-bs-toggle="tooltip" data-bs-placement="bottom" data-trigger="click" data-bs-html="true" data-bs-custom-class="custom-tooltip" 
-                    data-bs-title="
+                    data-toggle="tooltip" data-placement="bottom" data-trigger="click" data-html="true" data-custom-class="custom-tooltip" 
+                    title="
                     <a href='{{tltps_fntn_link}}' target='_blank' rel='noopener noreferrer'><i class='bi bi-box-arrow-up-right'></i> {{tltps_fntn_desc}}/</a>
                     "{{/if}}
                 >
@@ -1059,22 +1059,22 @@ var template = `
             </div>
         </div>
 {{/each}}
+</script>
+<script type="text/javascript">
+// Получаем шаблон из HTML
+var source = document.getElementById('template').innerHTML;
+var compiledTemplate = Handlebars.compile(source);
 
-`;
-
-var compiledTemplate = Handlebars.compile(template);
-
-
-// Generate HTML for each block using data from a federated database
+// Фильтрация данных и генерация HTML
 var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
 var htmlDApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'RUApp'; }) });
 var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
 
+// Вставка в DOM
 document.getElementById("CinimaApp").innerHTML = htmlCApp;
 document.getElementById("RUApp").innerHTML = htmlDApp;
 document.getElementById("SysApp").innerHTML = htmlBApp;
 </script>
-<script src="js/bootstrap.bundle.min.js"></script>
 
 
 
@@ -1219,83 +1219,49 @@ document.getElementById("SysApp").innerHTML = htmlBApp;
           window.addEventListener("resize", updateScreenSize);
         </script>
 
-        <script type="text/javascript">
-			//Подсказки PRO
-        </script>
-        <script type="text/javascript">
-        	document.addEventListener('DOMContentLoaded', function () {
-        		const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        		const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl, {
-        trigger: 'manual' // устанавливаем ручное управление показом подсказки
-      }));
+        <script>
+					$(document).ready(function() {
+					    // Инициализация всех подсказок
+					    $('[data-toggle="tooltip"]').tooltip({
+					        trigger: 'manual',
+					        template: '<div class="tooltip custom-tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+					    });
 
-        		const switchElement = document.getElementById('flexSwitchCheckChecked');
+					    const $switch = $('#flexSwitchCheckChecked');
+					    
+					    // Обработчик переключателя
+					    $switch.on('change', function() {
+					        const isChecked = $(this).prop('checked');
+					        
+					        $('[data-toggle="tooltip"]').each(function() {
+					            if(isChecked) {
+					                $(this).tooltip('enable');
+					            } else {
+					                $(this).tooltip('disable');
+					            }
+					        });
+					    });
 
-    // Обработчик изменения состояния переключателя
-        		switchElement.addEventListener('change', function() {
-        const isChecked = this.checked; // Получаем состояние переключателя (true или false)
+					    // Обработчик клика по ссылкам
+					    $('a[data-toggle="tooltip"]').on('click', function(e) {
+					        if($switch.prop('checked')) {
+					            e.preventDefault();
+					            const $this = $(this);
+					            const isOpen = $this.attr('aria-describedby');
+					            
+					            $('.tooltip').hide(); // Закрываем все подсказки
+					            $this.tooltip(isOpen ? 'hide' : 'show');
+					        }
+					    });
 
-        // В зависимости от состояния переключателя, включаем или отключаем работу подсказок
-        tooltipList.forEach(tooltip => {
-        	if (isChecked) {
-        		tooltip.enable();
-        	} else {
-        		tooltip.disable();
-        	}
-        });
-
-        // Устанавливаем соответствующий обработчик клика на ссылки
-        const linkHandler = isChecked ? handleTooltipClick : handleLinkClick;
-        document.querySelectorAll('a[data-trigger="click"]').forEach(link => {
-        	link.removeEventListener('click', handleLinkClick);
-        	link.removeEventListener('click', handleTooltipClick);
-        	link.addEventListener('click', linkHandler);
-        });
-      });
-
-    // Обработчик клика на ссылку для перехода по ней
-        		function handleLinkClick(e) {
-        const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
-        if (tooltip && tooltip._isOpen) { // Если подсказка открыта
-            tooltip.hide(); // Скрываем её
-          } else {
-            return true; // Разрешаем переход по ссылке
-          }
-        }
-
-    // Обработчик клика на ссылку для показа подсказки
-        function handleTooltipClick(e) {
-        e.preventDefault(); // Предотвращаем стандартное действие перехода по ссылке
-        const tooltip = bootstrap.Tooltip.getInstance(this); // Получаем экземпляр подсказки
-        if (tooltip) {
-            if (tooltip._isOpen) { // если подсказка открыта
-                tooltip.hide(); // скрываем её
-              } else {
-                // Закрываем все открытые подсказки перед показом новой
-              	tooltipList.forEach(t => {
-              		if (t._isOpen && t !== tooltip) {
-              			t.hide();
-              		}
-              	});
-                tooltip.show(); // иначе показываем
-              }
-            }
-          }
-
-    // Закрытие подсказок при клике вне них
-          document.addEventListener('click', function (e) {
-          	tooltipList.forEach(tooltip => {
-            const targetElement = e.target; // Элемент, по которому был произведен клик
-            if (!tooltip._element.contains(targetElement)) { // Проверяем, что клик был не внутри подсказки
-                tooltip.hide(); // Закрываем подсказку
-              }
-            });
-          });
-        });
-
-
-
-      </script>
+					    // Закрытие подсказок при клике вне
+					    $(document).on('click', function(e) {
+					        if(!$(e.target).closest('.tooltip, [data-toggle="tooltip"]').length) {
+					            $('[data-toggle="tooltip"]').tooltip('hide');
+					        }
+					    });
+						});
+					</script>
 
 
   <script>
@@ -1370,6 +1336,7 @@ document.getElementById("SysApp").innerHTML = htmlBApp;
   	});
   </script>
 
-</script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
