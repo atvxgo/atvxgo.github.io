@@ -1,50 +1,57 @@
 <!doctype html>
 <html lang="ru" data-bs-theme="dark">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>ATVxGO!</title>
-	<script src="js/jsdelivr_handlebars.min.js"></script>
-	<script src="js/unpkg_fast-average-color.min.js"></script>
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-				<style type="text/css">
-					@keyframes fall {
-					    0% {
-					        opacity: 0;
-					        transform: translateY(0);
-					    }
-					    10% {
-					        opacity: 1;
-					    }
-					    100% {
-					        opacity: 0.5;
-					        transform: translateY(100vh);
-					    }
-					}
 
-					@keyframes diagonal-fall {
-					    0% {
-					        opacity: 0;
-					        transform: translate(0, 0);
-					    }
-					    10% {
-					        opacity: 1;
-					    }
-					    100% {
-					        opacity: 0.25;
-					        transform: translate(10vw, 100vh);
-					    }
-					}
-			</style>
-	<style type="text/css">
-		* {
-			color: #adb5bd;
-			font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-		}
-			/*
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATVxGO!</title>
+    <script src="js/jsdelivr_handlebars.min.js"></script>
+    <script src="js/unpkg_fast-average-color.min.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <style type="text/css">
+    @keyframes fall {
+        0% {
+            opacity: 0;
+            transform: translateY(0);
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.5;
+            transform: translateY(100vh);
+        }
+    }
+
+    @keyframes diagonal-fall {
+        0% {
+            opacity: 0;
+            transform: translate(0, 0);
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0.25;
+            transform: translate(10vw, 100vh);
+        }
+    }
+    </style>
+    <style type="text/css">
+    * {
+        color: #adb5bd;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    /*
 			body {
 			  animation: gradientAnimation 30s ease infinite;
 			}
@@ -71,441 +78,465 @@
 			}
 			*/
 
-		.bi-opensource::before {
-			content: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E %3Cg%3E %3Cpath fill='none' d='M0 0H24V24H0z'%3E%3C/path%3E %3Cpath d='M12 2c5.523 0 10 4.477 10 10 0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55C14.354 14.148 15 13.15 15 12c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.15.647 2.148 1.596 2.652l-2.518 6.55C4.504 19.675 2 16.13 2 12 2 6.477 6.477 2 12 2z'%3E%3C/path%3E %3C/g%3E %3C/g%3E%3C/svg%3E");
-		}
+    .bi-opensource::before {
+        content: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cg id='SVGRepo_bgCarrier' stroke-width='0'%3E%3C/g%3E%3Cg id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'%3E%3C/g%3E%3Cg id='SVGRepo_iconCarrier'%3E %3Cg%3E %3Cpath fill='none' d='M0 0H24V24H0z'%3E%3C/path%3E %3Cpath d='M12 2c5.523 0 10 4.477 10 10 0 4.13-2.504 7.676-6.077 9.201l-2.518-6.55C14.354 14.148 15 13.15 15 12c0-1.657-1.343-3-3-3s-3 1.343-3 3c0 1.15.647 2.148 1.596 2.652l-2.518 6.55C4.504 19.675 2 16.13 2 12 2 6.477 6.477 2 12 2z'%3E%3C/path%3E %3C/g%3E %3C/g%3E%3C/svg%3E");
+    }
 
-		.bg-body {
-			position: fixed;
-			top: -10px;
-			bottom: -10px;
-			left: -10px;
-			right: -10px;
-			z-index: -1;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: cover;
-		}
-		.REbg-body{
-			position: fixed;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			background: rgba(0, 0, 0, 0.5);
-			z-index: 0;
-		}
-		.cnt{
-			position: relative;
-			z-index: 1;
-		}
-		.container, .container-md, .container-sm {
-			/*max-width: 95%;*/
-		}
-		.hdr-fnt {
-			text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.25), 1px 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.25);
-			padding: 10px;
-			background: rgba(0, 0, 0, 0.125);
-			border-radius: 5px;
-			margin: 10px 0;
-		}
+    .bg-body {
+        position: fixed;
+        top: -10px;
+        bottom: -10px;
+        left: -10px;
+        right: -10px;
+        z-index: -1;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
 
-		.bd-callout {
-		  --bs-link-color-rgb: var(--bd-callout-link);
-		  --bs-code-color: var(--bd-callout-code-color);
-		  padding: 1.25rem;
-		  margin-top: 1.25rem;
-		  margin-bottom: 1.25rem;
-		  color: var(--bd-callout-color, inherit);
-		  background-color: var(--bd-callout-bg, var(--bs-gray-100));
-		  border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300));
-		}
+    .REbg-body {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+    }
 
-		.bd-callout-dark{
-			background-color: #1b1f22;
-		}
+    .cnt {
+        position: relative;
+        z-index: 1;
+    }
 
-		.bi::before {
-		  content: "\25CB";
-		}
+    .container,
+    .container-md,
+    .container-sm {
+        /*max-width: 95%;*/
+    }
 
-		h4{
-			font-size: unset !important;
-			text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25),
-			0 -1px 0 rgba(0, 0, 0, 0.25), 
-			1px 0 0 rgba(0, 0, 0, 0.25), 
-			0 1px 0 rgba(0, 0, 0, 0.25);
-			color: #fff;
-		}
-		h5.tl_cat {
-			padding: 10px;
-			/*backdrop-filter: blur(9px);*/
-			background: rgba(0, 0, 0, 0.125);
-			border-radius: 5px;
-		}
-		.card.shadow-sm {
-			overflow: hidden;
-			border: solid 1px rgba(255, 255, 255, 0.15);
-			border-radius: 0.375rem;
-			aspect-ratio: auto 640 / 360;
-		}
-		.reAppCard{
-			position: relative;
-			background: #000;
-			border: none;
-		}
+    .hdr-fnt {
+        text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25), 0 -1px 0 rgba(0, 0, 0, 0.25), 1px 0 0 rgba(0, 0, 0, 0.25), 0 1px 0 rgba(0, 0, 0, 0.25);
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.125);
+        border-radius: 5px;
+        margin: 10px 0;
+    }
 
-		.reAppCard.clicked{
-			background-color: rgb(0 0 0 / 50%);
-		}
+    .bd-callout {
+        --bs-link-color-rgb: var(--bd-callout-link);
+        --bs-code-color: var(--bd-callout-code-color);
+        padding: 1.25rem;
+        margin-top: 1.25rem;
+        margin-bottom: 1.25rem;
+        color: var(--bd-callout-color, inherit);
+        background-color: var(--bd-callout-bg, var(--bs-gray-100));
+        border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300));
+    }
 
-		.reAppCard:hover{
-			background-color: rgb(0 0 0 / 50%);
-		}
+    .bd-callout-dark {
+        background-color: #1b1f22;
+    }
 
-		.reAppCard:hover .AppCard, .reAppCard:focus-visible .AppCard  {
-			background-color:rgba(0, 0, 0, 0.75);
-		}
+    .bi::before {
+        content: "\25CB";
+    }
 
-		.AppCard {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			background: rgba(0, 0, 0, 0.25);
-			z-index: 1;
-		}
+    h4 {
+        font-size: unset !important;
+        text-shadow: -1px 0 0 rgba(0, 0, 0, 0.25),
+            0 -1px 0 rgba(0, 0, 0, 0.25),
+            1px 0 0 rgba(0, 0, 0, 0.25),
+            0 1px 0 rgba(0, 0, 0, 0.25);
+        color: #fff;
+    }
 
-		.col.child_appcard {
-			padding: 0 calc(1rem * .5);
-			margin-top: 1rem;
-		}
+    h5.tl_cat {
+        padding: 10px;
+        /*backdrop-filter: blur(9px);*/
+        background: rgba(0, 0, 0, 0.125);
+        border-radius: 5px;
+    }
 
-		.bgAppBLR {
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
-			z-index: 0;
+    .card.shadow-sm {
+        overflow: hidden;
+        border: solid 1px rgba(255, 255, 255, 0.15);
+        border-radius: 0.375rem;
+        aspect-ratio: auto 640 / 360;
+    }
+
+    .reAppCard {
+        position: relative;
+        background: #000;
+        border: none;
+    }
+
+    .reAppCard.clicked {
+        background-color: rgb(0 0 0 / 50%);
+    }
+
+    .reAppCard:hover {
+        background-color: rgb(0 0 0 / 50%);
+    }
+
+    .reAppCard:hover .AppCard,
+    .reAppCard:focus-visible .AppCard {
+        background-color: rgba(0, 0, 0, 0.75);
+    }
+
+    .AppCard {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1;
+    }
+
+    .col.child_appcard {
+        padding: 0 calc(1rem * .5);
+        margin-top: 1rem;
+    }
+
+    .bgAppBLR {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0;
 
 
-			/*filter: blur(75px);*/
-			background-image: none !important;
-		}
+        /*filter: blur(75px);*/
+        background-image: none !important;
+    }
 
-		.AppCard > .row {
-			
-			--bs-gutter-x: 0;
-			height: 100%;
-			width: 100%;
-		}
+    .AppCard>.row {
 
-		.AppCard > div > div {
-			margin: 10px;
-		}
+        --bs-gutter-x: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-		.AppCardtitle.brotv{
-			font-size: 12px !important;
-		}
+    .AppCard>div>div {
+        margin: 10px;
+    }
 
-		.infoAppCard{
-			max-width: 120px;
-		}
+    .AppCardtitle.brotv {
+        font-size: 12px !important;
+    }
 
-		.card_desk {
-			font-size: 11px;
-			color: #a1a1a1;
-		}
+    .infoAppCard {
+        max-width: 120px;
+    }
 
-		.mindesc, .mindwn {
-			position: absolute;
-			width: auto;
-			background: rgba(6, 60, 0, 0.74) ;
-			color: #fff;
-			font-size: x-small;
-			padding: 1%;
-			border-radius: 5px;
-			text-align: center;
-		}
+    .card_desk {
+        font-size: 11px;
+        color: #a1a1a1;
+    }
 
-		.mindesc.mimd-2{
-			right: 40px;
-		}
+    .mindesc,
+    .mindwn {
+        position: absolute;
+        width: auto;
+        background: rgba(6, 60, 0, 0.74);
+        color: #fff;
+        font-size: x-small;
+        padding: 1%;
+        border-radius: 5px;
+        text-align: center;
+    }
 
-		.mindesc {
-			bottom: 0;
-			right: 0;
-		}
+    .mindesc.mimd-2 {
+        right: 40px;
+    }
 
-		.mindesc > .bi{
-			margin-right: 5px;
-		}
+    .mindesc {
+        bottom: 0;
+        right: 0;
+    }
 
-		.mindwn {
-			top: 0;
-			right: 0;
-			border-radius: 50%;
-			width: 19px;
-			display: none;
-		}
+    .mindesc>.bi {
+        margin-right: 5px;
+    }
 
-		.reAppCard.clicked .mindwn {
-			display: block;
-		}
+    .mindwn {
+        top: 0;
+        right: 0;
+        border-radius: 50%;
+        width: 19px;
+        display: none;
+    }
 
-		.icoAppCard {
-			border: solid 0.3em rgba(0, 0, 0, 0.25);
-			border-radius: 50%;
-			aspect-ratio: auto 1/1;
-		}
+    .reAppCard.clicked .mindwn {
+        display: block;
+    }
 
-		.icoAppCard > img {
-			width: 100%;
-			border-radius: 50%;
-		}
+    .icoAppCard {
+        border: solid 0.3em rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+        aspect-ratio: auto 1/1;
+    }
 
-		.png169{
-			width: 100%;
-		}
+    .icoAppCard>img {
+        width: 100%;
+        border-radius: 50%;
+    }
 
-		.tooltip {
-			--bs-tooltip-font-size: 1rem;
-		}
+    .png169 {
+        width: 100%;
+    }
 
-		.custom-tooltip{
-			--bs-tooltip-bg: #282828;
-			color: #f1f1f1;
-			--bs-tooltip-color: #f1f1f1;
-		}
+    .tooltip {
+        --bs-tooltip-font-size: 1rem;
+    }
 
-		.custom-tooltip a{
-			color: #f1f1f1;
-			text-decoration: none;
-		}
+    .custom-tooltip {
+        --bs-tooltip-bg: #282828;
+        color: #f1f1f1;
+        --bs-tooltip-color: #f1f1f1;
+    }
 
-		.custom-tooltip > .tooltip-inner {
-			box-shadow: 0px 10px 20px 0px #000;
-		}
+    .custom-tooltip a {
+        color: #f1f1f1;
+        text-decoration: none;
+    }
 
-		.sizescren {
-			position: fixed;
-			bottom: 0;
-			right: 0;
-			padding: 1%;
-			font-size: x-small;
-			color: #ffffff7a;
-		}
+    .custom-tooltip>.tooltip-inner {
+        box-shadow: 0px 10px 20px 0px #000;
+    }
 
-		.ftrtxtfn{
-			font-size: x-small;
-		}
-	</style>
-	<script type="text/javascript">
-		function updateTime() {
-			var currentTime = new Date();
-			var hours = currentTime.getHours();
-			var minutes = currentTime.getMinutes();
-			var seconds = currentTime.getSeconds();
-			hours = (hours < 10 ? "0" : "") + hours;
-			minutes = (minutes < 10 ? "0" : "") + minutes;
-			seconds = (seconds < 10 ? "0" : "") + seconds;
-			var formattedTime = hours + ":" + minutes + ":" + seconds;
-			document.getElementById("time").textContent = formattedTime;
-		}
-		setInterval(updateTime, 1000);
-	</script>
-	<div class="cnt">
-		<div class="container">
-			<div class="row justify-content-between gx-2" >
-				<!--
+    .sizescren {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 1%;
+        font-size: x-small;
+        color: #ffffff7a;
+    }
+
+    .ftrtxtfn {
+        font-size: x-small;
+    }
+    </style>
+    <script type="text/javascript">
+    function updateTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+        var formattedTime = hours + ":" + minutes + ":" + seconds;
+        document.getElementById("time").textContent = formattedTime;
+    }
+    setInterval(updateTime, 1000);
+    </script>
+    <div class="cnt">
+        <div class="container">
+            <div class="row justify-content-between gx-2">
+                <!--
 			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
 			    	<i class="bi bi-gear"></i>
 					</div>
 				-->
-				<div class="col-12 col-md">
-					<div class="hdr-fnt row row-cols-sm-2">
-						<div class="col">
-							<a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
-								<i class="bi bi-android"></i>
-								ATVxGO
-							</a>
-						</div>
-						<div class="col">
-							<p id="time" class="display-6 text-end" style="margin: 0;">00:00:00</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-2 col-md-auto">
-					<div class="hdr-fnt set   form-check form-switch" style="text-align: center;height: 68px;max-width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
-					<label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
-					<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
-					</div>
-				</div>
-				<div class="col-2 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;"  data-toggle="modal" data-target="#modalmodalIPTV">
-						<style type="text/css">i.bi.iptv::before {display: none;}</style>
-						<i class="bi iptv" style="font-size: large;font-style: normal;font-weight: bold;">IPTV</i>
-					</div>
-				</div>
-				<div class="col-2 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalTI">
-						<i class="bi bi-terminal"></i>
-					</div>
-				</div>
-				<div class="col-6 col-md-auto">
-					<div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-toggle="modal" data-target="#modalmodalPM">
-						<i class="bi bi-justify"></i>
-					</div>
-				</div>
-			</div>
-
-			<h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
-			<div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-			</div>
-			<br>
-			<h5 class="tl_cat"><i class="bi bi-globe"></i> RU App</h5>
-			<div id='RUApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-			</div>
-			<br>
-			<h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
-			<div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-
-			</div>
-			<br>
-		</div>
-
-		<div class="container">
-			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-				<div class="col-md-4 d-flex align-items-center">
-					<span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
-				</div>
-
-				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-					<span class="mb-3 mb-md-0 text-body-secondary">v. 1.1 (02.03.25)</span>
-				</ul>
-			</footer>
-		</div>
-	</div>
-	<div id="modalContainer"></div>
-	<div id="modalContainerCMS">
-		<div class="modal fade atvmodalbg" id="modalmodalIPTV" tabindex="-1" role="dialog" aria-hidden="true">
-			<i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
-			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-				<div class="modal-content">
-					<!-- Содержимое модального окна -->
-					<div class="modal-header">
-						<h5 class="modal-title">
-							<i class="bi bi-terminal-fill"></i>
-							IPTV Lists (beta)
-						</h5>
-					</div>
-					<div class="modal-body">
-						<div class="clearfix">
-							<a class="float-start btn btn-getioon btn-samod w-50" href="/apks/Televizo-1.9.3.21-arm7.apk" target="_blank" style="max-width: 48%;">Televizo</a>
-							<a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.ottplay.ottplayx" target="_blank" style="max-width: 48%;">Televizo</a>
-						</div>
-						</br>
-						<div class="alert alert-warning" role="alert">
-							Даный раздел в процессе создания
-						</div>
-						<div class="row d-flex justify-content-between mb-1" style="padding-left: inherit;padding-right: inherit;">
-							<a type="button" class="col btn btn-secondary text-start" href="https://gitlab.com/iptv135435/iptvshared/raw/main/IPTV_SHARED.m3u"><i class="bi bi-download"></i> Secondary</a>
-							<button type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-copy"></i></button>
-							<button type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-app-indicator"></i></button>
-						</div>
-						<div class="row d-flex justify-content-between mb-1" style="padding-left: inherit;padding-right: inherit;">
-							<a type="button" class="col btn btn-secondary text-start" href="https://raw.githubusercontent.com/Dimonovich/TV/Dimonovich/FREE/TV"><i class="bi bi-download"></i> Secondary</a>
-							<a type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-copy"></i></a>
-							<a type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-app-indicator"></i></a>
-						</div>
-						<div class="bd-callout bd-callout-dark cmd p-2">
-
-						</div>
-						</br>
-						<div class="bd-callout bd-callout-dark cmd p-2">
-
-						</div>
-					</div>
-					<div class="modal-footer" style="justify-content: center;">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-				<div class="modal-content">
-					<!-- Содержимое модального окна -->
-					<div class="modal-header">
-						<h5 class="modal-title">
-							<i class="bi bi-google-play"></i>
-							Links to Play Market
-						</h5>
-					</div>
-					<div class="modal-body">
-						<div class="btns_mdl row">
-							<a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl RU"><i class="bi bi-save"></i>Wink</a>
-							<a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a>
-							<a class="btn_mdl"></a>
-							<a href="https://github.com/atvxgo/atvxgo.github.io/raw/refs/heads/main/apks/FactoryMenu-1.2.apk" class="btn_mdl"><i class="bi bi-save"></i>Factory Menu SBER</a>
-							<a href="hiddify://import/https://raw.githubusercontent.com/hiddify/hiddify-app/refs/heads/main/test.configs/warp" class="btn_mdl"><i class="bi bi-save"></i>WARP</a>
-							<a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
-						</div>
-					</div>
-					<div class="modal-footer" style="justify-content: center;">
-						<i class="bi bi-info-circle"></i>
-						<div id="currentCountry" class="ftrtxtfn" style="width: 100%;"></div>
-						<div id="sizedisplay" class="ftrtxtfn" style="width: 100%;"></div>
-						<div id="touserAgent" class="ftrtxtfn"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal fade atvmodalbg" id="modalmodalTI" tabindex="-1" role="dialog" aria-hidden="true">
-			<i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
-			<div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
-				<div class="modal-content">
-					<!-- Содержимое модального окна -->
-					<div class="modal-header">
-						<h5 class="modal-title">
-							<i class="bi bi-terminal-fill"></i>
-							Instal to Termux
-						</h5>
-					</div>
-					<div class="modal-body">
-						<div class="clearfix">
-							<a class="float-start btn btn-getioon btn-fdroid w-50" href="https://f-droid.org/ru/packages/com.termux" target="_blank" style="max-width: 48%;">Termux</a>
-							<a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.termux" target="_blank" style="max-width: 48%;">Termux</a>
-						</div>
-						<div class="bd-callout bd-callout-dark cmd p-2">
-							<span class="badge text-bg-dark">apt update</span></br>
-							<span class="badge text-bg-dark">apt install git</span></br>
-							<span class="badge text-bg-dark">git clone github.com/MasterDevX/Termux-ADB.git</span></br>
-							<span class="badge text-bg-dark">cd Termux-Tools</span></br>
-							<span class="badge text-bg-dark">./InstallTools.sh</span></br>
-							<span class="badge text-bg-dark">adb</span></br>
-						</div>
-						</br>
-						<div class="bd-callout bd-callout-dark cmd p-2">
-							<span class="badge text-bg-dark">cd storage/emulated/0/download/apks</span></br>
-							<span class="badge text-bg-dark">adb connect 192.168.0.15:5555</span></br>
-							<span class="badge text-bg-dark">adb install "TVBrowser.apk"</span></br>
-							</br>
-							<span class="badge text-bg-dark">adb disconnect 192.168.0.15:5555</span></br>
-						</div>
-					</div>
-					<div class="modal-footer" style="justify-content: center;">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<style>
-		.cmd > .badge{
+                <div class="col-12 col-md">
+                    <div class="hdr-fnt row row-cols-sm-2">
+                        <div class="col">
+                            <a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
+                                <i class="bi bi-android"></i>
+                                ATVxGO
+                            </a>
+                        </div>
+                        <div class="col">
+                            <p id="time" class="display-6 text-end" style="margin: 0;">00:00:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set   form-check form-switch" style="text-align: center;height: 68px;max-width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
+                        <label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalIPTV">
+                        <style type="text/css">
+                        i.bi.iptv::before {
+                            display: none;
+                        }
+                        </style>
+                        <i class="bi iptv" style="font-size: large;font-style: normal;font-weight: bold;">IPTV</i>
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalTI">
+                        <i class="bi bi-terminal"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-toggle="modal" data-target="#modalmodalPM">
+                        <i class="bi bi-justify"></i>
+                    </div>
+                </div>
+            </div>
+            <h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
+            <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+            <h5 class="tl_cat"><i class="bi bi-globe"></i> RU App</h5>
+            <div id='RUApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+            <h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
+            <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+        </div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
+                </div>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <span class="mb-3 mb-md-0 text-body-secondary">v. 1.1.2 (04.03.25)</span>
+                </ul>
+            </footer>
+        </div>
+    </div>
+    <div id="modalContainer"></div>
+    <div id="modalContainerCMS">
+        <div class="modal fade atvmodalbg" id="modalmodalIPTV" tabindex="-1" role="dialog" aria-hidden="true">
+            <i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
+            <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+                <div class="modal-content">
+                    <!-- Содержимое модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="bi bi-terminal-fill"></i>
+                            IPTV Lists (beta)
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="clearfix">
+                            <a class="float-start btn btn-getioon btn-samod w-50" href="/apks/Televizo-1.9.3.21-arm7.apk" target="_blank" style="max-width: 48%;">Televizo</a>
+                            <a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.ottplay.ottplayx" target="_blank" style="max-width: 48%;">Televizo</a>
+                        </div>
+                        </br>
+                        <div class="alert alert-warning" role="alert">
+                            Даный раздел в процессе создания
+                        </div>
+                        <div class="row d-flex justify-content-between mb-1" style="padding-left: inherit;padding-right: inherit;">
+                            <a type="button" class="col btn btn-secondary text-start" href="https://gitlab.com/iptv135435/iptvshared/raw/main/IPTV_SHARED.m3u"><i class="bi bi-download"></i> Secondary</a>
+                            <button type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-copy"></i></button>
+                            <button type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-app-indicator"></i></button>
+                        </div>
+                        <div class="row d-flex justify-content-between mb-1" style="padding-left: inherit;padding-right: inherit;">
+                            <a type="button" class="col btn btn-secondary text-start" href="https://raw.githubusercontent.com/Dimonovich/TV/Dimonovich/FREE/TV"><i class="bi bi-download"></i> Secondary</a>
+                            <a type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-copy"></i></a>
+                            <a type="button" class="col-md-auto btn btn-outline-secondary" style="margin-left: 10px;"><i class="bi bi-app-indicator"></i></a>
+                        </div>
+                        <div class="bd-callout bd-callout-dark cmd p-2">
+                        </div>
+                        </br>
+                        <div class="bd-callout bd-callout-dark cmd p-2">
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="justify-content: center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade atvmodalbg" id="modalmodalPM" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+                <div class="modal-content">
+                    <!-- Содержимое модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="bi bi-google-play"></i>
+                            Links to Play Market
+                        </h5>
+                    </div>
+                    <div class="modal-body px-0">
+                        <div class="btns_mdl row gx-0">
+                            <a href="https://play.google.com/store/apps/details?id=ru.rt.video.app.tv" class="btn_mdl RU"><i class="bi bi-save"></i>Wink</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.google.android.youtube.tv" class="btn_mdl"><i class="bi bi-save"></i>YouTube</a>
+                            <a class="btn_mdl"></a>
+                            <a href="https://github.com/atvxgo/atvxgo.github.io/raw/refs/heads/main/apks/FactoryMenu-1.2.apk" class="btn_mdl"><i class="bi bi-save"></i>Factory Menu SBER</a>
+                            <a href="hiddify://import/https://raw.githubusercontent.com/hiddify/hiddify-app/refs/heads/main/test.configs/warp" class="btn_mdl"><i class="bi bi-save"></i>WARP</a>
+                            <a href="https://antizapret.prostovpn.org/antizapret-tcp.ovpn" class="btn_mdl"><i class="bi bi-save"></i>Конфигурациия antizapret (OVPN)</a>
+                            <p>
+                            <div class="row gx-0 px-2">
+                            <form>
+                            	<fieldset disabled>
+									<div class="form-floating mb-2">
+									  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="min-height: 100px"></textarea>
+									  <label for="floatingTextarea2">Comments</label>
+									</div>
+									<div class="row row-cols-2 gx-0">
+									<button type="submit" class="btn btn-outline-secondary col gx-1"><i class="bi bi-braces-asterisk"></i> Get comments</button>
+									<button type="submit" class="btn btn-outline-secondary col gx-1"><i class="bi bi-copy"></i> Copy comments</button>
+									</div>
+								</fieldset>
+							</form>
+							</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="justify-content: center;">
+                        <i class="bi bi-info-circle"></i>
+                        <div id="currentCountry" class="ftrtxtfn" style="width: 100%;"></div>
+                        <div id="sizedisplay" class="ftrtxtfn" style="width: 100%;"></div>
+                        <div id="touserAgent" class="ftrtxtfn"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade atvmodalbg" id="modalmodalTI" tabindex="-1" role="dialog" aria-hidden="true">
+            <i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
+            <div class="modal-dialog modal-dialog-scrollable atvmodal" role="document">
+                <div class="modal-content">
+                    <!-- Содержимое модального окна -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <i class="bi bi-terminal-fill"></i>
+                            Instal to Termux
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="clearfix">
+                            <a class="float-start btn btn-getioon btn-fdroid w-50" href="https://f-droid.org/ru/packages/com.termux" target="_blank" style="max-width: 48%;">Termux</a>
+                            <a class="float-end btn btn-getioon btn-google w-50" href="https://play.google.com/store/apps/details?id=com.termux" target="_blank" style="max-width: 48%;">Termux</a>
+                        </div>
+                        <div class="bd-callout bd-callout-dark cmd p-2">
+                            <span class="badge text-bg-dark">apt update</span></br>
+                            <span class="badge text-bg-dark">apt install git</span></br>
+                            <span class="badge text-bg-dark">git clone github.com/MasterDevX/Termux-ADB.git</span></br>
+                            <span class="badge text-bg-dark">cd Termux-Tools</span></br>
+                            <span class="badge text-bg-dark">./InstallTools.sh</span></br>
+                            <span class="badge text-bg-dark">adb</span></br>
+                        </div>
+                        </br>
+                        <div class="bd-callout bd-callout-dark cmd p-2">
+                            <span class="badge text-bg-dark">cd storage/emulated/0/download/apks</span></br>
+                            <span class="badge text-bg-dark">adb connect 192.168.0.15:5555</span></br>
+                            <span class="badge text-bg-dark">adb install "TVBrowser.apk"</span></br>
+                            </br>
+                            <span class="badge text-bg-dark">adb disconnect 192.168.0.15:5555</span></br>
+                        </div>
+                    </div>
+                    <div class="modal-footer" style="justify-content: center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .cmd > .badge{
 			user-select: all;
 		}
 
@@ -610,9 +641,9 @@
 		    font-weight: 400
 		}
 	</style>
-	<!-- Блок кода для генерации модальных окон -->
-	<style>
-		.atvmodalbg{
+    <!-- Блок кода для генерации модальных окон -->
+    <style>
+        .atvmodalbg{
 			background: rgb(0 0 0 / 50%);
 			/* backdrop-filter: blur(15px);*/
 		}
@@ -632,8 +663,8 @@
 			/*background: rgb(0 0 0 / 50%);*/
 		}
 	</style>
-	<style>
-		.modal.fade .modal-dialog {
+    <style>
+        .modal.fade .modal-dialog {
 			-webkit-transform: translateX(100%);
 			-ms-transform: translateX(100%);
 			transform: translateX(100%);
@@ -648,44 +679,44 @@
 			transform: translateX(0);
 		}
 	</style>
-	<script type="text/javascript">
-		$(document).ready(function() {
-		    // Обработчик открытия модалки
-		    $('.modal').on('show.bs.modal', function() {
-		        $(this).find('.modal-dialog').addClass('modal-dialog-slide');
-		    });
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // Обработчик открытия модалки
+        $('.modal').on('show.bs.modal', function() {
+            $(this).find('.modal-dialog').addClass('modal-dialog-slide');
+        });
 
-		    // Обработчик закрытия модалки
-		    $('.modal').on('hidden.bs.modal', function() {
-		        $(this).find('.modal-dialog').removeClass('modal-dialog-slide');
-		    });
-		});
-	</script>
-	<style type="text/css">
-		.btns_mdl{
-			margin: 0 -16px;
-			margin-top: 10px;
-		}
-		.btn_mdl {
-			position: relative;
-			display: block;
-			padding: 13px 10px;
-			width: 100%;
-			text-decoration: none;
-			color: #bdbdbd;
-			border-bottom: solid 1px #ffffff05;
-		}
+        // Обработчик закрытия модалки
+        $('.modal').on('hidden.bs.modal', function() {
+            $(this).find('.modal-dialog').removeClass('modal-dialog-slide');
+        });
+    });
+    </script>
+    <style type="text/css">
+    .btns_mdl {
+        /*margin-top: 10px;*/
+    }
 
-		.btn_mdl > i {
-			margin-right: 10px;
-		}
+    .btn_mdl {
+        position: relative;
+        display: block;
+        padding: 13px 10px;
+        width: 100%;
+        text-decoration: none;
+        color: #bdbdbd;
+        border-bottom: solid 1px #ffffff05;
+    }
 
-		.btn_mdl:hover {
-			background: #282828;
-		}
-	</style>
-	<script>
-		var counter = 0;
+    .btn_mdl>i {
+        margin-right: 10px;
+    }
+
+    .btn_mdl:hover {
+        background: #282828;
+    }
+    </style>
+    <script>
+        var counter = 0;
 
 		function generateUniqueId() {
 			counter++;
@@ -1021,8 +1052,8 @@
   ////////////////////////////////////////
 		];
 </script>
-<script id="template" type="text/x-handlebars-template">
-{{#each items}}
+    <script id="template" type="text/x-handlebars-template">
+        {{#each items}}
         <div class="col child_appcard {{#if geo}}{{geo}}{{/if}}">
             <div class="card shadow-sm">
                 <a href="{{href}}" class="reAppCard" type="button" class="btn btn-secondary"
@@ -1060,34 +1091,30 @@
         </div>
 {{/each}}
 </script>
-<script type="text/javascript">
-// Получаем шаблон из HTML
-var source = document.getElementById('template').innerHTML;
-var compiledTemplate = Handlebars.compile(source);
+    <script type="text/javascript">
+    // Получаем шаблон из HTML
+    var source = document.getElementById('template').innerHTML;
+    var compiledTemplate = Handlebars.compile(source);
 
-// Фильтрация данных и генерация HTML
-var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
-var htmlDApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'RUApp'; }) });
-var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
+    // Фильтрация данных и генерация HTML
+    var htmlCApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'CinimaApp'; }) });
+    var htmlDApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'RUApp'; }) });
+    var htmlBApp = compiledTemplate({ items: data.filter(function(item) { return item.location === 'SysApp'; }) });
 
-// Вставка в DOM
-document.getElementById("CinimaApp").innerHTML = htmlCApp;
-document.getElementById("RUApp").innerHTML = htmlDApp;
-document.getElementById("SysApp").innerHTML = htmlBApp;
-</script>
+    // Вставка в DOM
+    document.getElementById("CinimaApp").innerHTML = htmlCApp;
+    document.getElementById("RUApp").innerHTML = htmlDApp;
+    document.getElementById("SysApp").innerHTML = htmlBApp;
+    </script>
+    <script type="text/javascript">
+    // Функция для добавления кнопки "Показать еще"
+    function addMoreButton() {
+        const parentContainer = document.getElementById('SysApp');
+        const startHiddenIndex = getStartHiddenIndex(); // Инициализация начального значения
+        const blockX = parentContainer.querySelector(`.child_appcard:nth-child(${startHiddenIndex})`);
 
-
-
-
-<script type="text/javascript">
-                            // Функция для добавления кнопки "Показать еще"
-	function addMoreButton() {
-		const parentContainer = document.getElementById('SysApp');
-    const startHiddenIndex = getStartHiddenIndex(); // Инициализация начального значения
-    const blockX = parentContainer.querySelector(`.child_appcard:nth-child(${startHiddenIndex})`);
-
-    // Создаем структуру кнопки с использованием HTML-разметки
-    const moreButtonHTML = `
+        // Создаем структуру кнопки с использованием HTML-разметки
+        const moreButtonHTML = `
     <div class="col show-more-button-container">
     <div class="card shadow-sm">
     <div class="reAppCard" type="button">
@@ -1106,237 +1133,224 @@ document.getElementById("SysApp").innerHTML = htmlBApp;
     </div>
     `;
 
-    // Преобразуем HTML-строку в DOM-элемент
-    const moreButtonContainer = document.createRange().createContextualFragment(moreButtonHTML);
+        // Преобразуем HTML-строку в DOM-элемент
+        const moreButtonContainer = document.createRange().createContextualFragment(moreButtonHTML);
 
-    // Вставляем кнопку после блока startHiddenIndex
-    blockX.insertAdjacentElement('afterend', moreButtonContainer.querySelector('.show-more-button-container'));
+        // Вставляем кнопку после блока startHiddenIndex
+        blockX.insertAdjacentElement('afterend', moreButtonContainer.querySelector('.show-more-button-container'));
 
-    // Возвращаем ссылку на кнопку
-    return parentContainer.querySelector('.show-more-button-container');
-  }
-
-// Функция для получения начального индекса, зависящего от размера экрана
-  function getStartHiddenIndex() {
-  	return window.innerWidth < 1200 ? 7 : 9;
-  }
-
-// Инициализация
-  var startHiddenIndex = getStartHiddenIndex();
-  const parentContainer = document.getElementById('SysApp');
-  const allBlocks = parentContainer.querySelectorAll('.child_appcard');
-  const moreButtonContainer = addMoreButton();
-  const moreButton = moreButtonContainer.querySelector('.show-more-button');
-
-// Устанавливаем начальный текст кнопки с учетом общего числа блоков
-  moreButton.textContent = `show apps (${allBlocks.length - startHiddenIndex})`;
-
-// Переключаем видимость блоков при загрузке страницы
-  document.addEventListener('DOMContentLoaded', function () {
-    // Показываем только первые startHiddenIndex блоков, остальные скрываем
-  	allBlocks.forEach((block, index) => {
-  		if (index >= startHiddenIndex) {
-  			block.style.display = 'none';
-  		}
-  	});
-
-    // Добавляем обработчик события для блока с кнопкой
-  	moreButtonContainer.addEventListener('click', function () {
-        // Переключаем видимость блоков начиная с (startHiddenIndex + 1)
-  		const hiddenBlocks = parentContainer.querySelectorAll(`.child_appcard:nth-child(n+${startHiddenIndex + 1})`);
-  		hiddenBlocks.forEach(block => {
-  			block.style.display = block.style.display === 'none' ? '' : 'none';
-  		});
-
-        // Обновляем текст кнопки после каждого клика
-  		updateButtonText();
-  	});
-
-    // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
-  	function updateButtonText() {
-  		const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
-  		const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - startHiddenIndex})` : `hide apps (${allBlocks.length - startHiddenIndex})`;
-  		moreButton.textContent = buttonText;
-  	}
-  });
-
-// Обработчик изменения размера экрана
-  window.addEventListener('resize', function () {
-  	const newStartHiddenIndex = getStartHiddenIndex();
-
-    // Проверяем, изменился ли startHiddenIndex
-  	if (newStartHiddenIndex !== startHiddenIndex) {
-        // Обновляем startHiddenIndex
-  		startHiddenIndex = newStartHiddenIndex;
-
-        // Переключаем видимость блоков при изменении startHiddenIndex
-  		allBlocks.forEach((block, index) => {
-  			block.style.display = index >= startHiddenIndex ? 'none' : '';
-  		});
-
-        // Обновляем текст кнопки с учетом нового startHiddenIndex
-  		updateButtonText();
-  	}
-  });
-</script>
-
-
-
-<div class="REbg-body"></div>
-<div class="bg-body" id="myElement"></div>
-<script src="urls.js"></script>
-
-<script>
-	  // Loading links from the urls.js
-	var urls = window.urls;
-
-	  // Selecting a random link
-	var randomUrl = urls[Math.floor(Math.random() * urls.length)];
-
-	  // Applying a link to the background-image of an element
-	document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
-</script>
-
-<div class="sizescren">
-	<span id="screenWidth"></span><span>x</span><span id="screenHeight"></span> 
-</div>
-
-<script>
-        // 
-	var screenWidthElement = document.getElementById("screenWidth");
-	var screenHeightElement = document.getElementById("screenHeight");
-	var sizeDisplayElement = document.getElementById("sizedisplay");
-
-        // 
-	function updateScreenSize() {
-            screenWidthElement.textContent = window.innerWidth; //
-            screenHeightElement.textContent = window.innerHeight; // 
-            sizeDisplayElement.textContent = window.innerWidth + "x" + window.innerHeight; //
-          }
-
-        // 
-          window.addEventListener("load", updateScreenSize);
-          window.addEventListener("resize", updateScreenSize);
-        </script>
-
-        <script>
-					$(document).ready(function() {
-					    // Инициализация всех подсказок
-					    $('[data-toggle="tooltip"]').tooltip({
-					        trigger: 'manual',
-					        template: '<div class="tooltip custom-tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
-					    });
-
-					    const $switch = $('#flexSwitchCheckChecked');
-					    
-					    // Обработчик переключателя
-					    $switch.on('change', function() {
-					        const isChecked = $(this).prop('checked');
-					        
-					        $('[data-toggle="tooltip"]').each(function() {
-					            if(isChecked) {
-					                $(this).tooltip('enable');
-					            } else {
-					                $(this).tooltip('disable');
-					            }
-					        });
-					    });
-
-					    // Обработчик клика по ссылкам
-					    $('a[data-toggle="tooltip"]').on('click', function(e) {
-					        if($switch.prop('checked')) {
-					            e.preventDefault();
-					            const $this = $(this);
-					            const isOpen = $this.attr('aria-describedby');
-					            
-					            $('.tooltip').hide(); // Закрываем все подсказки
-					            $this.tooltip(isOpen ? 'hide' : 'show');
-					        }
-					    });
-
-					    // Закрытие подсказок при клике вне
-					    $(document).on('click', function(e) {
-					        if(!$(e.target).closest('.tooltip, [data-toggle="tooltip"]').length) {
-					            $('[data-toggle="tooltip"]').tooltip('hide');
-					        }
-					    });
-						});
-					</script>
-
-
-  <script>
-    const fac = new FastAverageColor();
-    const appIcons = document.querySelectorAll('.appIcon'); // Получаем все изображения с классом appIcon
-
-    // Итерация по элементам вручную с использованием цикла for
-    for (var i = 0; i < appIcons.length; i++) {
-    	(function(index) {
-    		const appIcon = appIcons[index];
-    		fac.getColorAsync(appIcon)
-    		.then(function(color) {
-                    color.rgba.a = 0.75; // Устанавливаем значение прозрачности
-                    const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; // Находим следующий элемент с классом .bgAppBLR
-                    bgAppBLR.style.backgroundColor = color.rgba;
-                    bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
-                  })
-    		.catch(function(e) {
-    			console.log(e);
-    		});
-    	})(i);
+        // Возвращаем ссылку на кнопку
+        return parentContainer.querySelector('.show-more-button-container');
     }
-  </script>
 
+    // Функция для получения начального индекса, зависящего от размера экрана
+    function getStartHiddenIndex() {
+        return window.innerWidth < 1200 ? 7 : 9;
+    }
+
+    // Инициализация
+    var startHiddenIndex = getStartHiddenIndex();
+    const parentContainer = document.getElementById('SysApp');
+    const allBlocks = parentContainer.querySelectorAll('.child_appcard');
+    const moreButtonContainer = addMoreButton();
+    const moreButton = moreButtonContainer.querySelector('.show-more-button');
+
+    // Устанавливаем начальный текст кнопки с учетом общего числа блоков
+    moreButton.textContent = `show apps (${allBlocks.length - startHiddenIndex})`;
+
+    // Переключаем видимость блоков при загрузке страницы
+    document.addEventListener('DOMContentLoaded', function() {
+        // Показываем только первые startHiddenIndex блоков, остальные скрываем
+        allBlocks.forEach((block, index) => {
+            if (index >= startHiddenIndex) {
+                block.style.display = 'none';
+            }
+        });
+
+        // Добавляем обработчик события для блока с кнопкой
+        moreButtonContainer.addEventListener('click', function() {
+            // Переключаем видимость блоков начиная с (startHiddenIndex + 1)
+            const hiddenBlocks = parentContainer.querySelectorAll(`.child_appcard:nth-child(n+${startHiddenIndex + 1})`);
+            hiddenBlocks.forEach(block => {
+                block.style.display = block.style.display === 'none' ? '' : 'none';
+            });
+
+            // Обновляем текст кнопки после каждого клика
+            updateButtonText();
+        });
+
+        // Функция для обновления текста кнопки и смены "Показать"/"Скрыть"
+        function updateButtonText() {
+            const areHiddenBlocks = Array.from(allBlocks).slice(startHiddenIndex).some(block => block.style.display === 'none');
+            const buttonText = areHiddenBlocks ? `show apps (${allBlocks.length - startHiddenIndex})` : `hide apps (${allBlocks.length - startHiddenIndex})`;
+            moreButton.textContent = buttonText;
+        }
+    });
+
+    // Обработчик изменения размера экрана
+    window.addEventListener('resize', function() {
+        const newStartHiddenIndex = getStartHiddenIndex();
+
+        // Проверяем, изменился ли startHiddenIndex
+        if (newStartHiddenIndex !== startHiddenIndex) {
+            // Обновляем startHiddenIndex
+            startHiddenIndex = newStartHiddenIndex;
+
+            // Переключаем видимость блоков при изменении startHiddenIndex
+            allBlocks.forEach((block, index) => {
+                block.style.display = index >= startHiddenIndex ? 'none' : '';
+            });
+
+            // Обновляем текст кнопки с учетом нового startHiddenIndex
+            updateButtonText();
+        }
+    });
+    </script>
+    <div class="REbg-body"></div>
+    <div class="bg-body" id="myElement"></div>
+    <script src="urls.js"></script>
     <script>
-	    // Создаем новый элемент link для вашего CSS файла с иконками
-	    var iconsLink = document.createElement("link");
-	    iconsLink.href = "css/bootstrap-icons.css";
-	    iconsLink.rel = "stylesheet";
-	    // Вставляем его в конец элемента head
-	    document.head.appendChild(iconsLink);
-	  </script>
+    // Loading links from the urls.js
+    var urls = window.urls;
 
-  <script>
-		// Функция для скрытия блоков с классом
-  	function hideBlocksByClass(className) {
-  		$('.' + className).hide();
-  	}
+    // Selecting a random link
+    var randomUrl = urls[Math.floor(Math.random() * urls.length)];
 
-		// Главная логика
-  	function mainLogic(countryCode) {
-		    // Проверяем геолокацию и скрываем блоки с классом **, если она не совпадает
-  		if (countryCode !== 'RU') {
-  			hideBlocksByClass('RU');
-  		}
-  	}
+    // Applying a link to the background-image of an element
+    document.getElementById('myElement').style.backgroundImage = 'url(' + randomUrl + ')';
+    </script>
+    <div class="sizescren">
+        <span id="screenWidth"></span><span>x</span><span id="screenHeight"></span>
+    </div>
+    <script>
+    // 
+    var screenWidthElement = document.getElementById("screenWidth");
+    var screenHeightElement = document.getElementById("screenHeight");
+    var sizeDisplayElement = document.getElementById("sizedisplay");
 
-		// Выполняем главную логику
-  	$(document).ready(function() {
-		    // Получаем IP-адрес пользователя
-  		$.getJSON('https://api64.ipify.org/?format=json', function(data) {
-		        const ip = data.ip; // Получаем IP-адрес пользователя
-		        // Получаем информацию о геолокации пользователя на основе IP-адреса
-		        $.getJSON('https://ipapi.co/' + ip + '/json', function(data) {
-		            const countryCode = data.country_code; // Получаем код страны пользователя
-		            $('#currentCountry').text(ip + ' ' + countryCode);
-		            // Вызываем главную логику
-		            mainLogic(countryCode);
-		          });
-		      });
-  	});
-  </script>
+    // 
+    function updateScreenSize() {
+        screenWidthElement.textContent = window.innerWidth; //
+        screenHeightElement.textContent = window.innerHeight; // 
+        sizeDisplayElement.textContent = window.innerWidth + "x" + window.innerHeight; //
+    }
 
+    // 
+    window.addEventListener("load", updateScreenSize);
+    window.addEventListener("resize", updateScreenSize);
+    </script>
+    <script>
+    $(document).ready(function() {
+        // Инициализация всех подсказок
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger: 'manual',
+            template: '<div class="tooltip custom-tooltip" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+        });
 
-  <script>
-  	document.addEventListener("DOMContentLoaded", function() {
-	    // Получаем user agent
-  		var userAgent = navigator.userAgent.toLowerCase();
+        const $switch = $('#flexSwitchCheckChecked');
 
-	    // Enter user agent in div
-  		document.getElementById("touserAgent").textContent += userAgent;
-  	});
-  </script>
+        // Обработчик переключателя
+        $switch.on('change', function() {
+            const isChecked = $(this).prop('checked');
 
-  <script src="js/bootstrap.bundle.min.js"></script>
+            $('[data-toggle="tooltip"]').each(function() {
+                if (isChecked) {
+                    $(this).tooltip('enable');
+                } else {
+                    $(this).tooltip('disable');
+                }
+            });
+        });
 
+        // Обработчик клика по ссылкам
+        $('a[data-toggle="tooltip"]').on('click', function(e) {
+            if ($switch.prop('checked')) {
+                e.preventDefault();
+                const $this = $(this);
+                const isOpen = $this.attr('aria-describedby');
+
+                $('.tooltip').hide(); // Закрываем все подсказки
+                $this.tooltip(isOpen ? 'hide' : 'show');
+            }
+        });
+
+        // Закрытие подсказок при клике вне
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest('.tooltip, [data-toggle="tooltip"]').length) {
+                $('[data-toggle="tooltip"]').tooltip('hide');
+            }
+        });
+    });
+    </script>
+    <script>
+	if (window.location.hostname === 'atvxgo.github.io') {
+		const fac = new FastAverageColor();
+		const appIcons = document.querySelectorAll('.appIcon'); 
+
+		for (var i = 0; i < appIcons.length; i++) {
+			(function(index) {
+				const appIcon = appIcons[index];
+				fac.getColorAsync(appIcon)
+				.then(function(color) {
+					color.rgba.a = 0.75; 
+					const bgAppBLR = appIcon.closest('.AppCard').nextElementSibling; 
+					bgAppBLR.style.backgroundColor = color.rgba;
+					bgAppBLR.style.color = color.isDark ? '#fff' : '#000';
+				})
+				.catch(function(e) {
+					console.log(e);
+				});
+			})(i);
+		}
+	}
+    </script>
+    <script>
+    // Создаем новый элемент link для вашего CSS файла с иконками
+    var iconsLink = document.createElement("link");
+    iconsLink.href = "css/bootstrap-icons.css";
+    iconsLink.rel = "stylesheet";
+    // Вставляем его в конец элемента head
+    document.head.appendChild(iconsLink);
+    </script>
+    <script>
+    // Функция для скрытия блоков с классом
+    function hideBlocksByClass(className) {
+        $('.' + className).hide();
+    }
+
+    // Главная логика
+    function mainLogic(countryCode) {
+        // Проверяем геолокацию и скрываем блоки с классом **, если она не совпадает
+        if (countryCode !== 'RU') {
+            hideBlocksByClass('RU');
+        }
+    }
+
+    // Выполняем главную логику
+    $(document).ready(function() {
+        // Получаем IP-адрес пользователя
+        $.getJSON('https://api64.ipify.org/?format=json', function(data) {
+            const ip = data.ip; // Получаем IP-адрес пользователя
+            // Получаем информацию о геолокации пользователя на основе IP-адреса
+            $.getJSON('https://ipapi.co/' + ip + '/json', function(data) {
+                const countryCode = data.country_code; // Получаем код страны пользователя
+                $('#currentCountry').text(ip + ' ' + countryCode);
+                // Вызываем главную логику
+                mainLogic(countryCode);
+            });
+        });
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Получаем user agent
+        var userAgent = navigator.userAgent.toLowerCase();
+
+        // Enter user agent in div
+        document.getElementById("touserAgent").textContent += userAgent;
+    });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
