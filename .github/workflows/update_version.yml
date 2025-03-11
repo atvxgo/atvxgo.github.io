@@ -12,14 +12,40 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Get last commit info
+        id: commit_info
+        run: |
+          echo "last_commit_hash=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          echo "last_commit_message=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
+      - name: Read current version
+        id: read_version
+        run: |
+          version=$(jq -r '.version' version.json)
+          echo "current_version=$version" >> $GITHUB_ENV
+
+      - name: Increment version
+        id: increment_version
+        run: |
+          IFS='.' read -r major minor patch <<< "${{ env.current_version }}"
+          # Инкрементируем патч-версию
+          new_patch=$((patch + 1))
+          new_version="$major.$minor.$new_patch"
+          echo "new_version=$new_version" >> $GITHUB_ENV
+
       - name: Update version.json
         run: |
           current_date=$(date +"%Y-%m-%d %H:%M:%S")
           echo '{
-            "version": "1.0.1",
+            "version": "'"${{ env.new_version }}"'",
+            "last_updated": "'"$current_date"'",
             "changes": [
               "Обновлено: '"$current_date"'"
-            ]
+            ],
+            "last_commit": {
+              "hash": "'"${{ env.last_commit_hash }}"'",
+              "message": "'"${{ env.last_commit_message }}"'"
+            }
           }' > version.json
 
       - name: Commit changes
@@ -27,5 +53,5 @@ jobs:
           git config --local user.email "atvgo145@gmail.com"
           git config --local user.name "atvxgo"
           git add version.json
-          git commit -m "Обновление version.json" || echo "Нет изменений"
+          git commit -m "Обновление version.json до версии ${{ env.new_version }}" || echo "Нет изменений"
           git push
