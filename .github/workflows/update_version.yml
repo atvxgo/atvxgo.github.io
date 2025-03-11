@@ -23,11 +23,11 @@ jobs:
           }' > version.json
 
       - name: Commit changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --local user.email "atvgo145@gmail.com"
           git config --local user.name "atvxgo"
           git add version.json
           git commit -m "Обновление version.json" || echo "Нет изменений"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/atvxgo/atvxgo.github.io.git HEAD:main
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
