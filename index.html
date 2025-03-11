@@ -404,7 +404,7 @@
                     <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
                 </div>
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <span id="version-info" class="mb-3 mb-md-0 text-body-secondary"></span>
+                    <span id="version-info" class="mb-3 mb-md-0 text-body-secondary" style="text-align: end;"></span>
                 </ul>
                 <script>
                 	//${data.changes.map(change => ${change}).join('')}
@@ -420,7 +420,7 @@
 			                const versionInfo = `
 			                    v: ${data.version}
 			                    (${data.last_updated})
-			                    <span>hash: ${data.last_commit.hash}</span>
+			                    <p style="margin: 0;">hash: ${data.last_commit.hash}</p>
 			                `;
 			                document.getElementById('version-info').innerHTML = versionInfo;
 			            })
