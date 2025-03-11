@@ -1,11 +1,11 @@
 {
-  "version": "1.0.2",
-  "last_updated": "2025-03-11 22:22:43",
+  "version": "1.0.3",
+  "last_updated": "2025-03-11 22:27:35",
   "changes": [
-    "Обновлено: 2025-03-11 22:22:43"
+    "Обновлено: 2025-03-11 22:27:35"
   ],
   "last_commit": {
-    "hash": "88068d6d56c0f1bad250dff79c7630c046ce0f14",
+    "hash": "c09101a1e12fac3843616e16730604f82e437fb8",
     "message": "Update update_version.yml"
   }
 }
