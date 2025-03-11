@@ -407,6 +407,7 @@
                     <span id="version-info" class="mb-3 mb-md-0 text-body-secondary"></span>
                 </ul>
                 <script>
+                	//${data.changes.map(change => ${change}).join('')}
 			        fetch('version.json')
 			            .then(response => {
 			                if (!response.ok) {
@@ -416,12 +417,9 @@
 			            })
 			            .then(data => {
 			                const versionInfo = `
-			                    <span>v: ${data.version}</span>
-			                    <span>last update: ${data.last_updated}</span>
+			                    v: ${data.version}
+			                    (${data.last_updated})
 			                    <span>changes:</span>
-			                    <ul>
-			                        ${data.changes.map(change => `<li>${change}</li>`).join('')}
-			                    </ul>
 			                    <p3>last commit:</p3>
 			                    <span>hash: ${data.last_commit.hash}</span>
 			                    <span>message: ${data.last_commit.message}</span>
