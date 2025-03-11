@@ -408,6 +408,7 @@
                 </ul>
                 <script>
                 	//${data.changes.map(change => ${change}).join('')}
+                	//${data.last_commit.message}
 			        fetch('version.json')
 			            .then(response => {
 			                if (!response.ok) {
@@ -420,7 +421,6 @@
 			                    v: ${data.version}
 			                    (${data.last_updated})
 			                    <span>hash: ${data.last_commit.hash}</span>
-			                    <span>message: ${data.last_commit.message}</span>
 			                `;
 			                document.getElementById('version-info').innerHTML = versionInfo;
 			            })
