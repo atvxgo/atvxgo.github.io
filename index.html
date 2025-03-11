@@ -404,8 +404,32 @@
                     <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
                 </div>
                 <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <span class="mb-3 mb-md-0 text-body-secondary">v. 1.1.3 (04.03.25)</span>
+                    <span id="version-info" class="mb-3 mb-md-0 text-body-secondary"></span>
                 </ul>
+                <script>
+			        fetch('version.json')
+			            .then(response => {
+			                if (!response.ok) {
+			                    throw new Error('Сеть не в порядке: ' + response.status);
+			                }
+			                return response.json();
+			            })
+			            .then(data => {
+			                const versionInfo = `
+			                    <span>v: ${data.version}</span>
+			                    <span>last update: ${data.last_updated}</span>
+			                    <span>changes:</span>
+			                    <ul>
+			                        ${data.changes.map(change => `<li>${change}</li>`).join('')}
+			                    </ul>
+			                    <p3>last commit:</p3>
+			                    <span>hash: ${data.last_commit.hash}</span>
+			                    <span>message: ${data.last_commit.message}</span>
+			                `;
+			                document.getElementById('version-info').innerHTML = versionInfo;
+			            })
+			            .catch(error => console.error('Ошибка при загрузке версии:', error));
+			    </script>
             </footer>
         </div>
     </div>
