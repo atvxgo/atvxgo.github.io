@@ -14,11 +14,11 @@ jobs:
 
       - name: Update version.json
         run: |
+          current_date=$(date +"%Y-%m-%d %H:%M:%S")
           echo '{
             "version": "1.0.1",
             "changes": [
-              "Добавлена новая функция A",
-              "Исправлена ошибка B"
+              "Обновлено: '"$current_date"'"
             ]
           }' > version.json
 
@@ -29,5 +29,3 @@ jobs:
           git add version.json
           git commit -m "Обновление version.json" || echo "Нет изменений"
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
