@@ -337,99 +337,6 @@
     }
     setInterval(updateTime, 1000);
     </script>
-    <div class="cnt">
-        <div class="container">
-            <div class="row justify-content-between gx-2">
-                <!--
-			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
-			    	<i class="bi bi-gear"></i>
-					</div>
-				-->
-                <div class="col-12 col-md">
-                    <div class="hdr-fnt row row-cols-sm-2">
-                        <div class="col">
-                            <a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
-                                <i class="bi bi-android"></i>
-                                ATVxGO
-                            </a>
-                        </div>
-                        <div class="col">
-                            <p id="time" class="display-6 text-end" style="margin: 0;">00:00:00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2 col-md-auto">
-                    <div class="hdr-fnt set   form-check form-switch" style="text-align: center;height: 68px;max-width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
-                        <label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
-                    </div>
-                </div>
-                <div class="col-2 col-md-auto">
-                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalIPTV">
-                        <style type="text/css">
-                        i.bi.iptv::before {
-                            display: none;
-                        }
-                        </style>
-                        <i class="bi iptv" style="font-size: large;font-style: normal;font-weight: bold;">IPTV</i>
-                    </div>
-                </div>
-                <div class="col-2 col-md-auto">
-                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalTI">
-                        <i class="bi bi-terminal"></i>
-                    </div>
-                </div>
-                <div class="col-6 col-md-auto">
-                    <div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-toggle="modal" data-target="#modalmodalPM">
-                        <i class="bi bi-justify"></i>
-                    </div>
-                </div>
-            </div>
-            <h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
-            <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-            </div>
-            <br>
-            <h5 class="tl_cat"><i class="bi bi-globe"></i> RU App</h5>
-            <div id='RUApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-            </div>
-            <br>
-            <h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
-            <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
-            </div>
-            <br>
-        </div>
-        <div class="container">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <div class="col-md-4 d-flex align-items-center">
-                    <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
-                </div>
-                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                    <span id="version-info" class="mb-3 mb-md-0 text-body-secondary" style="text-align: end;"></span>
-                </ul>
-                <script>
-                	//${data.changes.map(change => ${change}).join('')}
-                	//${data.last_commit.message}
-			        fetch('version.json')
-			            .then(response => {
-			                if (!response.ok) {
-			                    throw new Error('Сеть не в порядке: ' + response.status);
-			                }
-			                return response.json();
-			            })
-			            .then(data => {
-			                const versionInfo = `
-			                    v: ${data.version}
-			                    (${data.last_updated})
-			                    <p style="margin: 0;">hash: ${data.last_commit.hash}</p>
-			                `;
-			                document.getElementById('version-info').innerHTML = versionInfo;
-			            })
-			            .catch(error => console.error('Ошибка при загрузке версии:', error));
-			    </script>
-            </footer>
-        </div>
-    </div>
-    <div id="modalContainer"></div>
     <div id="modalContainerCMS">
         <div class="modal fade atvmodalbg" id="modalmodalIPTV" tabindex="-1" role="dialog" aria-hidden="true">
             <i class="bi bi-x-lg" style="position: absolute;left: 1em;top: 1em;font-size: x-large;" data-bs-dismiss="modal"></i>
@@ -553,6 +460,98 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="cnt">
+        <div class="container">
+            <div class="row justify-content-between gx-2">
+                <!--
+			   <div class="col-md-auto hdr-fnt set" style="margin-right: 10px; font-size: 32px;">
+			    	<i class="bi bi-gear"></i>
+					</div>
+				-->
+                <div class="col-12 col-md">
+                    <div class="hdr-fnt row row-cols-sm-2">
+                        <div class="col">
+                            <a class="display-6" href="#" style="color: #adb5bd;text-decoration: none;">
+                                <i class="bi bi-android"></i>
+                                ATVxGO
+                            </a>
+                        </div>
+                        <div class="col">
+                            <p id="time" class="display-6 text-end" style="margin: 0;">00:00:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set   form-check form-switch" style="text-align: center;height: 68px;max-width: 68px;display: flex;align-content: center;flex-direction: column;flex-wrap: nowrap;justify-content: space-between;align-items: center;">
+                        <label class="bi bi-hexagon form-check-label" style="font-size: 26px;line-height: 26px;display: block;" for="flexSwitchCheckChecked"></label>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="margin: 0;">
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalIPTV">
+                        <style type="text/css">
+                        i.bi.iptv::before {
+                            display: none;
+                        }
+                        </style>
+                        <i class="bi iptv" style="font-size: large;font-style: normal;font-weight: bold;">IPTV</i>
+                    </div>
+                </div>
+                <div class="col-2 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; max-width: 68px;" data-toggle="modal" data-target="#modalmodalTI">
+                        <i class="bi bi-terminal"></i>
+                    </div>
+                </div>
+                <div class="col-6 col-md-auto">
+                    <div class="hdr-fnt set" style="font-size: 32px; width: 68px; float: right; text-align: center;" data-toggle="modal" data-target="#modalmodalPM">
+                        <i class="bi bi-justify"></i>
+                    </div>
+                </div>
+            </div>
+            <h5 class="tl_cat"><i class="bi bi-cast"></i> Cinema App</h5>
+            <div id='CinimaApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+            <h5 class="tl_cat"><i class="bi bi-globe"></i> RU App</h5>
+            <div id='RUApp' class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+            <h5 class="tl_cat"><i class="bi bi-gear-wide-connected"></i> System App</h5>
+            <div id="SysApp" class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-4 row-cols-xl-5 g-3">
+            </div>
+            <br>
+        </div>
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="mb-3 mb-md-0 text-body-secondary">© 2023</span>
+                </div>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <span id="version-info" class="mb-3 mb-md-0 text-body-secondary" style="text-align: end;"></span>
+                </ul>
+                <script>
+                	//${data.changes.map(change => ${change}).join('')}
+                	//${data.last_commit.message}
+			        fetch('version.json')
+			            .then(response => {
+			                if (!response.ok) {
+			                    throw new Error('Сеть не в порядке: ' + response.status);
+			                }
+			                return response.json();
+			            })
+			            .then(data => {
+			                const versionInfo = `
+			                    v: ${data.version}
+			                    (${data.last_updated})
+			                    <p style="margin: 0;">hash: ${data.last_commit.hash}</p>
+			                `;
+			                document.getElementById('version-info').innerHTML = versionInfo;
+			            })
+			            .catch(error => console.error('Ошибка при загрузке версии:', error));
+			    </script>
+            </footer>
         </div>
     </div>
     <style>
