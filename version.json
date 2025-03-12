@@ -1,11 +1,11 @@
 {
-  "version": "1.1.10",
-  "last_updated": "2025-03-12 00:23:24",
+  "version": "1.1.11",
+  "last_updated": "2025-03-12 00:28:49",
   "changes": [
-    "Обновлено: 2025-03-12 00:23:24"
+    "Обновлено: 2025-03-12 00:28:49"
   ],
   "last_commit": {
-    "hash": "4f28754924789b8c4efb10c2b7426bd680d16052",
+    "hash": "2b561c74734db624560de3357a88b3cb85dd1986",
     "message": "Update index.html"
   }
 }
