@@ -1,11 +1,11 @@
 {
-  "version": "1.2.3",
-  "last_updated": "2025-03-14 22:31:34",
+  "version": "1.2.4",
+  "last_updated": "2025-03-14 22:34:24",
   "changes": [
-    "Обновлено: 2025-03-14 22:31:34"
+    "Обновлено: 2025-03-14 22:34:24"
   ],
   "last_commit": {
-    "hash": "7b70cc047249a0541bca7c9ff1fe636939fcea75",
+    "hash": "03593961a6e60817e71b67b843d81d483ccb34a4",
     "message": "Add files via upload"
   }
 }
