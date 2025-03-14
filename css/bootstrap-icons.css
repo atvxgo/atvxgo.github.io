@@ -43,3 +43,4 @@
 .bi-copy::before {content: "\f759" !important}
 .bi-app-indicator::before {content: "\f10a" !important}
 .bi-download::before {content: "\f30a" !important}
+.bi-braces-asterisk::before {content: "\F70E" !important}
