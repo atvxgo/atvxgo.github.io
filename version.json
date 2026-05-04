@@ -1,11 +1,11 @@
 {
-  "version": "1.2.16",
-  "last_updated": "2026-05-04 16:18:43",
+  "version": "1.2.17",
+  "last_updated": "2026-05-04 16:22:54",
   "changes": [
-    "Обновлено: 2026-05-04 16:18:43"
+    "Обновлено: 2026-05-04 16:22:54"
   ],
   "last_commit": {
-    "hash": "03e02e72df8da694c3c862a4bbc9e1c01308d596",
+    "hash": "54dbdf0c71c873faa97cf879af8915c29f9b201d",
     "message": "Update index.html"
   }
 }
