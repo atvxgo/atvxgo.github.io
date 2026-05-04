@@ -1,11 +1,11 @@
 {
-  "version": "1.2.13",
-  "last_updated": "2026-01-12 16:44:41",
+  "version": "1.2.14",
+  "last_updated": "2026-05-04 16:02:09",
   "changes": [
-    "Обновлено: 2026-01-12 16:44:41"
+    "Обновлено: 2026-05-04 16:02:09"
   ],
   "last_commit": {
-    "hash": "faf1d37a5cd2ff41e0491438ac42c774c648fc5c",
-    "message": "Merge branch 'main' of https://github.com/atvxgo/atvxgo.github.io"
+    "hash": "50b13aeb83864a04a6914c4b435919c6a7f3b29a",
+    "message": "Update index.html"
   }
 }
