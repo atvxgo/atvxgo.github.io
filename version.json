@@ -1,11 +1,11 @@
 {
-  "version": "1.2.14",
-  "last_updated": "2026-05-04 16:02:09",
+  "version": "1.2.15",
+  "last_updated": "2026-05-04 16:15:43",
   "changes": [
-    "Обновлено: 2026-05-04 16:02:09"
+    "Обновлено: 2026-05-04 16:15:43"
   ],
   "last_commit": {
-    "hash": "50b13aeb83864a04a6914c4b435919c6a7f3b29a",
-    "message": "Update index.html"
+    "hash": "9c4799cb2d5f2974a2c18060a75cd6a6a0661195",
+    "message": "Add files via upload"
   }
 }
